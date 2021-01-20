@@ -1,5 +1,5 @@
-<p align="center">
-  <img alt="oreskis_bot" src="https://i.hizliresim.com/bATY9H.png" width="750px">
+<p align = "center">
+  <img alt = "oreskis_bot" src = "https://i.hizliresim.com/bATY9H.png" width = "750px">
 </p>
 
 Do you need more help? Visit my server here: **https://discord.gg/kQ8CE5GRNg** 🪐
@@ -13,6 +13,7 @@ All you need to know about the library is defined inside here, even code that I 
 
 ## How to setup
 1. Make a bot [here](https://discordapp.com/developers/applications/me) and grab the token
+
 ![Image_Example1](https://i.hizliresim.com/DhvHwY.png)
 
 2. Rename the TOKEN in **oreskis_bot.py**, then fill in the required spots, such as token, prefix and game
