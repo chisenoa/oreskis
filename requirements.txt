@@ -1,0 +1,7 @@
+discord
+discord.py
+requests
+art
+bs4
+pyfiglet
+asyncio
