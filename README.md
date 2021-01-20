@@ -13,7 +13,7 @@ All you need to know about the library is defined inside here, even code that I 
 
 ## How to setup
 1. Make a bot [here](https://discordapp.com/developers/applications/me) and grab the token
-![Image_Example1](https://i.alexflipnote.dev/f9668b.png)
+![Image_Example1](https://i.hizliresim.com/DhvHwY.png)
 
 2. Rename the TOKEN in **oreskis_bot.py**, then fill in the required spots, such as token, prefix and game
 
