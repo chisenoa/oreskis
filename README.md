@@ -46,10 +46,10 @@ pm2 start pm2.json
 
 # Tips on common commands
 pm2 <command> [name]
-  start discord_bot.py    Run the bot again if it's offline
-  list                    Get a full list of all available services
-  stop discord_bot.py     Stop the bot
-  reboot discord_bot.py   Reboot the bot
+  start oreskis_bot    # Run the bot again if it's offline
+  list                 # Get a full list of all available services
+  stop oreskis_bot     # Stop the bot
+  reboot oreskis_bot   # Reboot the bot
 ```
 
 ### Docker
@@ -60,10 +60,10 @@ docker-compose up -d --build
 
 # Tips on common commands
 docker-compose <command>
-  ps      Check if bot is online or not (list)
-  down    Shut down the bot
-  reboot  Reboot the bot without shutting it down or rebuilding
-  logs    Check the logs made by the bot.
+  ps       # Check if bot is online or not (list)
+  down     # Shut down the bot
+  reboot   # Reboot the bot without shutting it down or rebuilding
+  logs     # Check the logs made by the bot.
 ```
 
 ### Repl.it
