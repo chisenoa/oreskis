@@ -6,6 +6,7 @@ Do you need more help? Visit my server here: **https://discord.gg/kQ8CE5GRNg** ð
 
 ## Requirements
 - Python 3.6 and up - https://www.python.org/downloads/
+- git - https://git-scm.com/download/
 
 ## Useful to always have
 Keep [this](https://discordpy.readthedocs.io/en/latest/) saved somewhere, as this is the docs to discord.py@rewrite.
