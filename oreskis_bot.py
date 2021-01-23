@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import os
 import random
+import datetime
 import requests
 import shutil
 import pyfiglet
@@ -29,17 +30,6 @@ rsp = [
 "Taş",
 "Kağıt",
 "Makas"
-]
-
-moderators = [
-"794535514895941632", #Chisenoa
-"795237792769638400", #Oreskis
-"482855531220959242", #pBot
-"798783558763413534", #Bolo
-"349620735716622336", #H3redot
-"360278812585492481", #Onur Ata
-"399228914884673537", #Ashida
-"753390442178936842" #Teos808
 ]
 
 jokes = [
@@ -155,34 +145,107 @@ welcome = [
 "Aramıza katıldığın için çok mutluyuz {}"
 ]
 
+cities = [
+"adana",
+"adıyaman",
+"afyon",
+"ağrı",
+"amasya",
+"ankara",
+"antalya",
+"artvin",
+"aydın",
+"balıkesir",
+"bilecik",
+"bingöl",
+"bitlis",
+"bolu",
+"burdur",
+"bursa",
+"çanakkale",
+"çankırı",
+"çorum",
+"denizli",
+"diyarbakır",
+"edirne",
+"elazığ",
+"erzincan",
+"erzurum",
+"eskişehir",
+"gaziantep",
+"giresun",
+"gümüşhane",
+"hakkari",
+"hatay",
+"ısparta",
+"mersin",
+"istanbul",
+"izmir",
+"kars",
+"kastamonu",
+"kayseri",
+"kırklareli",
+"kırşehir",
+"kocaeli",
+"konya",
+"kütahya",
+"malatya",
+"manisa",
+"kahramanmaraş",
+"mardin",
+"muğla",
+"muş",
+"nevşehir",
+"niğde",
+"ordu",
+"rize",
+"sakarya",
+"samsun",
+"siirt",
+"sinop",
+"sivas",
+"tekirdağ",
+"tokat",
+"trabzon",
+"tunceli",
+"şanlıurfa",
+"uşak",
+"van",
+"yozgat",
+"zonguldak",
+"aksaray",
+"bayburt",
+"karaman",
+"kırıkkale",
+"batman",
+"şırnak",
+"bartın",
+"ardahan",
+"ığdır",
+"yalova",
+"karabük",
+"kilis",
+"osmaniye",
+"düzce",
+"maraş",
+"içel",
+"antep",
+"urfa",
+"afyon"
+]
+
 intents = discord.Intents.all()
 intents.members = True
-client = commands.Bot(command_prefix = "d.", intents=intents)
+client = commands.Bot(command_prefix = "o.", intents = intents)
 
 def listToString(x):
     str1 = " "
     return (str1.join(x))
 
 @client.event
-async def on_member_join(member):
-    name = member
-    name = str(name)
-    splitted_name = name.split(sep = "#")
-    tag = splitted_name[-1]
-    tag = str(tag)
-    author_id = member.id
-    author_id = str(author_id)
-    user_id = "<@!" + author_id + ">"
-    await member.send("Sunucumuza hoşgeldin {}, **d.yardım** komutunu kullanarak Oreskis'in kullanımını öğrenebilirsin!".format(user_id))
-    role = discord.utils.get(member.guild.roles, name = "USB Kablosu")
-    await member.add_roles(role)
-    channel = client.get_channel(799618911019597834)
-    await channel.send(random.choice(welcome).format(user_id))
-
-@client.event
 async def on_ready():
     print("{} Online!".format(client.user.name))
-    activity = discord.Game(name = "d.yardım")
+    activity = discord.Game(name = "o.yardım")
     await client.change_presence(status = discord.Status.dnd, activity = activity)
 
 @client.event
@@ -194,24 +257,16 @@ async def on_message(message):
     elif not message.author == client.user:
         text = message.content.lower()
         splitted_text = text.split(sep = " ")
-        name = message.author
-        name = str(name)
-        splitted_name = name.split(sep = "#")
-        tag = splitted_name[-1]
-        tag = str(tag)
-        author_id = message.author.id
-        author_id = str(author_id)
-        user_id = "<@!" + author_id + ">"
 
 #############################################################################################################################################
 
-        if text == "d.yardım":
+        if text == "o.yardım":
             embed = discord.Embed(description = """**•** Öneri ve Bug'ları sunucumuzdaki yetkililere bildirebilirsin ve çözümlenmesi için katkıda bulunabilirsin!
 
 **• Komutlar**
-[d.modkomutlar](https://discord.gg/kQ8CE5GRNg) → Moderatör Komutları
-[d.eğlencekomutlar](https://discord.gg/kQ8CE5GRNg) → Eğlence Komutları
-[d.genelkomutlar](https://discord.gg/kQ8CE5GRNg) → Genel Komutlar
+[o.modkomutlar](https://discord.gg/kQ8CE5GRNg) → Moderatör Komutları
+[o.eğlencekomutlar](https://discord.gg/kQ8CE5GRNg) → Eğlence Komutları
+[o.genelkomutlar](https://discord.gg/kQ8CE5GRNg) → Genel Komutlar
 
 **❯ Bağlantılar**
 [Davet Linki](https://discord.gg/kQ8CE5GRNg) • [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa)""", color = 0x2B82E8)
@@ -221,14 +276,14 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-        elif text == "d.modkomutlar":
+        elif text == "o.modkomutlar":
             embed = discord.Embed(description = """**•** Öneri ve Bug'ları sunucumuzdaki yetkililere bildirebilirsin ve çözümlenmesi için katkıda bulunabilirsin!
 
 **• Komutlar**
-[d.ban](https://discord.gg/kQ8CE5GRNg) → Sunucuda bulunan kullanıcıyı yasaklarsınız
-[d.unban](https://discord.gg/kQ8CE5GRNg) → Sunucudan yasaklanan kullanıcının yasağını kaldırırsınız
-[d.kick](https://discord.gg/kQ8CE5GRNg) → Sunucuda bulunan kullanıcıyı atarsınız
-[d.temizle](https://discord.gg/kQ8CE5GRNg) → Sunucuda bulunan bir kanalın yazışmalarını silersiniz
+[o.ban](https://discord.gg/kQ8CE5GRNg) → Sunucuda bulunan kullanıcıyı yasaklarsınız
+[o.unban](https://discord.gg/kQ8CE5GRNg) → Sunucudan yasaklanan kullanıcının yasağını kaldırırsınız
+[o.kick](https://discord.gg/kQ8CE5GRNg) → Sunucuda bulunan kullanıcıyı atarsınız
+[o.temizle](https://discord.gg/kQ8CE5GRNg) → Sunucuda bulunan bir kanalın yazışmalarını silersiniz
 
 **❯ Bağlantılar**
 [Davet Linki](https://discord.gg/kQ8CE5GRNg) • [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa)""", color = 0x2B82E8)
@@ -238,18 +293,18 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-        elif text == "d.eğlencekomutlar":
+        elif text == "o.eğlencekomutlar":
             embed = discord.Embed(description = """**•** Öneri ve Bug'ları sunucumuzdaki yetkililere bildirebilirsin ve çözümlenmesi için katkıda bulunabilirsin!
 
 **• Komutlar**
-[d.taşkağıtmakas](https://discord.gg/kQ8CE5GRNg) → Bot ile taş kağıt makas oynarsınız
-[d.yazıtura](https://discord.gg/kQ8CE5GRNg) → Bot sizin için havaya para atar
-[d.sigara](https://discord.gg/kQ8CE5GRNg) → Sigara içersiniz
-[d.espri](https://discord.gg/kQ8CE5GRNg) → Soğuk espri :(
-[d.muzum](https://discord.gg/kQ8CE5GRNg) → Muzunuzun boyunu ölçer
-[d.efkar](https://discord.gg/kQ8CE5GRNg) → Efkar yüzdenizi ölçer
-[d.ascii](https://discord.gg/kQ8CE5GRNg) → Belirlediğiniz yazıyı ASCII formatında yazar
-[d.aşkölçer](https://discord.gg/kQ8CE5GRNg) → Arkadaşlarınızla aranızdaki aşkı ölçün
+[o.taşkağıtmakas](https://discord.gg/kQ8CE5GRNg) → Bot ile taş kağıt makas oynarsınız
+[o.yazıtura](https://discord.gg/kQ8CE5GRNg) → Bot sizin için havaya para atar
+[o.sigara](https://discord.gg/kQ8CE5GRNg) → Sigara içersiniz
+[o.espri](https://discord.gg/kQ8CE5GRNg) → Soğuk espri :(
+[o.muzum](https://discord.gg/kQ8CE5GRNg) → Muzunuzun boyunu ölçer
+[o.efkar](https://discord.gg/kQ8CE5GRNg) → Efkar yüzdenizi ölçer
+[o.ascii](https://discord.gg/kQ8CE5GRNg) → Belirlediğiniz yazıyı ASCII formatında yazar
+[o.aşkölçer](https://discord.gg/kQ8CE5GRNg) → Arkadaşlarınızla aranızdaki aşkı ölçün
 
 **❯ Bağlantılar**
 [Davet Linki](https://discord.gg/kQ8CE5GRNg) • [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa)""", color = 0x2B82E8)
@@ -259,18 +314,18 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-        elif text == "d.genelkomutlar":
+        elif text == "o.genelkomutlar":
             embed = discord.Embed(description = """**•** Öneri ve Bug'ları sunucumuzdaki yetkililere bildirebilirsin ve çözümlenmesi için katkıda bulunabilirsin!
 
 **• Komutlar**
-[d.korona](https://discord.gg/kQ8CE5GRNg) → Günlük koronavirüs tablosunu gösterir
-[d.döviz](https://discord.gg/kQ8CE5GRNg) → Anlık döviz bilgilerini gösterir
-[d.hava](https://discord.gg/kQ8CE5GRNg) → Girdiğiniz şehirin hava durumunu tahminini gösterir
-[d.avatar](https://discord.gg/kQ8CE5GRNg) → Etiketlediğiniz kişinin avatarını gösterir
-[d.admin](https://discord.gg/kQ8CE5GRNg) → Botun admini hakkında bilgi verir
-[d.ekip](https://discord.gg/kQ8CE5GRNg) → Ekibimiz hakkında bilgi verir
-[d.botbilgi](https://discord.gg/kQ8CE5GRNg) → Bot hakkında bilgi verir
-[d.yardım](https://discord.gg/kQ8CE5GRNg) → Yardım menüsünü açar
+[o.korona](https://discord.gg/kQ8CE5GRNg) → Günlük koronavirüs tablosunu gösterir
+[o.döviz](https://discord.gg/kQ8CE5GRNg) → Anlık döviz bilgilerini gösterir
+[o.hava](https://discord.gg/kQ8CE5GRNg) → Girdiğiniz şehirin hava durumunu tahminini gösterir
+[o.avatar](https://discord.gg/kQ8CE5GRNg) → Etiketlediğiniz kişinin avatarını gösterir
+[o.admin](https://discord.gg/kQ8CE5GRNg) → Botun admini hakkında bilgi verir
+[o.ekip](https://discord.gg/kQ8CE5GRNg) → Ekibimiz hakkında bilgi verir
+[o.botbilgi](https://discord.gg/kQ8CE5GRNg) → Bot hakkında bilgi verir
+[o.yardım](https://discord.gg/kQ8CE5GRNg) → Yardım menüsünü açar
 
 **❯ Bağlantılar**
 [Davet Linki](https://discord.gg/kQ8CE5GRNg) • [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa)""", color = 0x2B82E8)
@@ -280,7 +335,7 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-        elif text == "d.döviz":
+        elif text == "d!döviz":
             dollar_currency = requests.get('http://bigpara.hurriyet.com.tr/doviz/dolar/')
             soup = BeautifulSoup(dollar_currency.content, "html.parser")
             full_block = soup.find("span", {"class":"value up"})
@@ -321,7 +376,7 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-        elif text == "d.korona":
+        elif text == "d!korona":
             r = requests.get('https://covid19.saglik.gov.tr/TR-66935/genel-koronavirus-tablosu.html/')
             soup = BeautifulSoup(r.content, "html.parser")
             all_datas = soup.find_all("script")
@@ -332,19 +387,17 @@ async def on_message(message):
             case = datas[13]
             die = datas[21]
             heal = datas[25]
-
             embed = discord.Embed(color = 0xED3C43)
             embed.set_author(name = "COVID-19 GÜNLÜK TABLO", icon_url = "https://i.hizliresim.com/wvpyka.png")
             embed.add_field(name = "Test Sayısı", value = test, inline = False)
             embed.add_field(name = "Vaka Sayısı", value = case, inline = False)
             embed.add_field(name = "Vefat Sayısı", value = die, inline = False)
             embed.add_field(name = "İyileşen Sayısı", value = heal, inline = False)
-
             await message.channel.send(embed = embed)
 
 #############################################################################################################################################
 
-        elif text == "d.taşkağıtmakas":
+        elif text == "d!taşkağıtmakas":
             user_choice = random.choice(rsp)
             enemy_choice = random.choice(rsp)
             if user_choice == "Taş":
@@ -355,7 +408,6 @@ async def on_message(message):
                     embed.add_field(name = "Botun Seçimi", value = "`{}`".format(enemy_choice), inline = True)
                     embed.add_field(name = "Sonuç:", value = "`Berabere!`", inline = False)
                     await message.channel.send(embed = embed)
-
                 elif enemy_choice == "Kağıt":
                     embed = discord.Embed(color = 0x8ECCFF)
                     embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
@@ -363,7 +415,6 @@ async def on_message(message):
                     embed.add_field(name = "Botun Seçimi", value = "`{}`".format(enemy_choice), inline = True)
                     embed.add_field(name = "Sonuç:", value = "`Kaybettin!`", inline = False)
                     await message.channel.send(embed = embed)
-
                 else:
                     embed = discord.Embed(color = 0x8ECCFF)
                     embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
@@ -371,7 +422,6 @@ async def on_message(message):
                     embed.add_field(name = "Botun Seçimi", value = "`{}`".format(enemy_choice), inline = True)
                     embed.add_field(name = "Sonuç:", value = "`Kazandın!`", inline = False)
                     await message.channel.send(embed = embed)
-
             elif user_choice == "Kağıt":
                 if enemy_choice == "Taş":
                     embed = discord.Embed(color = 0x8ECCFF)
@@ -380,7 +430,6 @@ async def on_message(message):
                     embed.add_field(name = "Botun Seçimi", value = "`{}`".format(enemy_choice), inline = True)
                     embed.add_field(name = "Sonuç:", value = "`Kazandın!`", inline = False)
                     await message.channel.send(embed = embed)
-
                 elif enemy_choice == "Kağıt":
                     embed = discord.Embed(color = 0x8ECCFF)
                     embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
@@ -388,7 +437,6 @@ async def on_message(message):
                     embed.add_field(name = "Botun Seçimi", value = "`{}`".format(enemy_choice), inline = True)
                     embed.add_field(name = "Sonuç:", value = "`Berabere!`", inline = False)
                     await message.channel.send(embed = embed)
-
                 else:
                     embed = discord.Embed(color = 0x8ECCFF)
                     embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
@@ -396,7 +444,6 @@ async def on_message(message):
                     embed.add_field(name = "Botun Seçimi", value = "`{}`".format(enemy_choice), inline = True)
                     embed.add_field(name = "Sonuç:", value = "`Kaybettin!`", inline = False)
                     await message.channel.send(embed = embed)
-
             else:
                 if enemy_choice == "Taş":
                     embed = discord.Embed(color = 0x8ECCFF)
@@ -405,7 +452,6 @@ async def on_message(message):
                     embed.add_field(name = "Botun Seçimi", value = "`{}`".format(enemy_choice), inline = True)
                     embed.add_field(name = "Sonuç:", value = "`Kaybettin!`", inline = False)
                     await message.channel.send(embed = embed)
-
                 elif enemy_choice == "Kağıt":
                     embed = discord.Embed(color = 0x8ECCFF)
                     embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
@@ -413,7 +459,6 @@ async def on_message(message):
                     embed.add_field(name = "Botun Seçimi", value = "`{}`".format(enemy_choice), inline = True)
                     embed.add_field(name = "Sonuç:", value = "`Kazandın!`", inline = False)
                     await message.channel.send(embed = embed)
-
                 else:
                     embed = discord.Embed(color = 0x8ECCFF)
                     embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
@@ -424,7 +469,7 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-        elif text == "d.yazıtura":
+        elif text == "d!yazıtura":
             result = random.choice(heads_tails)
             embed = discord.Embed(color = 0xD49000)
             embed.set_author(name = "YAZI TURA", icon_url = "https://i.hizliresim.com/Su5tuE.png")
@@ -433,7 +478,7 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-        elif text == "d.sigara":
+        elif text == "d!sigara":
             author = message.author
             message = await message.channel.send(":japanese_goblin: :smoking: :cloud: :cloud: :cloud: :cloud:")
             sleep(1)
@@ -451,14 +496,14 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-        elif text == "d.espri":
+        elif text == "d!espri":
             embed = discord.Embed(description = "{}".format(random.choice(jokes)), color = 0x5B6C16)
             embed.set_author(name = "ESPRİ", icon_url = "https://i.hizliresim.com/TQHyyU.png")
             await message.channel.send(embed = embed)
 
 #############################################################################################################################################
 
-        elif text == "d.admin":
+        elif text == "d!admin":
             avatar_chisenoa = "https://cdn.discordapp.com/avatars/794535514895941632/5d18429a4fe798f267993f6c7f389573.png?size=2048"
             name_chisenoa = 'Alperen "CHISENOA" Güner'
             embed_chisenoa = discord.Embed(description = "**•** [GitHub](https://www.github.com/chisenoa)\n**•** [Twitter](https://www.twitter.com/chisenoa)\n**•** [Discord](https://discord.gg/kQ8CE5GRNg)", color = 0x7DA8B9)
@@ -469,36 +514,31 @@ async def on_message(message):
 #############################################################################################################################################
 
         elif text == "sa":
-            embed = discord.Embed(description = "Aleyküm Selam! {}".format(user_id), color = 0x202225)
+            embed = discord.Embed(description = "Aleyküm Selam! {}".format(message.author.mention), color = 0x202225)
             await message.channel.send(embed = embed)
 
 #############################################################################################################################################
 
         elif text == "günaydın":
-            embed = discord.Embed(description = "Sana Da Günaydın! {}".format(user_id), color = 0x202225)
+            embed = discord.Embed(description = "Sana Da Günaydın! {}".format(message.author.mention), color = 0x202225)
             await message.channel.send(embed = embed)
 
 #############################################################################################################################################
 
-        elif text == "d.muzum":
-            if author_id in moderators:
-                if tag == "4518":
-                    embed = discord.Embed(description = "{}'nın muzu çok uzun olduğu için ölçemiyorum".format(user_id), color = 0xFFDC5D)
-                    embed.set_author(name = "MUZ ÖLÇER", icon_url = "https://i.hizliresim.com/wWYzYS.png")
-                    await message.channel.send(embed = embed)
-                else:
-                    embed = discord.Embed(description = "Moderatör olmanın birinci şartı muzsuz olmaktır", color = 0xFFDC5D)
-                    embed.set_author(name = "MUZ ÖLÇER", icon_url = "https://i.hizliresim.com/wWYzYS.png")
-                    await message.channel.send(embed = embed)
+        elif text == "o.muzum":
+            if message.author.discriminator == "4518":
+                embed = discord.Embed(description = "{}'nın muzu çok uzun olduğu için ölçemiyorum".format(message.author.mention), color = 0xFFDC5D)
+                embed.set_author(name = "MUZ ÖLÇER", icon_url = "https://i.hizliresim.com/wWYzYS.png")
+                await message.channel.send(embed = embed)
             else:
                 unit = str(random.choice(size))
-                embed = discord.Embed(description = "{}'nın muzu ölçümlerime göre {} {}".format(user_id, random.randint(1, 50), unit), color = 0xFFDC5D)
+                embed = discord.Embed(description = "{}'nın muzu ölçümlerime göre {} {}".format(message.author.mention, random.randint(1, 50), unit), color = 0xFFDC5D)
                 embed.set_author(name = "MUZ ÖLÇER", icon_url = "https://i.hizliresim.com/wWYzYS.png")
                 await message.channel.send(embed = embed)
 
 #############################################################################################################################################
 
-        elif text == "d.ekip":
+        elif text == "o.ekip":
             avatar_h3redot = "https://i.hizliresim.com/q7i63r.jpg"
             name_h3redot = 'Yiğit "H3REDOT" Yaşar'
             embed_h3redot = discord.Embed(description = "**•** [Twitch](https://www.twitch.tv/h3redot)\n**•** [YouTube](https://www.youtube.com/channel/UCpaa9cFf54DX03L59e8EYwg)\n**•** [Twitter](https://www.twitter.com/h3redot1)\n**•** [Instagram](https://www.instagram.com/h3redot_0070)\n**•** [Flickr](https://www.flickr.com/photos/190869596@N03/albums/with/72157716706385981)\n**•** [Discord](https://discord.gg/Y4QdnSrQXd)", color = 0xF67464)
@@ -530,38 +570,45 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-        elif text == "d.efkar":
+        elif text == "o.efkar":
             value = str(random.randint(0, 100))
-            efkar = "%" + value
-            user = message.author.mention
-            embed = discord.Embed(description = ":smoking: {} {} Efkarlısın :smoking:".format(user, efkar), color = 0xD4302A)
+            sadness = "%" + value
+            embed = discord.Embed(description = ":smoking: {} {} Efkarlısın :smoking:".format(message.author.mention, sadness), color = 0xD4302A)
             embed.set_author(name = "EFKAR ÖLÇER", icon_url = "https://i.hizliresim.com/KPDDLj.png")
             await message.channel.send(embed = embed)
 
 #############################################################################################################################################
 
-        elif text == "d.botbilgi":
+        elif text == "d!botbilgi":
             developer = "<@!794535514895941632>"
             latency = round(client.latency * 100)
-            time = strftime("%H:%M:%S")
+            server_count = str(len(client.guilds))
+            member_count = str(len(set(client.get_all_members())))
+            server_time = datetime.datetime.today()
+            #difference = datetime.timedelta(hours = 3)
+            #time = server_time + difference
+            time = server_time
+            time = time.strftime("%H:%M:%S")
             embed = discord.Embed(description = """**•** Öneri ve Bug'ları sunucumuzdaki yetkililere bildirebilirsin ve çözümlenmesi için katkıda bulunabilirsin!
 
 [Geliştirici](https://discord.gg/kQ8CE5GRNg) → {}
 [Kütüphane](https://discord.gg/kQ8CE5GRNg) → Discord.py
 [Kaynak Kod](https://discord.gg/kQ8CE5GRNg) → [GitHub](https://www.github.com/chisenoa/oreskis)
 [Çalıştığı Sunucu](https://discord.gg/kQ8CE5GRNg) → Heroku
+[Aktif Sunucu Sayısı](https://discord.gg/kQ8CE5GRNg) → {}
+[Aktif Kullanıcı Sayısı](https://discord.gg/kQ8CE5GRNg) → {}
 [Ping](https://discord.gg/kQ8CE5GRNg) → {}ms
 [Zaman](https://discord.gg/kQ8CE5GRNg) → {}
 
 **❯ Bağlantılar**
-[Davet Linki](https://discord.gg/kQ8CE5GRNg) • [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa)""".format(developer, latency, time), color = 0xF6E423)
+[Davet Linki](https://discord.gg/kQ8CE5GRNg) • [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa)""".format(developer, server_count, member_count, latency, time), color = 0xF6E423)
             embed.set_author(name = "ORESKIS • Bilgi Paneli", icon_url = "https://i.hizliresim.com/FETKtc.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/FETKtc.png")
             await message.channel.send(embed = embed)
 
 #############################################################################################################################################
 
-        if splitted_text[0] == "d.avatar":
+        if splitted_text[0] == "o.avatar":
             if (message.mentions.__len__()>0):
                 for user in message.mentions:
                     link = user.avatar_url_as(format = None, static_format = "png", size = 2048)
@@ -569,45 +616,47 @@ async def on_message(message):
                     embed.set_image(url = link)
                     await message.channel.send(embed = embed)
             else:
-                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`d.avatar <kullanıcı adı>`", color = 0xBE1931)
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.avatar <kullanıcı adı>`", color = 0xBE1931)
                 embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                 await message.channel.send(embed = embed)
 
 #############################################################################################################################################
 
-        elif splitted_text[0] == "d.ban":
+        elif splitted_text[0] == "o.ban":
             if (message.mentions.__len__()>0):
-                if author_id in moderators:
-                    for user in message.mentions:
-                        name = user
-                        name = str(name)
-                        splitted_name = name.split(sep = "#")
-                        tag = splitted_name[-1]
-                        tag = str(tag)
-                        author_id = user.id
-                        author_id = str(author_id)
-                        user_id = "<@!" + author_id + ">"
-                        await user.ban(reason = "Sebep Yok")
-                        embed = discord.Embed(description = ":white_check_mark: {} başarıyla banlandı".format(user_id), color = 0x77B255)
-                        embed.set_author(name = "BAN", icon_url = "https://i.hizliresim.com/RYCayr.png")
-                        message = await message.channel.send(embed = embed)
+                if message.author.guild_permissions.ban_members:
+                    try:
+                        for user in message.mentions:
+                            if user.id == message.author.id:
+                                embed = discord.Embed(description = ":no_entry: Kendini banlayamazsın", color = 0xBE1931)
+                                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                                await message.channel.send(embed = embed)
+                            else:
+                                await user.ban(reason = None)
+                                embed = discord.Embed(description = ":white_check_mark: {} başarıyla banlandı".format(user.mention), color = 0x77B255)
+                                embed.set_author(name = "BAN", icon_url = "https://i.hizliresim.com/RYCayr.png")
+                                message = await message.channel.send(embed = embed)
+                    except discord.errors.Forbidden:
+                        embed = discord.Embed(description = ":no_entry: Roller kısmından `Oreskis` rolünü bütün\nrollerin üstüne çıkarmanız gerekmektedir", color = 0xBE1931)
+                        embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                        await message.channel.send(embed = embed)
                 else:
                     embed = discord.Embed(description = ":no_entry: Bu komutu kullanma yetkiniz yok", color = 0xBE1931)
                     embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                     await message.channel.send(embed = embed)
             else:
-                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`d.ban <kullanıcı adı>`", color = 0xBE1931)
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.ban <kullanıcı adı>`", color = 0xBE1931)
                 embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                 await message.channel.send(embed = embed)
 
 #############################################################################################################################################
 
-        elif splitted_text[0] == "d.unban":
+        elif splitted_text[0] == "o.unban":
             all_text = text.split()
             all_text.pop(0)
             member = listToString(all_text)
             if len(member) > 0:
-                if author_id in moderators:
+                if message.author.guild_permissions.administrator:
                     banned_users = await message.channel.guild.bans()
                     member_name, member_discriminator = member.split("#")
                     for ban_entry in banned_users:
@@ -618,7 +667,7 @@ async def on_message(message):
                             embed.set_author(name = "UNBAN", icon_url = "https://i.hizliresim.com/RYCayr.png")
                             message = await message.channel.send(embed = embed)
                         else:
-                            embed = discord.Embed(description = ":no_entry: Kullanıcı bulunamadı\n\nKullanım:\n`d.unban <kullanıcı adı>`", color = 0xBE1931)
+                            embed = discord.Embed(description = ":no_entry: Kullanıcı bulunamadı", color = 0xBE1931)
                             embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                             await message.channel.send(embed = embed)
                 else:
@@ -626,46 +675,48 @@ async def on_message(message):
                     embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                     await message.channel.send(embed = embed)
             else:
-                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`d.unban <kullanıcı adı>`", color = 0xBE1931)
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.unban <kullanıcı adı>`", color = 0xBE1931)
                 embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                 await message.channel.send(embed = embed)
 
 #############################################################################################################################################
 
-        elif splitted_text[0] == "d.kick":
+        elif splitted_text[0] == "o.kick":
             if (message.mentions.__len__()>0):
-                if author_id in moderators:
-                    for user in message.mentions:
-                        name = user
-                        name = str(name)
-                        splitted_name = name.split(sep = "#")
-                        tag = splitted_name[-1]
-                        tag = str(tag)
-                        author_id = user.id
-                        author_id = str(author_id)
-                        user_id = "<@!" + author_id + ">"
-                        await user.kick(reason = "Sebep Yok")
-                        embed = discord.Embed(description = ":white_check_mark: {} başarıyla sunucudan atıldı".format(user_id), color = 0x77B255)
-                        embed.set_author(name = "KICK", icon_url = "https://i.hizliresim.com/RYCayr.png")
-                        message = await message.channel.send(embed = embed)
+                if message.author.guild_permissions.kick_members:
+                    try:
+                        for user in message.mentions:
+                            if user.id == message.author.id:
+                                embed = discord.Embed(description = ":no_entry: Kendini sunucudan atamazsın", color = 0xBE1931)
+                                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                                await message.channel.send(embed = embed)
+                            else:
+                                await user.kick(reason = None)
+                                embed = discord.Embed(description = ":white_check_mark: {} başarıyla sunucudan atıldı".format(user.mention, color = 0x77B255))
+                                embed.set_author(name = "KICK", icon_url = "https://i.hizliresim.com/RYCayr.png")
+                                message = await message.channel.send(embed = embed)
+                    except discord.errors.Forbidden:
+                        embed = discord.Embed(description = ":no_entry: Roller kısmından `Oreskis` rolünü bütün\nrollerin üstüne çıkarmanız gerekmektedir", color = 0xBE1931)
+                        embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                        await message.channel.send(embed = embed)
                 else:
                     embed = discord.Embed(description = ":no_entry: Bu komutu kullanma yetkiniz yok", color = 0xBE1931)
                     embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                     await message.channel.send(embed = embed)
             else:
-                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`d.kick <kullanıcı adı>`", color = 0xBE1931)
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.kick <kullanıcı adı>`", color = 0xBE1931)
                 embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                 await message.channel.send(embed = embed)
 
 #############################################################################################################################################
 
-        elif splitted_text[0] == "d.ascii":
+        elif splitted_text[0] == "o.ascii":
             wordlist = text.split()
             wordlist.pop(0)
             words = listToString(wordlist)
             word = text2art(words)
             if word == "":
-                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`d.ascii <kelime>`", color = 0xBE1931)
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.ascii <kelime>`", color = 0xBE1931)
                 embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                 await message.channel.send(embed = embed)
             else:
@@ -673,218 +724,219 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-        elif splitted_text[0] ==  "d.aşkölçer":
+        elif splitted_text[0] ==  "o.aşkölçer":
             if (message.mentions.__len__()>0):
                 for user in message.mentions:
                     if message.author.id == user.id:
-                        embed = discord.Embed(description = ":no_entry: Kendiniz ile olan aşkınızı ölçemezsiniz\n\nKullanım:\n`d.aşkölçer <kullanıcı adı>`", color = 0xBE1931)
+                        embed = discord.Embed(description = ":no_entry: Kendiniz ile olan aşkınızı ölçemezsiniz", color = 0xBE1931)
                         embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                         await message.channel.send(embed = embed)
                     else:
-                        user_id = user.id
-                        user_id = str(user_id)
-                        user_tag = "<@!" + user_id + ">"
-                        author_id = message.author.id
-                        author_id = str(author_id)
-                        author_tag = "<@!" + author_id + ">"
                         value = random.randint(0, 100)
-                        embed = discord.Embed(description = "\n{} :star: {}\n**•** Aşk ölçer %{} aşk ölçtü".format(author_tag, user_tag, value), color = 0xDB4437)
+                        embed = discord.Embed(description = "\n{} :star: {}\n**•** Aşk ölçer %{} aşk ölçtü".format(message.author.mention, user.mention, value), color = 0xDB4437)
                         embed.set_author(name = "AŞK ÖLÇER", icon_url = "https://i.hizliresim.com/iZxmT5.png")
                         await message.channel.send(embed = embed)
             else:
-                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`d.aşkölçer <kullanıcı adı>`", color = 0xBE1931)
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.aşkölçer <kullanıcı adı>`", color = 0xBE1931)
                 embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                 await message.channel.send(embed = embed)
 
 #############################################################################################################################################
 
-        elif splitted_text[0] == "d.hava":
+        elif splitted_text[0] == "o.hava":
             if len(splitted_text) > 1:
                 city = splitted_text[1]
-                if city == "adana":
-                    city = "9905"
-                elif city == "adıyaman":
-                    city = "41415"
-                elif city == "afyonkarahisar":
-                    city = "11318"
-                elif city == "afyon":
-                    city = "11318"
-                elif city == "ağrı":
-                    city = "42230"
-                elif city == "aksaray":
-                    city = "45455"
-                elif city == "amasya":
-                    city = "44254"
-                elif city == "ankara":
-                    city = "18522"
-                elif city == "antalya":
-                    city = "893"
-                elif city == "ardahan":
-                    city = "110688"
-                elif city == "artvin":
-                    city = "41372"
-                elif city == "aydın":
-                    city = "33373"
-                elif city == "balıkesir":
-                    city = "39365"
-                elif city == "bartın":
-                    city = "239809"
-                elif city == "batman":
-                    city = "50677"
-                elif city == "bayburt":
-                    city = "63241"
-                elif city == "bilecik":
-                    city = "56547"
-                elif city == "bingöl":
-                    city = "40464"
-                elif city == "bitlis":
-                    city = "62255"
-                elif city == "bolu":
-                    city = "39884"
-                elif city == "burdur":
-                    city = "42334"
-                elif city == "bursa":
-                    city = "9592"
-                elif city == "çanakkale":
-                    city = "11200"
-                elif city == "çankırı":
-                    city = "41308"
-                elif city == "çorum":
-                    city = "43216"
-                elif city == "denizli":
-                    city = "w277016"
-                elif city == "diyarbakır":
-                    city = "33376"
-                elif city == "düzce":
-                    city = "41688"
-                elif city == "edirne":
-                    city = "53438"
-                elif city == "elazığ":
-                    city = "44812"
-                elif city == "erzincan":
-                    city = "40616"
-                elif city == "erzurum":
-                    city = "1185"
-                elif city == "eskişehir":
-                    city = "33377"
-                elif city == "gaziantep":
-                    city = "11304"
-                elif city == "antep":
-                    city = "11304"
-                elif city == "giresun":
-                    city = "35884"
-                elif city == "gümüşhane":
-                    city = "239500"
-                elif city == "hakkari":
-                    city = "239536"
-                elif city == "hatay":
-                    city = "38896"
-                elif city == "ığdır":
-                    city = "61195"
-                elif city == "ısparta":
-                    city = "50691"
-                elif city == "istanbul":
-                    city = "18319"
-                elif city == "izmir":
-                    city = "18523"
-                elif city == "kahramanmaraş":
-                    city = "37261"
-                elif city == "maraş":
-                    city = "37261"
-                elif city == "karabük":
-                    city = "39097"
-                elif city == "karaman":
-                    city = "53363"
-                elif city == "kars":
-                    city = "55518"
-                elif city == "kastamonu":
-                    city = "47015"
-                elif city == "kayseri":
-                    city = "9913"
-                elif city == "kırıkkale":
-                    city = "62856"
-                elif city == "kırklareli":
-                    city = "40729"
-                elif city == "kırşehir":
-                    city = "48872"
-                elif city == "kilis":
-                    city = "239530"
-                elif city == "kocaeli":
-                    city = "36062"
-                elif city == "konya":
-                    city = "11234"
-                elif city == "kütahya":
-                    city = "37312"
-                elif city == "malatya":
-                    city = "36719"
-                elif city == "manisa":
-                    city = "35887"
-                elif city == "mardin":
-                    city = "39835"
-                elif city == "mersin":
-                    city = "w273216"
-                elif city == "muğla":
-                    city = "33382"
-                elif city == "muş":
-                    city = "112316"
-                elif city == "nevşehir":
-                    city = "33383"
-                elif city == "niğde":
-                    city = "35888"
-                elif city == "ordu":
-                    city = "35889"
-                elif city == "osmaniye":
-                    city = "w273466"
-                elif city == "rize":
-                    city = "16454"
-                elif city == "sakarya":
-                    city = "w270161"
-                elif city == "samsun":
-                    city = "39995"
-                elif city == "siirt":
-                    city = "342789"
-                elif city == "sinop":
-                    city = "45264"
-                elif city == "sivas":
-                    city = "46318"
-                elif city == "şanlıurfa":
-                    city = "16506"
-                elif city == "urfa":
-                    city = "16506"
-                elif city == "şırnak":
-                    city = "305244"
-                elif city == "tekirdağ":
-                    city = "35342"
-                elif city == "tokat":
-                    city = "45684"
-                elif city == "trabzon":
-                    city = "26039"
-                elif city == "tunceli":
-                    city = "118076"
-                elif city == "uşak":
-                    city = "45426"
-                elif city == "van":
-                    city = "15481"
-                elif city == "yalova":
-                    city = "w673254"
-                elif city == "yozgat":
-                    city = "97157"
-                elif city == "zonguldak":
-                    city = "40096"
-                image_url = "https://w.bookcdn.com/weather/picture/32_{}_1_21_3658db_250_2a48ba_ffffff_ffffff_1_2071c9_ffffff_0_6.png".format(city)
-                embed = discord.Embed(color = 0x3658DB)
-                embed.set_image(url = image_url)
-                await message.channel.send(embed = embed)
+                if city in cities:
+                    if city == "adana":
+                        city = "9905"
+                    elif city == "adıyaman":
+                        city = "41415"
+                    elif city == "afyonkarahisar":
+                        city = "11318"
+                    elif city == "afyon":
+                        city = "11318"
+                    elif city == "ağrı":
+                        city = "42230"
+                    elif city == "aksaray":
+                        city = "45455"
+                    elif city == "amasya":
+                        city = "44254"
+                    elif city == "ankara":
+                        city = "18522"
+                    elif city == "antalya":
+                        city = "893"
+                    elif city == "ardahan":
+                        city = "110688"
+                    elif city == "artvin":
+                        city = "41372"
+                    elif city == "aydın":
+                        city = "33373"
+                    elif city == "balıkesir":
+                        city = "39365"
+                    elif city == "bartın":
+                        city = "239809"
+                    elif city == "batman":
+                        city = "50677"
+                    elif city == "bayburt":
+                        city = "63241"
+                    elif city == "bilecik":
+                        city = "56547"
+                    elif city == "bingöl":
+                        city = "40464"
+                    elif city == "bitlis":
+                        city = "62255"
+                    elif city == "bolu":
+                        city = "39884"
+                    elif city == "burdur":
+                        city = "42334"
+                    elif city == "bursa":
+                        city = "9592"
+                    elif city == "çanakkale":
+                        city = "11200"
+                    elif city == "çankırı":
+                        city = "41308"
+                    elif city == "çorum":
+                        city = "43216"
+                    elif city == "denizli":
+                        city = "w277016"
+                    elif city == "diyarbakır":
+                        city = "33376"
+                    elif city == "düzce":
+                        city = "41688"
+                    elif city == "edirne":
+                        city = "53438"
+                    elif city == "elazığ":
+                        city = "44812"
+                    elif city == "erzincan":
+                        city = "40616"
+                    elif city == "erzurum":
+                        city = "1185"
+                    elif city == "eskişehir":
+                        city = "33377"
+                    elif city == "gaziantep":
+                        city = "11304"
+                    elif city == "antep":
+                        city = "11304"
+                    elif city == "giresun":
+                        city = "35884"
+                    elif city == "gümüşhane":
+                        city = "239500"
+                    elif city == "hakkari":
+                        city = "239536"
+                    elif city == "hatay":
+                        city = "38896"
+                    elif city == "ığdır":
+                        city = "61195"
+                    elif city == "ısparta":
+                        city = "50691"
+                    elif city == "istanbul":
+                        city = "18319"
+                    elif city == "izmir":
+                        city = "18523"
+                    elif city == "kahramanmaraş":
+                        city = "37261"
+                    elif city == "maraş":
+                        city = "37261"
+                    elif city == "karabük":
+                        city = "39097"
+                    elif city == "karaman":
+                        city = "53363"
+                    elif city == "kars":
+                        city = "55518"
+                    elif city == "kastamonu":
+                        city = "47015"
+                    elif city == "kayseri":
+                        city = "9913"
+                    elif city == "kırıkkale":
+                        city = "62856"
+                    elif city == "kırklareli":
+                        city = "40729"
+                    elif city == "kırşehir":
+                        city = "48872"
+                    elif city == "kilis":
+                        city = "239530"
+                    elif city == "kocaeli":
+                        city = "36062"
+                    elif city == "konya":
+                        city = "11234"
+                    elif city == "kütahya":
+                        city = "37312"
+                    elif city == "malatya":
+                        city = "36719"
+                    elif city == "manisa":
+                        city = "35887"
+                    elif city == "mardin":
+                        city = "39835"
+                    elif city == "mersin":
+                        city = "w273216"
+                    elif city == "içel":
+                        city = "w273216"
+                    elif city == "muğla":
+                        city = "33382"
+                    elif city == "muş":
+                        city = "112316"
+                    elif city == "nevşehir":
+                        city = "33383"
+                    elif city == "niğde":
+                        city = "35888"
+                    elif city == "ordu":
+                        city = "35889"
+                    elif city == "osmaniye":
+                        city = "w273466"
+                    elif city == "rize":
+                        city = "16454"
+                    elif city == "sakarya":
+                        city = "w270161"
+                    elif city == "samsun":
+                        city = "39995"
+                    elif city == "siirt":
+                        city = "342789"
+                    elif city == "sinop":
+                        city = "45264"
+                    elif city == "sivas":
+                        city = "46318"
+                    elif city == "şanlıurfa":
+                        city = "16506"
+                    elif city == "urfa":
+                        city = "16506"
+                    elif city == "şırnak":
+                        city = "305244"
+                    elif city == "tekirdağ":
+                        city = "35342"
+                    elif city == "tokat":
+                        city = "45684"
+                    elif city == "trabzon":
+                        city = "26039"
+                    elif city == "tunceli":
+                        city = "118076"
+                    elif city == "uşak":
+                        city = "45426"
+                    elif city == "van":
+                        city = "15481"
+                    elif city == "yalova":
+                        city = "w673254"
+                    elif city == "yozgat":
+                        city = "97157"
+                    elif city == "zonguldak":
+                        city = "40096"
+                    image_url = "https://w.bookcdn.com/weather/picture/32_{}_1_21_3658db_250_2a48ba_ffffff_ffffff_1_2071c9_ffffff_0_6.png".format(city)
+                    embed = discord.Embed(color = 0x3658DB)
+                    embed.set_image(url = image_url)
+                    await message.channel.send(embed = embed)
+                else:
+                    embed = discord.Embed(description = ":no_entry: Sadece Türkiye şehirleri desteklenmektedir", color = 0xBE1931)
+                    embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                    await message.channel.send(embed = embed)
             else:
-                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`d.hava <şehir>`", color = 0xBE1931)
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.hava <şehir>`", color = 0xBE1931)
                 embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                 await message.channel.send(embed = embed)
 
 #############################################################################################################################################
 
-        elif splitted_text[0] == "d.temizle":
+        elif splitted_text[0] == "o.temizle":
             try:
-                if author_id in moderators:
+                if message.author.guild_permissions.manage_messages:
                     amount = splitted_text[1]
                     amount = int(amount)
                     if amount > 0:
@@ -895,7 +947,7 @@ async def on_message(message):
                         sleep(2)
                         await message.delete()
                     else:
-                        embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`d.temizle <mesaj sayısı>`", color = 0xBE1931)
+                        embed = discord.Embed(description = ":no_entry: Yanlış argüman girdiniz\n\nKullanım:\n`o.temizle <mesaj sayısı>`", color = 0xBE1931)
                         embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                         await message.channel.send(embed = embed)
                 else:
@@ -903,29 +955,13 @@ async def on_message(message):
                     embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                     await message.channel.send(embed = embed)
             except IndexError:
-                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`d.temizle <mesaj sayısı>`", color = 0xBE1931)
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.temizle <mesaj sayısı>`", color = 0xBE1931)
                 embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                 await message.channel.send(embed = embed)
-
-#############################################################################################################################################
-
-        if "http" in text:
-            if not author_id in moderators:
-                if "tenor" in text:
-                    pass
-                elif "cdn.d" in text:
-                    pass
-                else:
-                    await message.delete()
-                    embed = discord.Embed(description = ":no_entry: Link gönderme yetkiniz yok", color = 0xBE1931)
-                    embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
-                    message = await message.channel.send(embed = embed)
-                    sleep(2)
-                    await message.delete()
 
         else:
             pass
 
 #############################################################################################################################################
 
-client.run("TOKEN")
+client.run("Nzk0NTgxOTUyMTc4NDIxNzgx.X-86HA.p3lbEZW4Euf71sledC7Pv-6gR6U")
