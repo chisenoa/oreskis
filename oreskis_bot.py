@@ -249,7 +249,7 @@ async def on_member_join(member):
     else:
         server_name = str(member.guild.name)
         server_id = str(member.guild.id)
-        embed = discord.Embed(description = "Sunucumuza hoşgeldin {}\n**o.yardım** komutunu kullanarak Oreskis'in kullanımını öğrenebilirsin!\nUmarım sunucumuzda keyifli vakit geçirirsin :city_sunset:".format(member.mention), color = 0xF6E423)
+        embed = discord.Embed(description = "Sunucumuza hoşgeldin {}\n**o.yardım** komutunu kullanarak Oreskis'in kullanımını öğrenebilirsin!\nUmarım sunucumuzda keyifli vakit geçirirsin :city_sunset:\n**❯ Bağlantılar**\n[Discord](https://discord.gg/kQ8CE5GRNg) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://discord.com/api/oauth2/authorize?client_id=794581952178421781&permissions=8&redirect_uri=https%3A%2F%2Fdiscord.com%2Foauth2%2Fauthorize%3Fclient_id%3D794581952178421781%26scope%3Dbot%26permissions%3D2147483647&scope=bot").format(member.mention), color = 0xF6E423)
         embed.set_author(name = member.guild.name, icon_url = member.guild.icon_url_as(format = None, static_format = "png", size = 1024))
         await member.send(embed = embed)
 
@@ -280,7 +280,7 @@ async def on_message(message):
 [o.genelkomutlar](https://discord.gg/kQ8CE5GRNg) → Genel Komutlar
 
 **❯ Bağlantılar**
-[Davet Linki](https://discord.gg/kQ8CE5GRNg) • [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa)""", color = 0x2B82E8)
+[Discord](https://discord.gg/kQ8CE5GRNg) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://discord.com/api/oauth2/authorize?client_id=794581952178421781&permissions=8&redirect_uri=https%3A%2F%2Fdiscord.com%2Foauth2%2Fauthorize%3Fclient_id%3D794581952178421781%26scope%3Dbot%26permissions%3D2147483647&scope=bot)""", color = 0x2B82E8)
             embed.set_author(name = "Oreskis • Komut Listesi", icon_url = "https://i.hizliresim.com/kc543M.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/kc543M.png")
             await message.channel.send(embed = embed)
@@ -297,7 +297,7 @@ async def on_message(message):
 [o.temizle](https://discord.gg/kQ8CE5GRNg) → Sunucuda bulunan bir kanalın yazışmalarını silersiniz
 
 **❯ Bağlantılar**
-[Davet Linki](https://discord.gg/kQ8CE5GRNg) • [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa)""", color = 0x2B82E8)
+[Discord](https://discord.gg/kQ8CE5GRNg) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://discord.com/api/oauth2/authorize?client_id=794581952178421781&permissions=8&redirect_uri=https%3A%2F%2Fdiscord.com%2Foauth2%2Fauthorize%3Fclient_id%3D794581952178421781%26scope%3Dbot%26permissions%3D2147483647&scope=bot)""", color = 0x2B82E8)
             embed.set_author(name = "Oreskis • Moderatör Komutları Listesi", icon_url = "https://i.hizliresim.com/kc543M.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/kc543M.png")
             await message.channel.send(embed = embed)
@@ -318,7 +318,7 @@ async def on_message(message):
 [o.aşkölçer](https://discord.gg/kQ8CE5GRNg) → Arkadaşlarınızla aranızdaki aşkı ölçün
 
 **❯ Bağlantılar**
-[Davet Linki](https://discord.gg/kQ8CE5GRNg) • [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa)""", color = 0x2B82E8)
+[Discord](https://discord.gg/kQ8CE5GRNg) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://discord.com/api/oauth2/authorize?client_id=794581952178421781&permissions=8&redirect_uri=https%3A%2F%2Fdiscord.com%2Foauth2%2Fauthorize%3Fclient_id%3D794581952178421781%26scope%3Dbot%26permissions%3D2147483647&scope=bot)""", color = 0x2B82E8)
             embed.set_author(name = "Oreskis • Eğlence Komutları Listesi", icon_url = "https://i.hizliresim.com/kc543M.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/kc543M.png")
             await message.channel.send(embed = embed)
@@ -339,7 +339,7 @@ async def on_message(message):
 [o.yardım](https://discord.gg/kQ8CE5GRNg) → Yardım menüsünü açar
 
 **❯ Bağlantılar**
-[Davet Linki](https://discord.gg/kQ8CE5GRNg) • [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa)""", color = 0x2B82E8)
+[Discord](https://discord.gg/kQ8CE5GRNg) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://discord.com/api/oauth2/authorize?client_id=794581952178421781&permissions=8&redirect_uri=https%3A%2F%2Fdiscord.com%2Foauth2%2Fauthorize%3Fclient_id%3D794581952178421781%26scope%3Dbot%26permissions%3D2147483647&scope=bot)""", color = 0x2B82E8)
             embed.set_author(name = "Oreskis • Genel Komutlar Listesi", icon_url = "https://i.hizliresim.com/kc543M.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/kc543M.png")
             await message.channel.send(embed = embed)
@@ -612,7 +612,7 @@ async def on_message(message):
 [Zaman](https://discord.gg/kQ8CE5GRNg) → {}
 
 **❯ Bağlantılar**
-[Davet Linki](https://discord.gg/kQ8CE5GRNg) • [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa)""".format(developer, server_count, member_count, latency, time), color = 0xF6E423)
+[Discord](https://discord.gg/kQ8CE5GRNg) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://discord.com/api/oauth2/authorize?client_id=794581952178421781&permissions=8&redirect_uri=https%3A%2F%2Fdiscord.com%2Foauth2%2Fauthorize%3Fclient_id%3D794581952178421781%26scope%3Dbot%26permissions%3D2147483647&scope=bot)""".format(developer, server_count, member_count, latency, time), color = 0xF6E423)
             embed.set_author(name = "ORESKIS • Bilgi Paneli", icon_url = "https://i.hizliresim.com/FETKtc.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/FETKtc.png")
             await message.channel.send(embed = embed)
