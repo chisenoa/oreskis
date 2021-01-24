@@ -335,7 +335,7 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-        elif text == "d!döviz":
+        elif text == "o.döviz":
             dollar_currency = requests.get('http://bigpara.hurriyet.com.tr/doviz/dolar/')
             soup = BeautifulSoup(dollar_currency.content, "html.parser")
             full_block = soup.find("span", {"class":"value up"})
@@ -376,7 +376,7 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-        elif text == "d!korona":
+        elif text == "o.korona":
             r = requests.get('https://covid19.saglik.gov.tr/TR-66935/genel-koronavirus-tablosu.html/')
             soup = BeautifulSoup(r.content, "html.parser")
             all_datas = soup.find_all("script")
@@ -397,7 +397,7 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-        elif text == "d!taşkağıtmakas":
+        elif text == "o.taşkağıtmakas":
             user_choice = random.choice(rsp)
             enemy_choice = random.choice(rsp)
             if user_choice == "Taş":
@@ -469,7 +469,7 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-        elif text == "d!yazıtura":
+        elif text == "o.yazıtura":
             result = random.choice(heads_tails)
             embed = discord.Embed(color = 0xD49000)
             embed.set_author(name = "YAZI TURA", icon_url = "https://i.hizliresim.com/Su5tuE.png")
@@ -478,7 +478,7 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-        elif text == "d!sigara":
+        elif text == "o.sigara":
             author = message.author
             message = await message.channel.send(":japanese_goblin: :smoking: :cloud: :cloud: :cloud: :cloud:")
             sleep(1)
@@ -496,14 +496,14 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-        elif text == "d!espri":
+        elif text == "o.espri":
             embed = discord.Embed(description = "{}".format(random.choice(jokes)), color = 0x5B6C16)
             embed.set_author(name = "ESPRİ", icon_url = "https://i.hizliresim.com/TQHyyU.png")
             await message.channel.send(embed = embed)
 
 #############################################################################################################################################
 
-        elif text == "d!admin":
+        elif text == "o.admin":
             avatar_chisenoa = "https://cdn.discordapp.com/avatars/794535514895941632/5d18429a4fe798f267993f6c7f389573.png?size=2048"
             name_chisenoa = 'Alperen "CHISENOA" Güner'
             embed_chisenoa = discord.Embed(description = "**•** [GitHub](https://www.github.com/chisenoa)\n**•** [Twitter](https://www.twitter.com/chisenoa)\n**•** [Discord](https://discord.gg/kQ8CE5GRNg)", color = 0x7DA8B9)
@@ -579,7 +579,7 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-        elif text == "d!botbilgi":
+        elif text == "o.botbilgi":
             developer = "<@!794535514895941632>"
             latency = round(client.latency * 100)
             server_count = str(len(client.guilds))
