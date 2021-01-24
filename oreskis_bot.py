@@ -243,6 +243,17 @@ def listToString(x):
     return (str1.join(x))
 
 @client.event
+async def on_member_join(member):
+    if member.bot:
+        return
+    else:
+        server_name = str(member.guild.name)
+        server_id = str(member.guild.id)
+        embed = discord.Embed(description = "Sunucumuza hoşgeldin {}\n**o.yardım** komutunu kullanarak Oreskis'in kullanımını öğrenebilirsin!\nUmarım sunucumuzda keyifli vakit geçirirsin :city_sunset:".format(member.mention), color = 0xF6E423)
+        embed.set_author(name = member.guild.name, icon_url = member.guild.icon_url_as(format = None, static_format = "png", size = 1024))
+        await member.send(embed = embed)
+
+@client.event
 async def on_ready():
     print("{} Online!".format(client.user.name))
     activity = discord.Game(name = "o.yardım")
