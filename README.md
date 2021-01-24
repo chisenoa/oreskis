@@ -1,5 +1,5 @@
 <p align = "center">
-  <img alt = "oreskis_bot" src = "https://i.hizliresim.com/bATY9H.png" width = "750px">
+  <img alt = "oreskis" src = "https://i.hizliresim.com/f89jtr.png" width = "750px">
 </p>
 
 Do you need more help? Visit my server here: **https://discord.gg/kQ8CE5GRNg** 🪐
@@ -17,19 +17,19 @@ All you need to know about the library is defined inside here, even code that I 
 
 ![Image_Example1](https://i.hizliresim.com/DhvHwY.png)
 
-2. Rename the TOKEN in **oreskis_bot.py**, then fill in the required spots, such as token, prefix and game
+2. Rename the TOKEN in **oreskis.py**, then fill in the required spots, such as token, prefix and game
 
 3. To install what you need, do **pip install -r requirements.txt**<br>
 (If that doesn't work, do **python -m pip install -r requirements.txt**)<br>
 `NOTE: Use pip install with Administrator/sudo`
 
-4. Start the bot by having the cmd/terminal inside the bot folder and type **python oreskis_bot.py**
+4. Start the bot by having the cmd/terminal inside the bot folder and type **python oreskis.py**
 
 5. You're done, enjoy your bot!
 
 ## FAQ
 Q: I don't see my bot on my server!<br>
-A: Invite it by using this URL: https://discordapp.com/oauth2/authorize?client_id=CLIENT_ID&scope=bot<br>
+A: Invite it by using this URL: https://discordapp.com/oauth2/authorize?client_id={CLIENT_ID}&scope=bot<br>
 Remember to replace **CLIENT_ID** with your bot client ID
 
 Q: There aren't that many commands here...<br>
@@ -47,10 +47,10 @@ pm2 start pm2.json
 
 # Tips on common commands
 pm2 <command> [name]
-  start oreskis_bot.py    # Run the bot again if it's offline
+  start oreskis.py    # Run the bot again if it's offline
   list                    # Get a full list of all available services
-  stop oreskis_bot.py     # Stop the bot
-  reboot oreskis_bot.py   # Reboot the bot
+  stop oreskis.py     # Stop the bot
+  reboot oreskis.py   # Reboot the bot
 ```
 
 ### Docker
@@ -68,4 +68,4 @@ docker-compose <command>
 ```
 
 ### Repl.it
-You can run this on [Repl.it](https://repl.it/)! Make sure to setup **config.json** in the way stated above.
+You can run this on [Repl.it](https://repl.it/)! Make sure to setup **oreskis.py** in the way stated above.
