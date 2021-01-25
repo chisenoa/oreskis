@@ -249,7 +249,7 @@ async def on_member_join(member):
     else:
         server_name = str(member.guild.name)
         server_id = str(member.guild.id)
-        embed = discord.Embed(description = "Sunucumuza hoşgeldin {}\n**o.yardım** komutunu kullanarak Oreskis'in kullanımını öğrenebilirsin!\nUmarım sunucumuzda keyifli vakit geçirirsin :city_sunset:\n**❯ Bağlantılar**\n[Discord](https://discord.gg/kQ8CE5GRNg) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)".format(member.mention), color = 0xF6E423)
+        embed = discord.Embed(description = "Sunucumuza hoşgeldin {}\n\n**o.yardım** komutunu kullanarak Oreskis'in kullanımını öğrenebilirsin!\nUmarım sunucumuzda keyifli vakit geçirirsin :city_sunset:\n\n**❯ Bağlantılar**\n[Discord](https://discord.gg/kQ8CE5GRNg) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)".format(member.mention), color = 0xF6E423)
         embed.set_author(name = member.guild.name, icon_url = member.guild.icon_url_as(format = None, static_format = "png", size = 1024))
         await member.send(embed = embed)
 
