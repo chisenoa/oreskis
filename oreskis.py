@@ -339,6 +339,7 @@ async def on_message(message):
 **• Komutlar**
 [o.alevlogo](https://discord.gg/kQ8CE5GRNg) → Alevli logo oluşturur
 [o.sadelogo](https://discord.gg/kQ8CE5GRNg) → Sade ama şık logo oluşturur
+[o.habbologo](https://discord.gg/kQ8CE5GRNg) → Habbo fontu ile logo oluşturur
 
 **❯ Bağlantılar**
 [Discord](https://discord.gg/kQ8CE5GRNg) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
@@ -993,6 +994,24 @@ async def on_message(message):
                 embed.set_image(url = clear)
                 await message.channel.send(embed = embed)
 
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.habbologo":
+            if len(splitted_text) == 1:
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.habbologo <yazı>`", color = 0xBE1931)
+                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                await message.channel.send(embed = embed)
+            else:
+                text = message.content
+                all_text = text.split()
+                all_text.pop(0)
+                clear_text = listToString(all_text)
+                setted_text = charsetSetter(clear_text)
+                clear_url = setted_text.replace(" ", "+")
+                clear = "https://habbofont.net/font/habbo_new_big/{}.gif".format(clear_url)
+                embed = discord.Embed(color = 0x3dc4ac)
+                embed.set_image(url = clear)
+                await message.channel.send(embed = embed)
 #############################################################################################################################################
 
         elif splitted_text[0] == "o.google":
