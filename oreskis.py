@@ -249,13 +249,13 @@ def charsetSetter(x):
     add_g = add_c2.replace("ğ", "g")
     add_g2 = add_g.replace("Ğ", "G")
     add_i = add_g2.replace("ı", "i")
-    add_i2 = add_g.replace("İ", "I")
+    add_i2 = add_i.replace("İ", "I")
     add_o = add_i2.replace("ö", "o")
-    add_o2 = add_i.replace("Ö", "O")
+    add_o2 = add_o.replace("Ö", "O")
     add_s = add_o2.replace("ş", "s")
-    add_s2 = add_o.replace("Ş", "S")
+    add_s2 = add_s.replace("Ş", "S")
     add_u = add_s2.replace("ü", "u")
-    add_u2 = add_s.replace("Ü", "U")
+    add_u2 = add_u.replace("Ü", "U")
     return add_u2
 
 @client.event
