@@ -5,3 +5,4 @@ art
 bs4
 pyfiglet
 asyncio
+googlesearch-python
