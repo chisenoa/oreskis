@@ -10,6 +10,7 @@ from art import *
 from time import sleep, strftime
 from art import *
 from bs4 import BeautifulSoup
+from googlesearch import search
 
 if os.name == "nt":
     os.system("cls")
@@ -242,6 +243,21 @@ def listToString(x):
     str1 = " "
     return (str1.join(x))
 
+def charsetSetter(x):
+    add_c = x.replace("ç", "c")
+    add_c2 = add_c.replace("Ç", "C")
+    add_g = add_c2.replace("ğ", "g")
+    add_g2 = add_g.replace("Ğ", "G")
+    add_i = add_g2.replace("ı", "i")
+    add_i2 = add_g.replace("İ", "I")
+    add_o = add_i2.replace("ö", "o")
+    add_o2 = add_i.replace("Ö", "O")
+    add_s = add_o2.replace("ş", "s")
+    add_s2 = add_o.replace("Ş", "S")
+    add_u = add_s2.replace("ü", "u")
+    add_u2 = add_s.replace("Ü", "U")
+    return add_u2
+
 @client.event
 async def on_ready():
     print("{} Online!".format(client.user.name))
@@ -268,6 +284,7 @@ async def on_message(message):
 **• Komutlar**
 [o.modkomutlar](https://discord.gg/kQ8CE5GRNg) → Moderatör Komutları
 [o.eğlencekomutlar](https://discord.gg/kQ8CE5GRNg) → Eğlence Komutları
+[o.logokomutlar](https://discord.gg/kQ8CE5GRNg) → Logo Oluşturma Komutları
 [o.genelkomutlar](https://discord.gg/kQ8CE5GRNg) → Genel Komutlar
 
 **❯ Bağlantılar**
@@ -316,6 +333,21 @@ async def on_message(message):
 
 #############################################################################################################################################
 
+        elif text == "o.logokomutlar":
+            embed = discord.Embed(description = """**•** Öneri ve Bug'ları sunucumuzdaki yetkililere bildirebilirsin ve çözümlenmesi için katkıda bulunabilirsin!
+
+**• Komutlar**
+[o.alevlogo](https://discord.gg/kQ8CE5GRNg) → Alevli logo oluşturur
+[o.sadelogo](https://discord.gg/kQ8CE5GRNg) → Sade ama şık logo oluşturur
+
+**❯ Bağlantılar**
+[Discord](https://discord.gg/kQ8CE5GRNg) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
+            embed.set_author(name = "Oreskis • Genel Komutlar Listesi", icon_url = "https://i.hizliresim.com/kc543M.png")
+            embed.set_thumbnail(url = "https://i.hizliresim.com/kc543M.png")
+            await message.channel.send(embed = embed)
+
+#############################################################################################################################################
+
         elif text == "o.genelkomutlar":
             embed = discord.Embed(description = """**•** Öneri ve Bug'ları sunucumuzdaki yetkililere bildirebilirsin ve çözümlenmesi için katkıda bulunabilirsin!
 
@@ -323,6 +355,7 @@ async def on_message(message):
 [o.korona](https://discord.gg/kQ8CE5GRNg) → Günlük koronavirüs tablosunu gösterir
 [o.döviz](https://discord.gg/kQ8CE5GRNg) → Anlık döviz bilgilerini gösterir
 [o.hava](https://discord.gg/kQ8CE5GRNg) → Girdiğiniz şehirin hava durumunu tahminini gösterir
+[o.google](https://discord.gg/kQ8CE5GRNg) → Bot sizin için ufak bir google araması yapar
 [o.avatar](https://discord.gg/kQ8CE5GRNg) → Etiketlediğiniz kişinin avatarını gösterir
 [o.admin](https://discord.gg/kQ8CE5GRNg) → Botun admini hakkında bilgi verir
 [o.ekip](https://discord.gg/kQ8CE5GRNg) → Ekibimiz hakkında bilgi verir
@@ -516,7 +549,7 @@ async def on_message(message):
 #############################################################################################################################################
 
         elif text == "o.muzum":
-            if message.author.discriminator == "4518":
+            if message.author.id == "794535514895941632":
                 embed = discord.Embed(description = "{}'nın muzu çok uzun olduğu için ölçemiyorum".format(message.author.mention), color = 0xFFDC5D)
                 embed.set_author(name = "MUZ ÖLÇER", icon_url = "https://i.hizliresim.com/wWYzYS.png")
                 await message.channel.send(embed = embed)
@@ -921,6 +954,65 @@ async def on_message(message):
                 embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.hava <şehir>`", color = 0xBE1931)
                 embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                 await message.channel.send(embed = embed)
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.alevlogo":
+            if len(splitted_text) == 1:
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.alevlogo <yazı>`", color = 0xBE1931)
+                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                await message.channel.send(embed = embed)
+            else:
+                text = message.content
+                all_text = text.split()
+                all_text.pop(0)
+                flame_text = listToString(all_text)
+                setted_text = charsetSetter(flame_text)
+                flame_url = setted_text.replace(" ", "+")
+                flame = "https://flamingtext.com/net-fu/proxy_form.cgi?imageoutput=true&script=flame-logo&text={}".format(flame_url)
+                embed = discord.Embed(color = 0xff9400)
+                embed.set_image(url = flame)
+                await message.channel.send(embed = embed)
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.sadelogo":
+            if len(splitted_text) == 1:
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.sadelogo <yazı>`", color = 0xBE1931)
+                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                await message.channel.send(embed = embed)
+            else:
+                text = message.content
+                all_text = text.split()
+                all_text.pop(0)
+                clear_text = listToString(all_text)
+                setted_text = charsetSetter(clear_text)
+                clear_url = setted_text.replace(" ", "+")
+                clear = "https://dynamic.brandcrowd.com/asset/logo/7f0254b2-49ae-4819-9107-47728665a65f/logo?v=4&text={}".format(clear_url)
+                embed = discord.Embed(color = 0x3dc4ac)
+                embed.set_image(url = clear)
+                await message.channel.send(embed = embed)
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.google":
+            if len(splitted_text) == 1:
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.google <yazı>`", color = 0xBE1931)
+                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                await message.channel.send(embed = embed)
+            else:
+                text = message.content
+                all_text = text.split()
+                all_text.pop(0)
+                search_content = listToString(all_text)
+                result = search(search_content, lang = "tr", num_results = 1)
+                if len(result) == 0:
+                    embed = discord.Embed(description = "Sonuç bulunamadı", color = 0xBE1931)
+                    embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                    await message.channel.send(embed = embed)
+                else:
+                    site = result[0]
+                    await message.channel.send(site)
 
 #############################################################################################################################################
 
