@@ -243,17 +243,6 @@ def listToString(x):
     return (str1.join(x))
 
 @client.event
-async def on_member_join(member):
-    if member.bot:
-        return
-    else:
-        server_name = str(member.guild.name)
-        server_id = str(member.guild.id)
-        embed = discord.Embed(description = "Sunucumuza hoşgeldin {}\n\n**o.yardım** komutunu kullanarak Oreskis'in kullanımını öğrenebilirsin!\nUmarım sunucumuzda keyifli vakit geçirirsin :city_sunset:\n\n**❯ Bağlantılar**\n[Discord](https://discord.gg/kQ8CE5GRNg) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)".format(member.mention), color = 0xF6E423)
-        embed.set_author(name = member.guild.name, icon_url = member.guild.icon_url_as(format = None, static_format = "png", size = 1024))
-        await member.send(embed = embed)
-
-@client.event
 async def on_ready():
     print("{} Online!".format(client.user.name))
     activity = discord.Game(name = "o.yardım")
@@ -523,18 +512,6 @@ async def on_message(message):
             embed_chisenoa.set_footer(text = "Yetki: Kurucu Admin")
             embed_chisenoa.set_author(name = name_chisenoa, icon_url = avatar_chisenoa)
             await message.channel.send(embed = embed_chisenoa)
-
-#############################################################################################################################################
-
-        elif text == "sa":
-            embed = discord.Embed(description = "Aleyküm Selam! {}".format(message.author.mention), color = 0x202225)
-            await message.channel.send(embed = embed)
-
-#############################################################################################################################################
-
-        elif text == "günaydın":
-            embed = discord.Embed(description = "Sana Da Günaydın! {}".format(message.author.mention), color = 0x202225)
-            await message.channel.send(embed = embed)
 
 #############################################################################################################################################
 
