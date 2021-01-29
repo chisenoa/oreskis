@@ -338,12 +338,18 @@ async def on_message(message):
 
 **• Komutlar**
 [o.alevlogo](https://discord.gg/kQ8CE5GRNg) → Alevli logo oluşturur
+[o.buzlogo](https://discord.gg/kQ8CE5GRNg) → Buzlu logo oluşturur
 [o.sadelogo1](https://discord.gg/kQ8CE5GRNg) → Sade ve şık yeşil logo oluşturur
 [o.sadelogo2](https://discord.gg/kQ8CE5GRNg) → Sade ve şık sarı logo oluşturur
 [o.starwarslogo](https://discord.gg/kQ8CE5GRNg) → Star Wars fontu ile logo oluşturur
 [o.harrypotterlogo](https://discord.gg/kQ8CE5GRNg) → Harry Potter fontu ile logo oluşturur
 [o.twitterlogo](https://discord.gg/kQ8CE5GRNg) → Twitter fontu ile logo oluşturur
 [o.habbologo](https://discord.gg/kQ8CE5GRNg) → Habbo fontu ile logo oluşturur
+[o.matrixlogo](https://discord.gg/kQ8CE5GRNg) → Matrix logo oluşturur
+[o.bulutlogo](https://discord.gg/kQ8CE5GRNg) → Bulut ile logo oluşturur
+[o.smurfslogo](https://discord.gg/kQ8CE5GRNg) → Smurfs fontu ile logo oluşturur
+[o.gümüşlogo](https://discord.gg/kQ8CE5GRNg) → Gümüş logo oluşturur
+[o.retrologo](https://discord.gg/kQ8CE5GRNg) → Retro logo oluşturur
 
 **❯ Bağlantılar**
 [Discord](https://discord.gg/kQ8CE5GRNg) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
@@ -1090,6 +1096,120 @@ async def on_message(message):
                 setted_text = charsetSetter(clear_text)
                 clear_url = setted_text.replace(" ", "+")
                 clear = "https://flamingtext.com/net-fu/proxy_form.cgi?script=birdy-logo&text={}&_loc=generate&imageoutput=true".format(clear_url)
+                embed = discord.Embed(color = 0x3dc4ac)
+                embed.set_image(url = clear)
+                await message.channel.send(embed = embed)
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.matrixlogo":
+            if len(splitted_text) == 1:
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.matrixlogo <yazı>`", color = 0xBE1931)
+                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                await message.channel.send(embed = embed)
+            else:
+                text = message.content
+                all_text = text.split()
+                all_text.pop(0)
+                clear_text = listToString(all_text)
+                setted_text = charsetSetter(clear_text)
+                clear_url = setted_text.replace(" ", "+")
+                clear = "https://flamingtext.com/net-fu/proxy_form.cgi?script=matrix-logo&text={}&_loc=generate&imageoutput=true".format(clear_url)
+                embed = discord.Embed(color = 0x3dc4ac)
+                embed.set_image(url = clear)
+                await message.channel.send(embed = embed)
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.bulutlogo":
+            if len(splitted_text) == 1:
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.cloudlogo <yazı>`", color = 0xBE1931)
+                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                await message.channel.send(embed = embed)
+            else:
+                text = message.content
+                all_text = text.split()
+                all_text.pop(0)
+                clear_text = listToString(all_text)
+                setted_text = charsetSetter(clear_text)
+                clear_url = setted_text.replace(" ", "+")
+                clear = "https://flamingtext.com/net-fu/proxy_form.cgi?script=cloud-logo&text={}&_loc=generate&imageoutput=true".format(clear_url)
+                embed = discord.Embed(color = 0x3dc4ac)
+                embed.set_image(url = clear)
+                await message.channel.send(embed = embed)
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.smurfslogo":
+            if len(splitted_text) == 1:
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.smurfslogo <yazı>`", color = 0xBE1931)
+                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                await message.channel.send(embed = embed)
+            else:
+                text = message.content
+                all_text = text.split()
+                all_text.pop(0)
+                clear_text = listToString(all_text)
+                setted_text = charsetSetter(clear_text)
+                clear_url = setted_text.replace(" ", "+")
+                clear = "https://flamingtext.com/net-fu/proxy_form.cgi?script=smurfs-logo&text={}&_loc=generate&imageoutput=true".format(clear_url)
+                embed = discord.Embed(color = 0x3dc4ac)
+                embed.set_image(url = clear)
+                await message.channel.send(embed = embed)
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.gümüşlogo":
+            if len(splitted_text) == 1:
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.silverlogo <yazı>`", color = 0xBE1931)
+                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                await message.channel.send(embed = embed)
+            else:
+                text = message.content
+                all_text = text.split()
+                all_text.pop(0)
+                clear_text = listToString(all_text)
+                setted_text = charsetSetter(clear_text)
+                clear_url = setted_text.replace(" ", "+")
+                clear = "https://flamingtext.com/net-fu/proxy_form.cgi?script=silver-logo&text={}&_loc=generate&imageoutput=true".format(clear_url)
+                embed = discord.Embed(color = 0x3dc4ac)
+                embed.set_image(url = clear)
+                await message.channel.send(embed = embed)
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.buzlogo":
+            if len(splitted_text) == 1:
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.buzlogo <yazı>`", color = 0xBE1931)
+                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                await message.channel.send(embed = embed)
+            else:
+                text = message.content
+                all_text = text.split()
+                all_text.pop(0)
+                clear_text = listToString(all_text)
+                setted_text = charsetSetter(clear_text)
+                clear_url = setted_text.replace(" ", "+")
+                clear = "https://habbofont.net/font/arctic/{}.gif".format(clear_url)
+                embed = discord.Embed(color = 0x3dc4ac)
+                embed.set_image(url = clear)
+                await message.channel.send(embed = embed)
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.retrologo":
+            if len(splitted_text) == 1:
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.retrologo <yazı>`", color = 0xBE1931)
+                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                await message.channel.send(embed = embed)
+            else:
+                text = message.content
+                all_text = text.split()
+                all_text.pop(0)
+                clear_text = listToString(all_text)
+                setted_text = charsetSetter(clear_text)
+                clear_url = setted_text.replace(" ", "+")
+                clear = "https://habbofont.net/font/gaming/{}.gif".format(clear_url)
                 embed = discord.Embed(color = 0x3dc4ac)
                 embed.set_image(url = clear)
                 await message.channel.send(embed = embed)
