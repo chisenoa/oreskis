@@ -554,7 +554,8 @@ async def on_message(message):
 #############################################################################################################################################
 
         elif text == "o.muzum":
-            if message.author.id == "794535514895941632":
+            author_id = str(message.author.id)
+            if author_id == "794535514895941632":
                 embed = discord.Embed(description = "{}'nın muzu çok uzun olduğu için ölçemiyorum".format(message.author.mention), color = 0xFFDC5D)
                 embed.set_author(name = "MUZ ÖLÇER", icon_url = "https://i.hizliresim.com/wWYzYS.png")
                 await message.channel.send(embed = embed)
