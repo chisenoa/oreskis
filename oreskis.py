@@ -282,13 +282,13 @@ async def on_message(message):
             embed = discord.Embed(description = """**•** Öneri ve Bug'ları sunucumuzdaki yetkililere bildirebilirsin ve çözümlenmesi için katkıda bulunabilirsin!
 
 **• Komutlar**
-[o.modkomutlar](https://discord.gg/kQ8CE5GRNg) → Moderatör Komutları
-[o.eğlencekomutlar](https://discord.gg/kQ8CE5GRNg) → Eğlence Komutları
-[o.logokomutlar](https://discord.gg/kQ8CE5GRNg) → Logo Oluşturma Komutları
-[o.genelkomutlar](https://discord.gg/kQ8CE5GRNg) → Genel Komutlar
+[o.modkomutlar](https://discord.gg/9PNBMnVTZv) → Moderatör Komutları
+[o.eğlencekomutlar](https://discord.gg/9PNBMnVTZv) → Eğlence Komutları
+[o.logokomutlar](https://discord.gg/9PNBMnVTZv) → Logo Oluşturma Komutları
+[o.genelkomutlar](https://discord.gg/9PNBMnVTZv) → Genel Komutlar
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/kQ8CE5GRNg) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
             embed.set_author(name = "Oreskis • Komut Listesi", icon_url = "https://i.hizliresim.com/kc543M.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/kc543M.png")
             await message.channel.send(embed = embed)
@@ -299,13 +299,13 @@ async def on_message(message):
             embed = discord.Embed(description = """**•** Öneri ve Bug'ları sunucumuzdaki yetkililere bildirebilirsin ve çözümlenmesi için katkıda bulunabilirsin!
 
 **• Komutlar**
-[o.ban](https://discord.gg/kQ8CE5GRNg) → Sunucuda bulunan kullanıcıyı yasaklarsınız
-[o.unban](https://discord.gg/kQ8CE5GRNg) → Sunucudan yasaklanan kullanıcının yasağını kaldırırsınız
-[o.kick](https://discord.gg/kQ8CE5GRNg) → Sunucuda bulunan kullanıcıyı atarsınız
-[o.temizle](https://discord.gg/kQ8CE5GRNg) → Sunucuda bulunan bir kanalın yazışmalarını silersiniz
+[o.ban](https://discord.gg/9PNBMnVTZv) → Sunucuda bulunan kullanıcıyı yasaklarsınız
+[o.unban](https://discord.gg/9PNBMnVTZv) → Sunucudan yasaklanan kullanıcının yasağını kaldırırsınız
+[o.kick](https://discord.gg/9PNBMnVTZv) → Sunucuda bulunan kullanıcıyı atarsınız
+[o.temizle](https://discord.gg/9PNBMnVTZv) → Sunucuda bulunan bir kanalın yazışmalarını silersiniz
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/kQ8CE5GRNg) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
             embed.set_author(name = "Oreskis • Moderatör Komutları Listesi", icon_url = "https://i.hizliresim.com/kc543M.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/kc543M.png")
             await message.channel.send(embed = embed)
@@ -316,17 +316,17 @@ async def on_message(message):
             embed = discord.Embed(description = """**•** Öneri ve Bug'ları sunucumuzdaki yetkililere bildirebilirsin ve çözümlenmesi için katkıda bulunabilirsin!
 
 **• Komutlar**
-[o.taşkağıtmakas](https://discord.gg/kQ8CE5GRNg) → Bot ile taş kağıt makas oynarsınız
-[o.yazıtura](https://discord.gg/kQ8CE5GRNg) → Bot sizin için havaya para atar
-[o.sigara](https://discord.gg/kQ8CE5GRNg) → Sigara içersiniz
-[o.espri](https://discord.gg/kQ8CE5GRNg) → Soğuk espri :(
-[o.muzum](https://discord.gg/kQ8CE5GRNg) → Muzunuzun boyunu ölçer
-[o.efkar](https://discord.gg/kQ8CE5GRNg) → Efkar yüzdenizi ölçer
-[o.ascii](https://discord.gg/kQ8CE5GRNg) → Belirlediğiniz yazıyı ASCII formatında yazar
-[o.aşkölçer](https://discord.gg/kQ8CE5GRNg) → Arkadaşlarınızla aranızdaki aşkı ölçün
+[o.taşkağıtmakas](https://discord.gg/9PNBMnVTZv) → Bot ile taş kağıt makas oynarsınız
+[o.yazıtura](https://discord.gg/9PNBMnVTZv) → Bot sizin için havaya para atar
+[o.sigara](https://discord.gg/9PNBMnVTZv) → Sigara içersiniz
+[o.espri](https://discord.gg/9PNBMnVTZv) → Soğuk espri :(
+[o.muzum](https://discord.gg/9PNBMnVTZv) → Muzunuzun boyunu ölçer
+[o.efkar](https://discord.gg/9PNBMnVTZv) → Efkar yüzdenizi ölçer
+[o.ascii](https://discord.gg/9PNBMnVTZv) → Belirlediğiniz yazıyı ASCII formatında yazar
+[o.aşkölçer](https://discord.gg/9PNBMnVTZv) → Arkadaşlarınızla aranızdaki aşkı ölçün
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/kQ8CE5GRNg) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
             embed.set_author(name = "Oreskis • Eğlence Komutları Listesi", icon_url = "https://i.hizliresim.com/kc543M.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/kc543M.png")
             await message.channel.send(embed = embed)
@@ -337,22 +337,22 @@ async def on_message(message):
             embed = discord.Embed(description = """**•** Öneri ve Bug'ları sunucumuzdaki yetkililere bildirebilirsin ve çözümlenmesi için katkıda bulunabilirsin!
 
 **• Komutlar**
-[o.alevlogo](https://discord.gg/kQ8CE5GRNg) → Alevli logo oluşturur
-[o.buzlogo](https://discord.gg/kQ8CE5GRNg) → Buzlu logo oluşturur
-[o.sadelogo1](https://discord.gg/kQ8CE5GRNg) → Sade ve şık yeşil logo oluşturur
-[o.sadelogo2](https://discord.gg/kQ8CE5GRNg) → Sade ve şık sarı logo oluşturur
-[o.starwarslogo](https://discord.gg/kQ8CE5GRNg) → Star Wars fontu ile logo oluşturur
-[o.harrypotterlogo](https://discord.gg/kQ8CE5GRNg) → Harry Potter fontu ile logo oluşturur
-[o.twitterlogo](https://discord.gg/kQ8CE5GRNg) → Twitter fontu ile logo oluşturur
-[o.habbologo](https://discord.gg/kQ8CE5GRNg) → Habbo fontu ile logo oluşturur
-[o.matrixlogo](https://discord.gg/kQ8CE5GRNg) → Matrix logo oluşturur
-[o.bulutlogo](https://discord.gg/kQ8CE5GRNg) → Bulut ile logo oluşturur
-[o.smurfslogo](https://discord.gg/kQ8CE5GRNg) → Smurfs fontu ile logo oluşturur
-[o.gümüşlogo](https://discord.gg/kQ8CE5GRNg) → Gümüş logo oluşturur
-[o.retrologo](https://discord.gg/kQ8CE5GRNg) → Retro logo oluşturur
+[o.alevlogo](https://discord.gg/9PNBMnVTZv) → Alevli logo oluşturur
+[o.buzlogo](https://discord.gg/9PNBMnVTZv) → Buzlu logo oluşturur
+[o.sadelogo1](https://discord.gg/9PNBMnVTZv) → Sade ve şık yeşil logo oluşturur
+[o.sadelogo2](https://discord.gg/9PNBMnVTZv) → Sade ve şık sarı logo oluşturur
+[o.starwarslogo](https://discord.gg/9PNBMnVTZv) → Star Wars fontu ile logo oluşturur
+[o.harrypotterlogo](https://discord.gg/9PNBMnVTZv) → Harry Potter fontu ile logo oluşturur
+[o.twitterlogo](https://discord.gg/9PNBMnVTZv) → Twitter fontu ile logo oluşturur
+[o.habbologo](https://discord.gg/9PNBMnVTZv) → Habbo fontu ile logo oluşturur
+[o.matrixlogo](https://discord.gg/9PNBMnVTZv) → Matrix logo oluşturur
+[o.bulutlogo](https://discord.gg/9PNBMnVTZv) → Bulut ile logo oluşturur
+[o.smurfslogo](https://discord.gg/9PNBMnVTZv) → Smurfs fontu ile logo oluşturur
+[o.gümüşlogo](https://discord.gg/9PNBMnVTZv) → Gümüş logo oluşturur
+[o.retrologo](https://discord.gg/9PNBMnVTZv) → Retro logo oluşturur
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/kQ8CE5GRNg) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
             embed.set_author(name = "Oreskis • Genel Komutlar Listesi", icon_url = "https://i.hizliresim.com/kc543M.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/kc543M.png")
             await message.channel.send(embed = embed)
@@ -363,18 +363,18 @@ async def on_message(message):
             embed = discord.Embed(description = """**•** Öneri ve Bug'ları sunucumuzdaki yetkililere bildirebilirsin ve çözümlenmesi için katkıda bulunabilirsin!
 
 **• Komutlar**
-[o.korona](https://discord.gg/kQ8CE5GRNg) → Günlük koronavirüs tablosunu gösterir
-[o.döviz](https://discord.gg/kQ8CE5GRNg) → Anlık döviz bilgilerini gösterir
-[o.hava](https://discord.gg/kQ8CE5GRNg) → Girdiğiniz şehirin hava durumunu tahminini gösterir
-[o.google](https://discord.gg/kQ8CE5GRNg) → Bot sizin için ufak bir google araması yapar
-[o.avatar](https://discord.gg/kQ8CE5GRNg) → Etiketlediğiniz kişinin avatarını gösterir
-[o.admin](https://discord.gg/kQ8CE5GRNg) → Botun admini hakkında bilgi verir
-[o.ekip](https://discord.gg/kQ8CE5GRNg) → Ekibimiz hakkında bilgi verir
-[o.botbilgi](https://discord.gg/kQ8CE5GRNg) → Bot hakkında bilgi verir
-[o.yardım](https://discord.gg/kQ8CE5GRNg) → Yardım menüsünü açar
+[o.korona](https://discord.gg/9PNBMnVTZv) → Günlük koronavirüs tablosunu gösterir
+[o.döviz](https://discord.gg/9PNBMnVTZv) → Anlık döviz bilgilerini gösterir
+[o.hava](https://discord.gg/9PNBMnVTZv) → Girdiğiniz şehirin hava durumunu tahminini gösterir
+[o.google](https://discord.gg/9PNBMnVTZv) → Bot sizin için ufak bir google araması yapar
+[o.avatar](https://discord.gg/9PNBMnVTZv) → Etiketlediğiniz kişinin avatarını gösterir
+[o.admin](https://discord.gg/9PNBMnVTZv) → Botun admini hakkında bilgi verir
+[o.ekip](https://discord.gg/9PNBMnVTZv) → Ekibimiz hakkında bilgi verir
+[o.botbilgi](https://discord.gg/9PNBMnVTZv) → Bot hakkında bilgi verir
+[o.yardım](https://discord.gg/9PNBMnVTZv) → Yardım menüsünü açar
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/kQ8CE5GRNg) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
             embed.set_author(name = "Oreskis • Genel Komutlar Listesi", icon_url = "https://i.hizliresim.com/kc543M.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/kc543M.png")
             await message.channel.send(embed = embed)
@@ -552,7 +552,7 @@ async def on_message(message):
         elif text == "o.admin":
             avatar_chisenoa = "https://cdn.discordapp.com/avatars/794535514895941632/5d18429a4fe798f267993f6c7f389573.png?size=2048"
             name_chisenoa = 'Alperen "CHISENOA" Güner'
-            embed_chisenoa = discord.Embed(description = "**•** [GitHub](https://www.github.com/chisenoa)\n**•** [Twitter](https://www.twitter.com/chisenoa)\n**•** [Discord](https://discord.gg/kQ8CE5GRNg)", color = 0x7DA8B9)
+            embed_chisenoa = discord.Embed(description = "**•** [GitHub](https://www.github.com/chisenoa)\n**•** [Twitter](https://www.twitter.com/chisenoa)\n**•** [Discord](https://discord.gg/9PNBMnVTZv)", color = 0x7DA8B9)
             embed_chisenoa.set_footer(text = "Yetki: Kurucu Admin")
             embed_chisenoa.set_author(name = name_chisenoa, icon_url = avatar_chisenoa)
             await message.channel.send(embed = embed_chisenoa)
@@ -626,17 +626,17 @@ async def on_message(message):
             time = time.strftime("%H:%M:%S")
             embed = discord.Embed(description = """**•** Öneri ve Bug'ları sunucumuzdaki yetkililere bildirebilirsin ve çözümlenmesi için katkıda bulunabilirsin!
 
-[Geliştirici](https://discord.gg/kQ8CE5GRNg) → {}
-[Kütüphane](https://discord.gg/kQ8CE5GRNg) → Discord.py
-[Kaynak Kod](https://discord.gg/kQ8CE5GRNg) → [GitHub](https://www.github.com/chisenoa/oreskis)
-[Çalıştığı Sunucu](https://discord.gg/kQ8CE5GRNg) → Heroku
-[Aktif Sunucu Sayısı](https://discord.gg/kQ8CE5GRNg) → {}
-[Aktif Kullanıcı Sayısı](https://discord.gg/kQ8CE5GRNg) → {}
-[Ping](https://discord.gg/kQ8CE5GRNg) → {}ms
-[Zaman](https://discord.gg/kQ8CE5GRNg) → {}
+[Geliştirici](https://discord.gg/9PNBMnVTZv) → {}
+[Kütüphane](https://discord.gg/9PNBMnVTZv) → Discord.py
+[Kaynak Kod](https://discord.gg/9PNBMnVTZv) → [GitHub](https://www.github.com/chisenoa/oreskis)
+[Çalıştığı Sunucu](https://discord.gg/9PNBMnVTZv) → Heroku
+[Aktif Sunucu Sayısı](https://discord.gg/9PNBMnVTZv) → {}
+[Aktif Kullanıcı Sayısı](https://discord.gg/9PNBMnVTZv) → {}
+[Ping](https://discord.gg/9PNBMnVTZv) → {}ms
+[Zaman](https://discord.gg/9PNBMnVTZv) → {}
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/kQ8CE5GRNg) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""".format(developer, server_count, member_count, latency, time), color = 0xF6E423)
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""".format(developer, server_count, member_count, latency, time), color = 0xF6E423)
             embed.set_author(name = "ORESKIS • Bilgi Paneli", icon_url = "https://i.hizliresim.com/FETKtc.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/FETKtc.png")
             await message.channel.send(embed = embed)
