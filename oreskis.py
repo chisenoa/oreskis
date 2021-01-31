@@ -4,13 +4,13 @@ import os
 import random
 import datetime
 import requests
-import shutil
-import pyfiglet
 from art import *
 from time import sleep, strftime
-from art import *
 from bs4 import BeautifulSoup
 from googlesearch import search
+import io
+import PIL
+from PIL import Image, ImageFont, ImageDraw
 
 if os.name == "nt":
     os.system("cls")
@@ -64,12 +64,12 @@ jokes = [
 "+ Cin Ali mavi mürekkebe düşerse nolur?\n- Blue Jean",
 "Ben kamyonu sürüyordum, leonardo da vinci",
 "Geçen gün arkadaslarla fırında patates yiyorduk, fırın sıcak geldi bahçeye çıktık",
-"+ Hiç kimsenin gitmek istemediği köy hangisidir?- Tahtalıköy",
-"+ Kutuplara giden bir Çinlinin başına gelecek en büyük tehlike nedir?- Donmak",
+"+ Hiç kimsenin gitmek istemediği köy hangisidir?\n- Tahtalıköy",
+"+ Kutuplara giden bir Çinlinin başına gelecek en büyük tehlike nedir?\n- Donmak",
 "+ Su içilemeyen tas nedir?\n- Kafatası",
-"+ 5 timsah, 8 gergedan, 3 boğa birlikte ne yapar?- Gürültü",
-"+ İnsanı en fazla hangi renk göz güldürür?- Karagöz",
-"İlahi Azrail... Sen adamı öldürürsün!",
+"+ 5 timsah, 8 gergedan, 3 boğa birlikte ne yapar?\n- Gürültü",
+"+ İnsanı en fazla hangi renk göz güldürür?\n- Karagöz",
+"İlahi Azrail... Sen adamın canını alırsın!",
 "Son gülen en geç anlayandır",
 "İnsanların seni ezmesine izin verme. Ehliyet al, sen onları ez...",
 "Ben mafya babasıyım çünkü oğlumun adı Mafya",
@@ -132,18 +132,6 @@ jokes = [
 "Kediler niçin havaalanına gidemez? Çünkü pist var",
 "+ Örümcek adam ağ atamıyormuş neden?\n- Çünkü ağ bağlantısı kopmuş",
 "+ Hiç bozuk paran var mı?\n- Yok çünkü hepsini tamir ettirdim"
-]
-
-welcome = [
-"{} az önce kayarak sunucuya girdi",
-"Vahşi bir {} belirdi",
-"{} geldi, herkes merhaba desin!",
-"Merhaba, {}. Umarız pizza getirmişsindir",
-"{} burada",
-"Hoş geldin {}. Merhaba desene!",
-"Yaşasın! Nihayet geldin, {}",
-"{} çıkageldi!",
-"Aramıza katıldığın için çok mutluyuz {}"
 ]
 
 cities = [
@@ -259,6 +247,162 @@ def charsetSetter(x):
     return add_u2
 
 @client.event
+async def on_member_join(member):
+    if member.bot:
+        return
+    else:
+        server_id = str(member.guild.id)
+        if server_id == "798761868700287027":
+            role = discord.utils.get(member.guild.roles, name = "USB Kablosu")
+            await member.add_roles(role)
+            channel = client.get_channel(799618911019597834)
+            name = member.name
+            discrim = member.discriminator
+            avatar = str(member.avatar_url_as(format = None, static_format = "png"))
+            base = Image.open("assets/images/pillow/base_join.png").convert("RGBA")
+            mask_url = Image.open("assets/images/pillow/mask.png").convert("RGBA")
+            avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+            avatar_url.thumbnail((230, 230))
+            font = ImageFont.truetype("assets/fonts/Ubuntu-Medium.ttf", 48)
+            draw = ImageDraw.Draw(base)
+            base.paste(avatar_url, (285, 80), mask_url)
+            draw.text((400, 380), "{}#{}".format(name, discrim), font = font, anchor = "ms", align = "center", fill = (238, 238, 238))
+            with io.BytesIO() as image_binary:
+                base.save(image_binary, "PNG")
+                image_binary.seek(0)
+                file = discord.File(fp = image_binary, filename = "join_{}.png".format(member.id))
+                await channel.send(file = file)
+                base.close()
+                mask_url.close()
+                avatar_url.close()
+
+        elif server_id == "373465895521222657":
+            role = discord.utils.get(member.guild.roles, name = "Şarj Aleti")
+            await member.add_roles(role)
+            channel = client.get_channel(780804061191471124)
+            name = member.name
+            discrim = member.discriminator
+            avatar = str(member.avatar_url_as(format = None, static_format = "png"))
+            base = Image.open("assets/images/pillow/base_join.png").convert("RGBA")
+            mask_url = Image.open("assets/images/pillow/mask.png").convert("RGBA")
+            avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+            avatar_url.thumbnail((230, 230))
+            font = ImageFont.truetype("assets/fonts/Ubuntu-Medium.ttf", 48)
+            draw = ImageDraw.Draw(base)
+            base.paste(avatar_url, (285, 80), mask_url)
+            draw.text((400, 380), "{}#{}".format(name, discrim), font = font, anchor = "ms", align = "center", fill = (238, 238, 238))
+            with io.BytesIO() as image_binary:
+                base.save(image_binary, "PNG")
+                image_binary.seek(0)
+                file = discord.File(fp = image_binary, filename = "join_{}.png".format(member.id))
+                await channel.send(file = file)
+                base.close()
+                mask_url.close()
+                avatar_url.close()
+
+        elif server_id == "796697431701323846":
+            role = discord.utils.get(member.guild.roles, name = "Üye")
+            await member.add_roles(role)
+            channel = client.get_channel(803567619243245568)
+            name = member.name
+            discrim = member.discriminator
+            avatar = str(member.avatar_url_as(format = None, static_format = "png"))
+            base = Image.open("assets/images/pillow/base_join.png").convert("RGBA")
+            mask_url = Image.open("assets/images/pillow/mask.png").convert("RGBA")
+            avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+            avatar_url.thumbnail((230, 230))
+            font = ImageFont.truetype("assets/fonts/Ubuntu-Medium.ttf", 48)
+            draw = ImageDraw.Draw(base)
+            base.paste(avatar_url, (285, 80), mask_url)
+            draw.text((400, 380), "{}#{}".format(name, discrim), font = font, anchor = "ms", align = "center", fill = (238, 238, 238))
+            with io.BytesIO() as image_binary:
+                base.save(image_binary, "PNG")
+                image_binary.seek(0)
+                file = discord.File(fp = image_binary, filename = "join_{}.png".format(member.id))
+                await channel.send(file = file)
+                base.close()
+                mask_url.close()
+                avatar_url.close()
+
+        else:
+            pass
+
+@client.event
+async def on_member_remove(member):
+    if member.bot:
+        return
+    else:
+        server_id = str(member.guild.id)
+        if server_id == "798761868700287027":
+            name = member.name
+            discrim = member.discriminator
+            channel = client.get_channel(799618911019597834)
+            avatar = str(member.avatar_url_as(format = None, static_format = "png"))
+            base = Image.open("assets/images/pillow/base_left.png").convert("RGBA")
+            mask_url = Image.open("assets/images/pillow/mask.png").convert("RGBA")
+            avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+            avatar_url.thumbnail((230, 230))
+            font = ImageFont.truetype("assets/fonts/Ubuntu-Medium.ttf", 48)
+            draw = ImageDraw.Draw(base)
+            base.paste(avatar_url, (285, 80), mask_url)
+            draw.text((400, 400), "{}#{}".format(name, discrim), font = font, anchor = "ms", align = "center", fill = (238, 238, 238))
+            with io.BytesIO() as image_binary:
+                base.save(image_binary, "PNG")
+                image_binary.seek(0)
+                file = discord.File(fp = image_binary, filename = "left_{}.png".format(member.id))
+                await channel.send(file = file)
+                base.close()
+                mask_url.close()
+                avatar_url.close()
+
+        elif server_id == "373465895521222657":
+            name = member.name
+            discrim = member.discriminator
+            channel = client.get_channel(780804061191471124)
+            avatar = str(member.avatar_url_as(format = None, static_format = "png"))
+            base = Image.open("assets/images/pillow/base_left.png").convert("RGBA")
+            mask_url = Image.open("assets/images/pillow/mask.png").convert("RGBA")
+            avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+            avatar_url.thumbnail((230, 230))
+            font = ImageFont.truetype("assets/fonts/Ubuntu-Medium.ttf", 48)
+            draw = ImageDraw.Draw(base)
+            base.paste(avatar_url, (285, 80), mask_url)
+            draw.text((400, 400), "{}#{}".format(name, discrim), font = font, anchor = "ms", align = "center", fill = (238, 238, 238))
+            with io.BytesIO() as image_binary:
+                base.save(image_binary, "PNG")
+                image_binary.seek(0)
+                file = discord.File(fp = image_binary, filename = "left_{}.png".format(member.id))
+                await channel.send(file = file)
+                base.close()
+                mask_url.close()
+                avatar_url.close()
+
+        elif server_id == "796697431701323846":
+            name = member.name
+            discrim = member.discriminator
+            channel = client.get_channel(803567619243245568)
+            avatar = str(member.avatar_url_as(format = None, static_format = "png"))
+            base = Image.open("assets/images/pillow/base_left.png").convert("RGBA")
+            mask_url = Image.open("assets/images/pillow/mask.png").convert("RGBA")
+            avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+            avatar_url.thumbnail((230, 230))
+            font = ImageFont.truetype("assets/fonts/Ubuntu-Medium.ttf", 48)
+            draw = ImageDraw.Draw(base)
+            base.paste(avatar_url, (285, 80), mask_url)
+            draw.text((400, 400), "{}#{}".format(name, discrim), font = font, anchor = "ms", align = "center", fill = (238, 238, 238))
+            with io.BytesIO() as image_binary:
+                base.save(image_binary, "PNG")
+                image_binary.seek(0)
+                file = discord.File(fp = image_binary, filename = "left_{}.png".format(member.id))
+                await channel.send(file = file)
+                base.close()
+                mask_url.close()
+                avatar_url.close()
+
+        else:
+            pass
+
+@client.event
 async def on_ready():
     print("{} Online!".format(client.user.name))
     activity = discord.Game(name = "o.yardım")
@@ -285,6 +429,7 @@ async def on_message(message):
 [o.modkomutlar](https://discord.gg/9PNBMnVTZv) → Moderatör Komutları
 [o.eğlencekomutlar](https://discord.gg/9PNBMnVTZv) → Eğlence Komutları
 [o.logokomutlar](https://discord.gg/9PNBMnVTZv) → Logo Oluşturma Komutları
+[o.avatarkomutlar](https://discord.gg/9PNBMnVTZv) → Avatar Komutları
 [o.genelkomutlar](https://discord.gg/9PNBMnVTZv) → Genel Komutlar
 
 **❯ Bağlantılar**
@@ -359,6 +504,34 @@ async def on_message(message):
 
 #############################################################################################################################################
 
+        elif text == "o.avatarkomutlar":
+            embed = discord.Embed(description = """**•** Öneri ve Bug'ları sunucumuzdaki yetkililere bildirebilirsin ve çözümlenmesi için katkıda bulunabilirsin!
+
+**• Komutlar**
+[o.avatar](https://discord.gg/9PNBMnVTZv) → Sade avatarı gönderir
+[o.csgoavatar](https://discord.gg/9PNBMnVTZv) → Size özel **CS:GO** avatarı tasarlar
+[o.discordavatar](https://discord.gg/9PNBMnVTZv) → Size özel **Discord** avatarı tasarlar
+[o.facebookavatar](https://discord.gg/9PNBMnVTZv) → Size özel **Facebook** avatarı tasarlar
+[o.githubavatar](https://discord.gg/9PNBMnVTZv) → Size özel **GitHub** avatarı tasarlar
+[o.googleavatar](https://discord.gg/9PNBMnVTZv) → Size özel **Google** avatarı tasarlar
+[o.lolavatar](https://discord.gg/9PNBMnVTZv) → Size özel **LoL** avatarı tasarlar
+[o.redditavatar](https://discord.gg/9PNBMnVTZv) → Size özel **Reddit** avatarı tasarlar
+[o.soundcloudavatar](https://discord.gg/9PNBMnVTZv) → Size özel **SoundCloud** avatarı tasarlar
+[o.spotifyavatar](https://discord.gg/9PNBMnVTZv) → Size özel **Spotify** avatarı tasarlar
+[o.steamavatar](https://discord.gg/9PNBMnVTZv) → Size özel **Steam** avatarı tasarlar
+[o.twitchavatar](https://discord.gg/9PNBMnVTZv) → Size özel **Twitch** avatarı tasarlar
+[o.twitteravatar](https://discord.gg/9PNBMnVTZv) → Size özel **Twitter** avatarı tasarlar
+[o.valorantavatar](https://discord.gg/9PNBMnVTZv) → Size özel **Valorant** avatarı tasarlar
+[o.youtubeavatar](https://discord.gg/9PNBMnVTZv) → Size özel **YouTube** avatarı tasarlar
+
+**❯ Bağlantılar**
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
+            embed.set_author(name = "Oreskis • Genel Komutlar Listesi", icon_url = "https://i.hizliresim.com/kc543M.png")
+            embed.set_thumbnail(url = "https://i.hizliresim.com/kc543M.png")
+            await message.channel.send(embed = embed)
+
+#############################################################################################################################################
+
         elif text == "o.genelkomutlar":
             embed = discord.Embed(description = """**•** Öneri ve Bug'ları sunucumuzdaki yetkililere bildirebilirsin ve çözümlenmesi için katkıda bulunabilirsin!
 
@@ -367,7 +540,6 @@ async def on_message(message):
 [o.döviz](https://discord.gg/9PNBMnVTZv) → Anlık döviz bilgilerini gösterir
 [o.hava](https://discord.gg/9PNBMnVTZv) → Girdiğiniz şehirin hava durumunu tahminini gösterir
 [o.google](https://discord.gg/9PNBMnVTZv) → Bot sizin için ufak bir google araması yapar
-[o.avatar](https://discord.gg/9PNBMnVTZv) → Etiketlediğiniz kişinin avatarını gösterir
 [o.admin](https://discord.gg/9PNBMnVTZv) → Botun admini hakkında bilgi verir
 [o.ekip](https://discord.gg/9PNBMnVTZv) → Ekibimiz hakkında bilgi verir
 [o.botbilgi](https://discord.gg/9PNBMnVTZv) → Bot hakkında bilgi verir
@@ -550,9 +722,9 @@ async def on_message(message):
 #############################################################################################################################################
 
         elif text == "o.admin":
-            avatar_chisenoa = "https://cdn.discordapp.com/avatars/794535514895941632/5d18429a4fe798f267993f6c7f389573.png?size=2048"
+            avatar_chisenoa = "https://cdn.discordapp.com/avatars/794535514895941632/8c6def1a576c8bfaf7cf265a6d3af454.png?size=2048"
             name_chisenoa = 'Alperen "CHISENOA" Güner'
-            embed_chisenoa = discord.Embed(description = "**•** [GitHub](https://www.github.com/chisenoa)\n**•** [Twitter](https://www.twitter.com/chisenoa)\n**•** [Discord](https://discord.gg/9PNBMnVTZv)", color = 0x7DA8B9)
+            embed_chisenoa = discord.Embed(description = "**•** [GitHub](https://www.github.com/chisenoa)\n**•** [Twitter](https://www.twitter.com/chisenoa)\n**•** [Discord](https://discord.gg/9PNBMnVTZv)\n**•** [WebSite](https://chisenoa.github.io)", color = 0xF060F1)
             embed_chisenoa.set_footer(text = "Yetki: Kurucu Admin")
             embed_chisenoa.set_author(name = name_chisenoa, icon_url = avatar_chisenoa)
             await message.channel.send(embed = embed_chisenoa)
@@ -580,11 +752,11 @@ async def on_message(message):
             embed_h3redot.set_footer(text = "Yetki: Kıdemli Moderatör")
             embed_h3redot.set_author(name = name_h3redot, icon_url = avatar_h3redot)
 
-            avatar_gullu = "https://i.hizliresim.com/QsmVfP.jpg"
-            name_gullu = 'Onur Ata "GÜLLÜ" Özyiğit'
-            embed_gullu = discord.Embed(description = "**•** [Twitch](https://www.twitch.tv/onuratatv)\n**•** [YouTube](https://www.youtube.com/channel/UCdetd5VzGAShiDabtOV3B9g)\n**•** [Twitter](https://twitter.com/Onur__Ata)\n**•** [Instagram](https://www.instagram.com/onur_ata_ozygt)", color = 0xC9352B)
-            embed_gullu.set_footer(text = "Yetki: Kıdemli Moderatör")
-            embed_gullu.set_author(name = name_gullu, icon_url = avatar_gullu)
+            avatar_xenf = "https://i.hizliresim.com/QsmVfP.jpg"
+            name_xenf = 'Onur Ata "XENF" Özyiğit'
+            embed_xenf = discord.Embed(description = "**•** [Twitch](https://www.twitch.tv/onuratatv)\n**•** [YouTube](https://www.youtube.com/channel/UCdetd5VzGAShiDabtOV3B9g)\n**•** [Twitter](https://twitter.com/Onur__Ata)\n**•** [Instagram](https://www.instagram.com/onur_ata_ozygt)", color = 0xC9352B)
+            embed_xenf.set_footer(text = "Yetki: Kıdemli Moderatör")
+            embed_xenf.set_author(name = name_xenf, icon_url = avatar_xenf)
 
             avatar_teos808 = "https://i.hizliresim.com/hYP1Wo.jpg"
             name_teos808 = 'Efe "TEOS808" Özyürek'
@@ -599,7 +771,7 @@ async def on_message(message):
             embed_ashida.set_author(name = name_ashida, icon_url = avatar_ashida)
 
             await message.channel.send(embed = embed_h3redot)
-            await message.channel.send(embed = embed_gullu)
+            await message.channel.send(embed = embed_xenf)
             await message.channel.send(embed = embed_teos808)
             await message.channel.send(embed = embed_ashida)
 
@@ -627,7 +799,7 @@ async def on_message(message):
             embed = discord.Embed(description = """**•** Öneri ve Bug'ları sunucumuzdaki yetkililere bildirebilirsin ve çözümlenmesi için katkıda bulunabilirsin!
 
 [Geliştirici](https://discord.gg/9PNBMnVTZv) → {}
-[Kütüphane](https://discord.gg/9PNBMnVTZv) → Discord.py
+[Kütüphane](https://discord.gg/9PNBMnVTZv) → Discord.py v{}
 [Kaynak Kod](https://discord.gg/9PNBMnVTZv) → [GitHub](https://www.github.com/chisenoa/oreskis)
 [Çalıştığı Sunucu](https://discord.gg/9PNBMnVTZv) → Heroku
 [Aktif Sunucu Sayısı](https://discord.gg/9PNBMnVTZv) → {}
@@ -636,7 +808,7 @@ async def on_message(message):
 [Zaman](https://discord.gg/9PNBMnVTZv) → {}
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""".format(developer, server_count, member_count, latency, time), color = 0xF6E423)
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""".format(developer,discord.__version__, server_count, member_count, latency, time), color = 0xF6E423)
             embed.set_author(name = "ORESKIS • Bilgi Paneli", icon_url = "https://i.hizliresim.com/FETKtc.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/FETKtc.png")
             await message.channel.send(embed = embed)
@@ -647,13 +819,10 @@ async def on_message(message):
             if (message.mentions.__len__()>0):
                 for user in message.mentions:
                     link = user.avatar_url_as(format = None, static_format = "png", size = 2048)
-                    embed = discord.Embed(color = 0x000000)
-                    embed.set_image(url = link)
-                    await message.channel.send(embed = embed)
+                    await message.channel.send(link)
             else:
-                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.avatar <kullanıcı adı>`", color = 0xBE1931)
-                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
-                await message.channel.send(embed = embed)
+                link = message.author.avatar_url_as(format = None, static_format = "png", size = 2048)
+                await message.channel.send(link)
 
 #############################################################################################################################################
 
@@ -746,10 +915,12 @@ async def on_message(message):
 #############################################################################################################################################
 
         elif splitted_text[0] == "o.ascii":
-            wordlist = text.split()
-            wordlist.pop(0)
-            words = listToString(wordlist)
-            word = text2art(words)
+            text = message.content
+            all_text = text.split()
+            all_text.pop(0)
+            clear_text = listToString(all_text)
+            setted_text = charsetSetter(clear_text)
+            word = text2art(setted_text)
             if word == "":
                 embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.ascii <kelime>`", color = 0xBE1931)
                 embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
@@ -775,6 +946,496 @@ async def on_message(message):
                 embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.aşkölçer <kullanıcı adı>`", color = 0xBE1931)
                 embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                 await message.channel.send(embed = embed)
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.csgoavatar":
+            if (message.mentions.__len__()>0):
+                for user in message.mentions:
+                    avatar = str(user.avatar_url_as(format = None, static_format = "png"))
+                    frame = Image.open("assets/images/frames/frame_csgo.png").convert("RGBA")
+                    avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                    avatar_w, avatar_h = avatar_url.size
+                    frame.thumbnail((avatar_w, avatar_h))
+                    draw = ImageDraw.Draw(avatar_url)
+                    avatar_url.paste(frame, (0, 0), frame)
+                    with io.BytesIO() as image_binary:
+                        avatar_url.save(image_binary, "PNG")
+                        image_binary.seek(0)
+                        file = discord.File(fp = image_binary, filename = "frame_csgo_{}.png".format(user.id))
+                        await message.channel.send(file = file)
+                        avatar_url.close()
+                        frame.close()
+            else:
+                avatar = str(message.author.avatar_url_as(format = None, static_format = "png"))
+                frame = Image.open("assets/images/frames/frame_csgo.png").convert("RGBA")
+                avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                avatar_w, avatar_h = avatar_url.size
+                frame.thumbnail((avatar_w, avatar_h))
+                draw = ImageDraw.Draw(avatar_url)
+                avatar_url.paste(frame, (0, 0), frame)
+                with io.BytesIO() as image_binary:
+                    avatar_url.save(image_binary, "PNG")
+                    image_binary.seek(0)
+                    file = discord.File(fp = image_binary, filename = "frame_csgo_{}.png".format(message.author.id))
+                    await message.channel.send(file = file)
+                    avatar_url.close()
+                    frame.close()
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.discordavatar":
+            if (message.mentions.__len__()>0):
+                for user in message.mentions:
+                    avatar = str(user.avatar_url_as(format = None, static_format = "png"))
+                    frame = Image.open("assets/images/frames/frame_discord.png").convert("RGBA")
+                    avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                    avatar_w, avatar_h = avatar_url.size
+                    frame.thumbnail((avatar_w, avatar_h))
+                    draw = ImageDraw.Draw(avatar_url)
+                    avatar_url.paste(frame, (0, 0), frame)
+                    with io.BytesIO() as image_binary:
+                        avatar_url.save(image_binary, "PNG")
+                        image_binary.seek(0)
+                        file = discord.File(fp = image_binary, filename = "frame_discord_{}.png".format(user.id))
+                        await message.channel.send(file = file)
+                        avatar_url.close()
+                        frame.close()
+            else:
+                avatar = str(message.author.avatar_url_as(format = None, static_format = "png"))
+                frame = Image.open("assets/images/frames/frame_discord.png").convert("RGBA")
+                avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                avatar_w, avatar_h = avatar_url.size
+                frame.thumbnail((avatar_w, avatar_h))
+                draw = ImageDraw.Draw(avatar_url)
+                avatar_url.paste(frame, (0, 0), frame)
+                with io.BytesIO() as image_binary:
+                    avatar_url.save(image_binary, "PNG")
+                    image_binary.seek(0)
+                    file = discord.File(fp = image_binary, filename = "frame_discord_{}.png".format(message.author.id))
+                    await message.channel.send(file = file)
+                    avatar_url.close()
+                    frame.close()
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.facebookavatar":
+            if (message.mentions.__len__()>0):
+                for user in message.mentions:
+                    avatar = str(user.avatar_url_as(format = None, static_format = "png"))
+                    frame = Image.open("assets/images/frames/frame_facebook.png").convert("RGBA")
+                    avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                    avatar_w, avatar_h = avatar_url.size
+                    frame.thumbnail((avatar_w, avatar_h))
+                    draw = ImageDraw.Draw(avatar_url)
+                    avatar_url.paste(frame, (0, 0), frame)
+                    with io.BytesIO() as image_binary:
+                        avatar_url.save(image_binary, "PNG")
+                        image_binary.seek(0)
+                        file = discord.File(fp = image_binary, filename = "frame_facebook_{}.png".format(user.id))
+                        await message.channel.send(file = file)
+                        avatar_url.close()
+                        frame.close()
+            else:
+                avatar = str(message.author.avatar_url_as(format = None, static_format = "png"))
+                frame = Image.open("assets/images/frames/frame_facebook.png").convert("RGBA")
+                avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                avatar_w, avatar_h = avatar_url.size
+                frame.thumbnail((avatar_w, avatar_h))
+                draw = ImageDraw.Draw(avatar_url)
+                avatar_url.paste(frame, (0, 0), frame)
+                with io.BytesIO() as image_binary:
+                    avatar_url.save(image_binary, "PNG")
+                    image_binary.seek(0)
+                    file = discord.File(fp = image_binary, filename = "frame_facebook_{}.png".format(message.author.id))
+                    await message.channel.send(file = file)
+                    avatar_url.close()
+                    frame.close()
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.githubavatar":
+            if (message.mentions.__len__()>0):
+                for user in message.mentions:
+                    avatar = str(user.avatar_url_as(format = None, static_format = "png"))
+                    frame = Image.open("assets/images/frames/frame_github.png").convert("RGBA")
+                    avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                    avatar_w, avatar_h = avatar_url.size
+                    frame.thumbnail((avatar_w, avatar_h))
+                    draw = ImageDraw.Draw(avatar_url)
+                    avatar_url.paste(frame, (0, 0), frame)
+                    with io.BytesIO() as image_binary:
+                        avatar_url.save(image_binary, "PNG")
+                        image_binary.seek(0)
+                        file = discord.File(fp = image_binary, filename = "frame_github_{}.png".format(user.id))
+                        await message.channel.send(file = file)
+                        avatar_url.close()
+                        frame.close()
+            else:
+                avatar = str(message.author.avatar_url_as(format = None, static_format = "png"))
+                frame = Image.open("assets/images/frames/frame_github.png").convert("RGBA")
+                avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                avatar_w, avatar_h = avatar_url.size
+                frame.thumbnail((avatar_w, avatar_h))
+                draw = ImageDraw.Draw(avatar_url)
+                avatar_url.paste(frame, (0, 0), frame)
+                with io.BytesIO() as image_binary:
+                    avatar_url.save(image_binary, "PNG")
+                    image_binary.seek(0)
+                    file = discord.File(fp = image_binary, filename = "frame_github_{}.png".format(message.author.id))
+                    await message.channel.send(file = file)
+                    avatar_url.close()
+                    frame.close()
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.googleavatar":
+            if (message.mentions.__len__()>0):
+                for user in message.mentions:
+                    avatar = str(user.avatar_url_as(format = None, static_format = "png"))
+                    frame = Image.open("assets/images/frames/frame_google.png").convert("RGBA")
+                    avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                    avatar_w, avatar_h = avatar_url.size
+                    frame.thumbnail((avatar_w, avatar_h))
+                    draw = ImageDraw.Draw(avatar_url)
+                    avatar_url.paste(frame, (0, 0), frame)
+                    with io.BytesIO() as image_binary:
+                        avatar_url.save(image_binary, "PNG")
+                        image_binary.seek(0)
+                        file = discord.File(fp = image_binary, filename = "frame_google_{}.png".format(user.id))
+                        await message.channel.send(file = file)
+                        avatar_url.close()
+                        frame.close()
+            else:
+                avatar = str(message.author.avatar_url_as(format = None, static_format = "png"))
+                frame = Image.open("assets/images/frames/frame_google.png").convert("RGBA")
+                avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                avatar_w, avatar_h = avatar_url.size
+                frame.thumbnail((avatar_w, avatar_h))
+                draw = ImageDraw.Draw(avatar_url)
+                avatar_url.paste(frame, (0, 0), frame)
+                with io.BytesIO() as image_binary:
+                    avatar_url.save(image_binary, "PNG")
+                    image_binary.seek(0)
+                    file = discord.File(fp = image_binary, filename = "frame_google_{}.png".format(message.author.id))
+                    await message.channel.send(file = file)
+                    avatar_url.close()
+                    frame.close()
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.lolavatar":
+            if (message.mentions.__len__()>0):
+                for user in message.mentions:
+                    avatar = str(user.avatar_url_as(format = None, static_format = "png"))
+                    frame = Image.open("assets/images/frames/frame_lol.png").convert("RGBA")
+                    avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                    avatar_w, avatar_h = avatar_url.size
+                    frame.thumbnail((avatar_w, avatar_h))
+                    draw = ImageDraw.Draw(avatar_url)
+                    avatar_url.paste(frame, (0, 0), frame)
+                    with io.BytesIO() as image_binary:
+                        avatar_url.save(image_binary, "PNG")
+                        image_binary.seek(0)
+                        file = discord.File(fp = image_binary, filename = "frame_lol_{}.png".format(user.id))
+                        await message.channel.send(file = file)
+                        avatar_url.close()
+                        frame.close()
+            else:
+                avatar = str(message.author.avatar_url_as(format = None, static_format = "png"))
+                frame = Image.open("assets/images/frames/frame_lol.png").convert("RGBA")
+                avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                avatar_w, avatar_h = avatar_url.size
+                frame.thumbnail((avatar_w, avatar_h))
+                draw = ImageDraw.Draw(avatar_url)
+                avatar_url.paste(frame, (0, 0), frame)
+                with io.BytesIO() as image_binary:
+                    avatar_url.save(image_binary, "PNG")
+                    image_binary.seek(0)
+                    file = discord.File(fp = image_binary, filename = "frame_lol_{}.png".format(message.author.id))
+                    await message.channel.send(file = file)
+                    avatar_url.close()
+                    frame.close()
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.redditavatar":
+            if (message.mentions.__len__()>0):
+                for user in message.mentions:
+                    avatar = str(user.avatar_url_as(format = None, static_format = "png"))
+                    frame = Image.open("assets/images/frames/frame_reddit.png").convert("RGBA")
+                    avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                    avatar_w, avatar_h = avatar_url.size
+                    frame.thumbnail((avatar_w, avatar_h))
+                    draw = ImageDraw.Draw(avatar_url)
+                    avatar_url.paste(frame, (0, 0), frame)
+                    with io.BytesIO() as image_binary:
+                        avatar_url.save(image_binary, "PNG")
+                        image_binary.seek(0)
+                        file = discord.File(fp = image_binary, filename = "frame_reddit_{}.png".format(user.id))
+                        await message.channel.send(file = file)
+                        avatar_url.close()
+                        frame.close()
+            else:
+                avatar = str(message.author.avatar_url_as(format = None, static_format = "png"))
+                frame = Image.open("assets/images/frames/frame_reddit.png").convert("RGBA")
+                avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                avatar_w, avatar_h = avatar_url.size
+                frame.thumbnail((avatar_w, avatar_h))
+                draw = ImageDraw.Draw(avatar_url)
+                avatar_url.paste(frame, (0, 0), frame)
+                with io.BytesIO() as image_binary:
+                    avatar_url.save(image_binary, "PNG")
+                    image_binary.seek(0)
+                    file = discord.File(fp = image_binary, filename = "frame_reddit_{}.png".format(message.author.id))
+                    await message.channel.send(file = file)
+                    avatar_url.close()
+                    frame.close()
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.soundcloudavatar":
+            if (message.mentions.__len__()>0):
+                for user in message.mentions:
+                    avatar = str(user.avatar_url_as(format = None, static_format = "png"))
+                    frame = Image.open("assets/images/frames/frame_soundcloud.png").convert("RGBA")
+                    avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                    avatar_w, avatar_h = avatar_url.size
+                    frame.thumbnail((avatar_w, avatar_h))
+                    draw = ImageDraw.Draw(avatar_url)
+                    avatar_url.paste(frame, (0, 0), frame)
+                    with io.BytesIO() as image_binary:
+                        avatar_url.save(image_binary, "PNG")
+                        image_binary.seek(0)
+                        file = discord.File(fp = image_binary, filename = "frame_soundcloud_{}.png".format(user.id))
+                        await message.channel.send(file = file)
+                        avatar_url.close()
+                        frame.close()
+            else:
+                avatar = str(message.author.avatar_url_as(format = None, static_format = "png"))
+                frame = Image.open("assets/images/frames/frame_soundcloud.png").convert("RGBA")
+                avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                avatar_w, avatar_h = avatar_url.size
+                frame.thumbnail((avatar_w, avatar_h))
+                draw = ImageDraw.Draw(avatar_url)
+                avatar_url.paste(frame, (0, 0), frame)
+                with io.BytesIO() as image_binary:
+                    avatar_url.save(image_binary, "PNG")
+                    image_binary.seek(0)
+                    file = discord.File(fp = image_binary, filename = "frame_soundcloud_{}.png".format(message.author.id))
+                    await message.channel.send(file = file)
+                    avatar_url.close()
+                    frame.close()
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.spotifyavatar":
+            if (message.mentions.__len__()>0):
+                for user in message.mentions:
+                    avatar = str(user.avatar_url_as(format = None, static_format = "png"))
+                    frame = Image.open("assets/images/frames/frame_spotify.png").convert("RGBA")
+                    avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                    avatar_w, avatar_h = avatar_url.size
+                    frame.thumbnail((avatar_w, avatar_h))
+                    draw = ImageDraw.Draw(avatar_url)
+                    avatar_url.paste(frame, (0, 0), frame)
+                    with io.BytesIO() as image_binary:
+                        avatar_url.save(image_binary, "PNG")
+                        image_binary.seek(0)
+                        file = discord.File(fp = image_binary, filename = "frame_spotify_{}.png".format(user.id))
+                        await message.channel.send(file = file)
+                        avatar_url.close()
+                        frame.close()
+            else:
+                avatar = str(message.author.avatar_url_as(format = None, static_format = "png"))
+                frame = Image.open("assets/images/frames/frame_spotify.png").convert("RGBA")
+                avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                avatar_w, avatar_h = avatar_url.size
+                frame.thumbnail((avatar_w, avatar_h))
+                draw = ImageDraw.Draw(avatar_url)
+                avatar_url.paste(frame, (0, 0), frame)
+                with io.BytesIO() as image_binary:
+                    avatar_url.save(image_binary, "PNG")
+                    image_binary.seek(0)
+                    file = discord.File(fp = image_binary, filename = "frame_spotify_{}.png".format(message.author.id))
+                    await message.channel.send(file = file)
+                    avatar_url.close()
+                    frame.close()
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.steamavatar":
+            if (message.mentions.__len__()>0):
+                for user in message.mentions:
+                    avatar = str(user.avatar_url_as(format = None, static_format = "png"))
+                    frame = Image.open("assets/images/frames/frame_steam.png").convert("RGBA")
+                    avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                    avatar_w, avatar_h = avatar_url.size
+                    frame.thumbnail((avatar_w, avatar_h))
+                    draw = ImageDraw.Draw(avatar_url)
+                    avatar_url.paste(frame, (0, 0), frame)
+                    with io.BytesIO() as image_binary:
+                        avatar_url.save(image_binary, "PNG")
+                        image_binary.seek(0)
+                        file = discord.File(fp = image_binary, filename = "frame_steam_{}.png".format(user.id))
+                        await message.channel.send(file = file)
+                        avatar_url.close()
+                        frame.close()
+            else:
+                avatar = str(message.author.avatar_url_as(format = None, static_format = "png"))
+                frame = Image.open("assets/images/frames/frame_steam.png").convert("RGBA")
+                avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                avatar_w, avatar_h = avatar_url.size
+                frame.thumbnail((avatar_w, avatar_h))
+                draw = ImageDraw.Draw(avatar_url)
+                avatar_url.paste(frame, (0, 0), frame)
+                with io.BytesIO() as image_binary:
+                    avatar_url.save(image_binary, "PNG")
+                    image_binary.seek(0)
+                    file = discord.File(fp = image_binary, filename = "frame_steam_{}.png".format(message.author.id))
+                    await message.channel.send(file = file)
+                    avatar_url.close()
+                    frame.close()
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.twitchavatar":
+            if (message.mentions.__len__()>0):
+                for user in message.mentions:
+                    avatar = str(user.avatar_url_as(format = None, static_format = "png"))
+                    frame = Image.open("assets/images/frames/frame_twitch.png").convert("RGBA")
+                    avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                    avatar_w, avatar_h = avatar_url.size
+                    frame.thumbnail((avatar_w, avatar_h))
+                    draw = ImageDraw.Draw(avatar_url)
+                    avatar_url.paste(frame, (0, 0), frame)
+                    with io.BytesIO() as image_binary:
+                        avatar_url.save(image_binary, "PNG")
+                        image_binary.seek(0)
+                        file = discord.File(fp = image_binary, filename = "frame_twitch_{}.png".format(user.id))
+                        await message.channel.send(file = file)
+                        avatar_url.close()
+                        frame.close()
+            else:
+                avatar = str(message.author.avatar_url_as(format = None, static_format = "png"))
+                frame = Image.open("assets/images/frames/frame_twitch.png").convert("RGBA")
+                avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                avatar_w, avatar_h = avatar_url.size
+                frame.thumbnail((avatar_w, avatar_h))
+                draw = ImageDraw.Draw(avatar_url)
+                avatar_url.paste(frame, (0, 0), frame)
+                with io.BytesIO() as image_binary:
+                    avatar_url.save(image_binary, "PNG")
+                    image_binary.seek(0)
+                    file = discord.File(fp = image_binary, filename = "frame_twitch_{}.png".format(message.author.id))
+                    await message.channel.send(file = file)
+                    avatar_url.close()
+                    frame.close()
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.twitteravatar":
+            if (message.mentions.__len__()>0):
+                for user in message.mentions:
+                    avatar = str(user.avatar_url_as(format = None, static_format = "png"))
+                    frame = Image.open("assets/images/frames/frame_twitter.png").convert("RGBA")
+                    avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                    avatar_w, avatar_h = avatar_url.size
+                    frame.thumbnail((avatar_w, avatar_h))
+                    draw = ImageDraw.Draw(avatar_url)
+                    avatar_url.paste(frame, (0, 0), frame)
+                    with io.BytesIO() as image_binary:
+                        avatar_url.save(image_binary, "PNG")
+                        image_binary.seek(0)
+                        file = discord.File(fp = image_binary, filename = "frame_twitter_{}.png".format(user.id))
+                        await message.channel.send(file = file)
+                        avatar_url.close()
+                        frame.close()
+            else:
+                avatar = str(message.author.avatar_url_as(format = None, static_format = "png"))
+                frame = Image.open("assets/images/frames/frame_twitter.png").convert("RGBA")
+                avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                avatar_w, avatar_h = avatar_url.size
+                frame.thumbnail((avatar_w, avatar_h))
+                draw = ImageDraw.Draw(avatar_url)
+                avatar_url.paste(frame, (0, 0), frame)
+                with io.BytesIO() as image_binary:
+                    avatar_url.save(image_binary, "PNG")
+                    image_binary.seek(0)
+                    file = discord.File(fp = image_binary, filename = "frame_twitter_{}.png".format(message.author.id))
+                    await message.channel.send(file = file)
+                    avatar_url.close()
+                    frame.close()
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.valorantavatar":
+            if (message.mentions.__len__()>0):
+                for user in message.mentions:
+                    avatar = str(user.avatar_url_as(format = None, static_format = "png"))
+                    frame = Image.open("assets/images/frames/frame_valorant.png").convert("RGBA")
+                    avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                    avatar_w, avatar_h = avatar_url.size
+                    frame.thumbnail((avatar_w, avatar_h))
+                    draw = ImageDraw.Draw(avatar_url)
+                    avatar_url.paste(frame, (0, 0), frame)
+                    with io.BytesIO() as image_binary:
+                        avatar_url.save(image_binary, "PNG")
+                        image_binary.seek(0)
+                        file = discord.File(fp = image_binary, filename = "frame_valorant_{}.png".format(user.id))
+                        await message.channel.send(file = file)
+                        avatar_url.close()
+                        frame.close()
+            else:
+                avatar = str(message.author.avatar_url_as(format = None, static_format = "png"))
+                frame = Image.open("assets/images/frames/frame_valorant.png").convert("RGBA")
+                avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                avatar_w, avatar_h = avatar_url.size
+                frame.thumbnail((avatar_w, avatar_h))
+                draw = ImageDraw.Draw(avatar_url)
+                avatar_url.paste(frame, (0, 0), frame)
+                with io.BytesIO() as image_binary:
+                    avatar_url.save(image_binary, "PNG")
+                    image_binary.seek(0)
+                    file = discord.File(fp = image_binary, filename = "frame_valorant_{}.png".format(message.author.id))
+                    await message.channel.send(file = file)
+                    avatar_url.close()
+                    frame.close()
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.youtubeavatar":
+            if (message.mentions.__len__()>0):
+                for user in message.mentions:
+                    avatar = str(user.avatar_url_as(format = None, static_format = "png"))
+                    frame = Image.open("assets/images/frames/frame_youtube.png").convert("RGBA")
+                    avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                    avatar_w, avatar_h = avatar_url.size
+                    frame.thumbnail((avatar_w, avatar_h))
+                    draw = ImageDraw.Draw(avatar_url)
+                    avatar_url.paste(frame, (0, 0), frame)
+                    with io.BytesIO() as image_binary:
+                        avatar_url.save(image_binary, "PNG")
+                        image_binary.seek(0)
+                        file = discord.File(fp = image_binary, filename = "frame_youtube_{}.png".format(user.id))
+                        await message.channel.send(file = file)
+                        avatar_url.close()
+                        frame.close()
+            else:
+                avatar = str(message.author.avatar_url_as(format = None, static_format = "png"))
+                frame = Image.open("assets/images/frames/frame_youtube.png").convert("RGBA")
+                avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
+                avatar_w, avatar_h = avatar_url.size
+                frame.thumbnail((avatar_w, avatar_h))
+                draw = ImageDraw.Draw(avatar_url)
+                avatar_url.paste(frame, (0, 0), frame)
+                with io.BytesIO() as image_binary:
+                    avatar_url.save(image_binary, "PNG")
+                    image_binary.seek(0)
+                    file = discord.File(fp = image_binary, filename = "frame_youtube_{}.png".format(message.author.id))
+                    await message.channel.send(file = file)
+                    avatar_url.close()
+                    frame.close()
 
 #############################################################################################################################################
 
@@ -1020,7 +1681,7 @@ async def on_message(message):
                 setted_text = charsetSetter(clear_text)
                 clear_url = setted_text.replace(" ", "+")
                 clear = "https://habbofont.net/font/habbo_new_big/{}.gif".format(clear_url)
-                embed = discord.Embed(color = 0x3dc4ac)
+                embed = discord.Embed(color = 0xffe000)
                 embed.set_image(url = clear)
                 await message.channel.send(embed = embed)
 
@@ -1039,7 +1700,7 @@ async def on_message(message):
                 setted_text = charsetSetter(clear_text)
                 clear_url = setted_text.replace(" ", "+")
                 clear = "https://flamingtext.com/net-fu/proxy_form.cgi?script=star-wars-logo&text={}&_loc=generate&imageoutput=true".format(clear_url)
-                embed = discord.Embed(color = 0x3dc4ac)
+                embed = discord.Embed(color = 0xebddc4)
                 embed.set_image(url = clear)
                 await message.channel.send(embed = embed)
 
@@ -1058,7 +1719,7 @@ async def on_message(message):
                 setted_text = charsetSetter(clear_text)
                 clear_url = setted_text.replace(" ", "+")
                 clear = "https://dynamic.brandcrowd.com/asset/logo/f802ad87-f5ae-491f-9a02-89ee701b588f/logo?v=4&text={}".format(clear_url)
-                embed = discord.Embed(color = 0x3dc4ac)
+                embed = discord.Embed(color = 0xfcc870)
                 embed.set_image(url = clear)
                 await message.channel.send(embed = embed)
 
@@ -1077,7 +1738,7 @@ async def on_message(message):
                 setted_text = charsetSetter(clear_text)
                 clear_url = setted_text.replace(" ", "+")
                 clear = "https://flamingtext.com/net-fu/proxy_form.cgi?script=harry-potter-logo&text={}&_loc=generate&imageoutput=true".format(clear_url)
-                embed = discord.Embed(color = 0x3dc4ac)
+                embed = discord.Embed(color = 0x708e95)
                 embed.set_image(url = clear)
                 await message.channel.send(embed = embed)
 
@@ -1096,7 +1757,7 @@ async def on_message(message):
                 setted_text = charsetSetter(clear_text)
                 clear_url = setted_text.replace(" ", "+")
                 clear = "https://flamingtext.com/net-fu/proxy_form.cgi?script=birdy-logo&text={}&_loc=generate&imageoutput=true".format(clear_url)
-                embed = discord.Embed(color = 0x3dc4ac)
+                embed = discord.Embed(color = 0x33ccff)
                 embed.set_image(url = clear)
                 await message.channel.send(embed = embed)
 
@@ -1115,7 +1776,7 @@ async def on_message(message):
                 setted_text = charsetSetter(clear_text)
                 clear_url = setted_text.replace(" ", "+")
                 clear = "https://flamingtext.com/net-fu/proxy_form.cgi?script=matrix-logo&text={}&_loc=generate&imageoutput=true".format(clear_url)
-                embed = discord.Embed(color = 0x3dc4ac)
+                embed = discord.Embed(color = 0x0fc935)
                 embed.set_image(url = clear)
                 await message.channel.send(embed = embed)
 
@@ -1134,7 +1795,7 @@ async def on_message(message):
                 setted_text = charsetSetter(clear_text)
                 clear_url = setted_text.replace(" ", "+")
                 clear = "https://flamingtext.com/net-fu/proxy_form.cgi?script=cloud-logo&text={}&_loc=generate&imageoutput=true".format(clear_url)
-                embed = discord.Embed(color = 0x3dc4ac)
+                embed = discord.Embed(color = 0x5fbfe9)
                 embed.set_image(url = clear)
                 await message.channel.send(embed = embed)
 
@@ -1153,7 +1814,7 @@ async def on_message(message):
                 setted_text = charsetSetter(clear_text)
                 clear_url = setted_text.replace(" ", "+")
                 clear = "https://flamingtext.com/net-fu/proxy_form.cgi?script=smurfs-logo&text={}&_loc=generate&imageoutput=true".format(clear_url)
-                embed = discord.Embed(color = 0x3dc4ac)
+                embed = discord.Embed(color = 0x3aceff)
                 embed.set_image(url = clear)
                 await message.channel.send(embed = embed)
 
@@ -1172,7 +1833,7 @@ async def on_message(message):
                 setted_text = charsetSetter(clear_text)
                 clear_url = setted_text.replace(" ", "+")
                 clear = "https://flamingtext.com/net-fu/proxy_form.cgi?script=silver-logo&text={}&_loc=generate&imageoutput=true".format(clear_url)
-                embed = discord.Embed(color = 0x3dc4ac)
+                embed = discord.Embed(color = 0xb7b7b7)
                 embed.set_image(url = clear)
                 await message.channel.send(embed = embed)
 
@@ -1191,7 +1852,7 @@ async def on_message(message):
                 setted_text = charsetSetter(clear_text)
                 clear_url = setted_text.replace(" ", "+")
                 clear = "https://habbofont.net/font/arctic/{}.gif".format(clear_url)
-                embed = discord.Embed(color = 0x3dc4ac)
+                embed = discord.Embed(color = 0xa7edf6)
                 embed.set_image(url = clear)
                 await message.channel.send(embed = embed)
 
@@ -1210,7 +1871,7 @@ async def on_message(message):
                 setted_text = charsetSetter(clear_text)
                 clear_url = setted_text.replace(" ", "+")
                 clear = "https://habbofont.net/font/gaming/{}.gif".format(clear_url)
-                embed = discord.Embed(color = 0x3dc4ac)
+                embed = discord.Embed(color = 0xf5a543)
                 embed.set_image(url = clear)
                 await message.channel.send(embed = embed)
 
