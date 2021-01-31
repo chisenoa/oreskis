@@ -541,7 +541,6 @@ async def on_message(message):
 [o.hava](https://discord.gg/9PNBMnVTZv) → Girdiğiniz şehirin hava durumunu tahminini gösterir
 [o.google](https://discord.gg/9PNBMnVTZv) → Bot sizin için ufak bir google araması yapar
 [o.admin](https://discord.gg/9PNBMnVTZv) → Botun admini hakkında bilgi verir
-[o.ekip](https://discord.gg/9PNBMnVTZv) → Ekibimiz hakkında bilgi verir
 [o.botbilgi](https://discord.gg/9PNBMnVTZv) → Bot hakkında bilgi verir
 [o.yardım](https://discord.gg/9PNBMnVTZv) → Yardım menüsünü açar
 
@@ -742,38 +741,6 @@ async def on_message(message):
                 embed = discord.Embed(description = "{}'nın muzu ölçümlerime göre {} {}".format(message.author.mention, random.randint(1, 50), unit), color = 0xFFDC5D)
                 embed.set_author(name = "MUZ ÖLÇER", icon_url = "https://i.hizliresim.com/wWYzYS.png")
                 await message.channel.send(embed = embed)
-
-#############################################################################################################################################
-
-        elif text == "o.ekip":
-            avatar_h3redot = "https://i.hizliresim.com/q7i63r.jpg"
-            name_h3redot = 'Yiğit "H3REDOT" Yaşar'
-            embed_h3redot = discord.Embed(description = "**•** [Twitch](https://www.twitch.tv/h3redot)\n**•** [YouTube](https://www.youtube.com/channel/UCpaa9cFf54DX03L59e8EYwg)\n**•** [Twitter](https://www.twitter.com/h3redot1)\n**•** [Instagram](https://www.instagram.com/h3redot_0070)\n**•** [Flickr](https://www.flickr.com/photos/190869596@N03/albums/with/72157716706385981)\n**•** [Discord](https://discord.gg/Y4QdnSrQXd)", color = 0xF67464)
-            embed_h3redot.set_footer(text = "Yetki: Kıdemli Moderatör")
-            embed_h3redot.set_author(name = name_h3redot, icon_url = avatar_h3redot)
-
-            avatar_xenf = "https://i.hizliresim.com/QsmVfP.jpg"
-            name_xenf = 'Onur Ata "XENF" Özyiğit'
-            embed_xenf = discord.Embed(description = "**•** [Twitch](https://www.twitch.tv/onuratatv)\n**•** [YouTube](https://www.youtube.com/channel/UCdetd5VzGAShiDabtOV3B9g)\n**•** [Twitter](https://twitter.com/Onur__Ata)\n**•** [Instagram](https://www.instagram.com/onur_ata_ozygt)", color = 0xC9352B)
-            embed_xenf.set_footer(text = "Yetki: Kıdemli Moderatör")
-            embed_xenf.set_author(name = name_xenf, icon_url = avatar_xenf)
-
-            avatar_teos808 = "https://i.hizliresim.com/hYP1Wo.jpg"
-            name_teos808 = 'Efe "TEOS808" Özyürek'
-            embed_teos808 = discord.Embed(description = "**•** [SoundCloud](https://soundcloud.com/teos808)\n**•** [YouTube](https://www.youtube.com/channel/UCeENCs8O7xypxyGaPgE-Fvw)\n**•** [Spotify](https://open.spotify.com/artist/09uAubY6rlL3uIeSI7ukX8?si=13vurmBER_aTXuGH4IvFyQ)\n**•** [Instagram](https://www.instagram.com/teos808)", color = 0x0B77DC)
-            embed_teos808.set_footer(text = "Yetki: Tecrübeli Moderatör")
-            embed_teos808.set_author(name = name_teos808, icon_url = avatar_teos808)
-
-            avatar_ashida = "https://i.hizliresim.com/qBhesE.jpg"
-            name_ashida = 'Mert "ASHIDA" Dikbıyık'
-            embed_ashida = discord.Embed(description = "**•** [YouTube](https://www.youtube.com/channel/UC9xzlQM17EBuNWzNVcqPHog)\n**•** [Discord](https://discord.com/invite/xeUVNya)\n**•** [Steam](https://steamcommunity.com/id/merttdikbiyik)", color = 0xD9E3ED)
-            embed_ashida.set_footer(text = "Yetki: Tecrübeli Moderatör")
-            embed_ashida.set_author(name = name_ashida, icon_url = avatar_ashida)
-
-            await message.channel.send(embed = embed_h3redot)
-            await message.channel.send(embed = embed_xenf)
-            await message.channel.send(embed = embed_teos808)
-            await message.channel.send(embed = embed_ashida)
 
 #############################################################################################################################################
 
