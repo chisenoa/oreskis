@@ -28,9 +28,9 @@ size = [
 ]
 
 rsp = [
-"Taş",
-"Kağıt",
-"Makas"
+"taş",
+"kağıt",
+"makas"
 ]
 
 jokes = [
@@ -52,7 +52,7 @@ jokes = [
 "Adamın birinin kafası atmış, bacakları eşek!",
 "+ En çok eşek yavrusu nerde bulunur?\n- tabii ki SPA merkezinde",
 "+ İshal olmuş böceğe ne denir?\n- CIRCIR böceği.",
-"+ Osmanlı'da insanlar neden birbirine borç vermezmiş?\n- Çünkü sikke sikke ödüyorlarmış'",
+"+ Osmanlı'da insanlar neden birbirine borç vermezmiş?\n- Çünkü sikke sikke ödüyorlarmış.",
 "Almanya'da Almanlar yaşıyorsa, Sakarya'da sakarlar mı yaşar?",
 "+ File çorap aldım\n- File niye aldın? Kendine alsaydın ya",
 "+ Abi sana Sıla'nın selamı var\n- Hangi Sıla?\n+ Gayri Safi Milli HaSıla",
@@ -433,9 +433,9 @@ async def on_message(message):
 [o.genelkomutlar](https://discord.gg/9PNBMnVTZv) → Genel Komutlar
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
-            embed.set_author(name = "Oreskis • Komut Listesi", icon_url = "https://i.hizliresim.com/kc543M.png")
-            embed.set_thumbnail(url = "https://i.hizliresim.com/kc543M.png")
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2984E8)
+            embed.set_author(name = "Oreskis • Komut Listesi", icon_url = "https://i.hizliresim.com/hLdNYC.png")
+            embed.set_thumbnail(url = "https://i.hizliresim.com/hLdNYC.png")
             await message.channel.send(embed = embed)
 
 #############################################################################################################################################
@@ -450,9 +450,9 @@ async def on_message(message):
 [o.temizle](https://discord.gg/9PNBMnVTZv) → Sunucuda bulunan bir kanalın yazışmalarını silersiniz
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
-            embed.set_author(name = "Oreskis • Moderatör Komutları Listesi", icon_url = "https://i.hizliresim.com/kc543M.png")
-            embed.set_thumbnail(url = "https://i.hizliresim.com/kc543M.png")
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2984E8)
+            embed.set_author(name = "Oreskis • Moderatör Komutları Listesi", icon_url = "https://i.hizliresim.com/hLdNYC.png")
+            embed.set_thumbnail(url = "https://i.hizliresim.com/hLdNYC.png")
             await message.channel.send(embed = embed)
 
 #############################################################################################################################################
@@ -469,12 +469,12 @@ async def on_message(message):
 [o.efkar](https://discord.gg/9PNBMnVTZv) → Efkar yüzdenizi ölçer
 [o.ascii](https://discord.gg/9PNBMnVTZv) → Belirlediğiniz yazıyı ASCII formatında yazar
 [o.öp](https://discord.gg/9PNBMnVTZv) → Etiketlediğiniz kişiyi öpersiniz
-[o.aşkölçer](https://discord.gg/9PNBMnVTZv) → Arkadaşlarınızla aranızdaki aşkı ölçün
+[o.aşkölçer](https://discord.gg/9PNBMnVTZv) → Arkadaşlarınızla aranızdaki aşkı ölçer
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
-            embed.set_author(name = "Oreskis • Eğlence Komutları Listesi", icon_url = "https://i.hizliresim.com/kc543M.png")
-            embed.set_thumbnail(url = "https://i.hizliresim.com/kc543M.png")
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2984E8)
+            embed.set_author(name = "Oreskis • Eğlence Komutları Listesi", icon_url = "https://i.hizliresim.com/hLdNYC.png")
+            embed.set_thumbnail(url = "https://i.hizliresim.com/hLdNYC.png")
             await message.channel.send(embed = embed)
 
 #############################################################################################################################################
@@ -498,9 +498,9 @@ async def on_message(message):
 [o.retrologo](https://discord.gg/9PNBMnVTZv) → Retro logo oluşturur
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
-            embed.set_author(name = "Oreskis • Genel Komutlar Listesi", icon_url = "https://i.hizliresim.com/kc543M.png")
-            embed.set_thumbnail(url = "https://i.hizliresim.com/kc543M.png")
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2984E8)
+            embed.set_author(name = "Oreskis • Genel Komutlar Listesi", icon_url = "https://i.hizliresim.com/hLdNYC.png")
+            embed.set_thumbnail(url = "https://i.hizliresim.com/hLdNYC.png")
             await message.channel.send(embed = embed)
 
 #############################################################################################################################################
@@ -528,12 +528,12 @@ async def on_message(message):
 [o.twitteravatar](https://discord.gg/9PNBMnVTZv) → Size özel Twitter avatarı tasarlar
 [o.valorantavatar](https://discord.gg/9PNBMnVTZv) → Size özel Valorant avatarı tasarlar
 [o.whatsappavatar](https://discord.gg/9PNBMnVTZv) → Size özel WhatsApp avatarı tasarlar
-[o.youtubeavatar](https://discord.gg/9PNBMnVTZv) → Size özel YouTube avatarı tasarlars
+[o.youtubeavatar](https://discord.gg/9PNBMnVTZv) → Size özel YouTube avatarı tasarlar
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
-            embed.set_author(name = "Oreskis • Genel Komutlar Listesi", icon_url = "https://i.hizliresim.com/kc543M.png")
-            embed.set_thumbnail(url = "https://i.hizliresim.com/kc543M.png")
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2984E8)
+            embed.set_author(name = "Oreskis • Genel Komutlar Listesi", icon_url = "https://i.hizliresim.com/hLdNYC.png")
+            embed.set_thumbnail(url = "https://i.hizliresim.com/hLdNYC.png")
             await message.channel.send(embed = embed)
 
 #############################################################################################################################################
@@ -546,20 +546,19 @@ async def on_message(message):
 [o.döviz](https://discord.gg/9PNBMnVTZv) → Anlık döviz bilgilerini gösterir
 [o.hava](https://discord.gg/9PNBMnVTZv) → Girdiğiniz şehirin hava durumunu tahminini gösterir
 [o.google](https://discord.gg/9PNBMnVTZv) → Bot sizin için ufak bir google araması yapar
-[o.admin](https://discord.gg/9PNBMnVTZv) → Botun admini hakkında bilgi verir
 [o.botbilgi](https://discord.gg/9PNBMnVTZv) → Bot hakkında bilgi verir
 [o.yardım](https://discord.gg/9PNBMnVTZv) → Yardım menüsünü açar
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2B82E8)
-            embed.set_author(name = "Oreskis • Genel Komutlar Listesi", icon_url = "https://i.hizliresim.com/kc543M.png")
-            embed.set_thumbnail(url = "https://i.hizliresim.com/kc543M.png")
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2984E8)
+            embed.set_author(name = "Oreskis • Genel Komutlar Listesi", icon_url = "https://i.hizliresim.com/hLdNYC.png")
+            embed.set_thumbnail(url = "https://i.hizliresim.com/hLdNYC.png")
             await message.channel.send(embed = embed)
 
 #############################################################################################################################################
 
         elif text == "o.döviz":
-            dollar_currency = requests.get('http://bigpara.hurriyet.com.tr/doviz/dolar/')
+            dollar_currency = requests.get("http://bigpara.hurriyet.com.tr/doviz/dolar")
             soup = BeautifulSoup(dollar_currency.content, "html.parser")
             full_block = soup.find("span", {"class":"value up"})
             dollar_full = full_block.text
@@ -569,7 +568,7 @@ async def on_message(message):
             else:
                 dollar = splitted_dollar[0] + splitted_dollar[1] + splitted_dollar[2] + splitted_dollar[3] + splitted_dollar[4]
 
-            euro_currency = requests.get('http://bigpara.hurriyet.com.tr/doviz/euro/')
+            euro_currency = requests.get("http://bigpara.hurriyet.com.tr/doviz/euro")
             soup = BeautifulSoup(euro_currency.content, "html.parser")
             full_block = soup.find("span", {"class":"value up"})
             euro_full = full_block.text
@@ -579,7 +578,7 @@ async def on_message(message):
             else:
                 euro = splitted_euro[0] + splitted_euro[1] + splitted_euro[2] + splitted_euro[3] + splitted_euro[4]
 
-            sterlin_currency = requests.get('http://bigpara.hurriyet.com.tr/doviz/sterlin/')
+            sterlin_currency = requests.get("http://bigpara.hurriyet.com.tr/doviz/sterlin")
             soup = BeautifulSoup(sterlin_currency.content, "html.parser")
             full_block = soup.find("span", {"class":"value up"})
             sterlin_full = full_block.text
@@ -600,7 +599,7 @@ async def on_message(message):
 #############################################################################################################################################
 
         elif text == "o.korona":
-            r = requests.get('https://covid19.saglik.gov.tr/TR-66935/genel-koronavirus-tablosu.html/')
+            r = requests.get("https://covid19.saglik.gov.tr/TR-66935/genel-koronavirus-tablosu.html")
             soup = BeautifulSoup(r.content, "html.parser")
             all_datas = soup.find_all("script")
             index_datas = all_datas[11]
@@ -617,78 +616,6 @@ async def on_message(message):
             embed.add_field(name = "Vefat Sayısı", value = die, inline = False)
             embed.add_field(name = "İyileşen Sayısı", value = heal, inline = False)
             await message.channel.send(embed = embed)
-
-#############################################################################################################################################
-
-        elif text == "o.taşkağıtmakas":
-            user_choice = random.choice(rsp)
-            enemy_choice = random.choice(rsp)
-            if user_choice == "Taş":
-                if enemy_choice == "Taş":
-                    embed = discord.Embed(color = 0x8ECCFF)
-                    embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
-                    embed.add_field(name = "Senin Seçimin", value = "`{}`".format(user_choice), inline = True)
-                    embed.add_field(name = "Botun Seçimi", value = "`{}`".format(enemy_choice), inline = True)
-                    embed.add_field(name = "Sonuç:", value = "`Berabere!`", inline = False)
-                    await message.channel.send(embed = embed)
-                elif enemy_choice == "Kağıt":
-                    embed = discord.Embed(color = 0x8ECCFF)
-                    embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
-                    embed.add_field(name = "Senin Seçimin", value = "`{}`".format(user_choice), inline = True)
-                    embed.add_field(name = "Botun Seçimi", value = "`{}`".format(enemy_choice), inline = True)
-                    embed.add_field(name = "Sonuç:", value = "`Kaybettin!`", inline = False)
-                    await message.channel.send(embed = embed)
-                else:
-                    embed = discord.Embed(color = 0x8ECCFF)
-                    embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
-                    embed.add_field(name = "Senin Seçimin", value = "`{}`".format(user_choice), inline = True)
-                    embed.add_field(name = "Botun Seçimi", value = "`{}`".format(enemy_choice), inline = True)
-                    embed.add_field(name = "Sonuç:", value = "`Kazandın!`", inline = False)
-                    await message.channel.send(embed = embed)
-            elif user_choice == "Kağıt":
-                if enemy_choice == "Taş":
-                    embed = discord.Embed(color = 0x8ECCFF)
-                    embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
-                    embed.add_field(name = "Senin Seçimin", value = "`{}`".format(user_choice), inline = True)
-                    embed.add_field(name = "Botun Seçimi", value = "`{}`".format(enemy_choice), inline = True)
-                    embed.add_field(name = "Sonuç:", value = "`Kazandın!`", inline = False)
-                    await message.channel.send(embed = embed)
-                elif enemy_choice == "Kağıt":
-                    embed = discord.Embed(color = 0x8ECCFF)
-                    embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
-                    embed.add_field(name = "Senin Seçimin", value = "`{}`".format(user_choice), inline = True)
-                    embed.add_field(name = "Botun Seçimi", value = "`{}`".format(enemy_choice), inline = True)
-                    embed.add_field(name = "Sonuç:", value = "`Berabere!`", inline = False)
-                    await message.channel.send(embed = embed)
-                else:
-                    embed = discord.Embed(color = 0x8ECCFF)
-                    embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
-                    embed.add_field(name = "Senin Seçimin", value = "`{}`".format(user_choice), inline = True)
-                    embed.add_field(name = "Botun Seçimi", value = "`{}`".format(enemy_choice), inline = True)
-                    embed.add_field(name = "Sonuç:", value = "`Kaybettin!`", inline = False)
-                    await message.channel.send(embed = embed)
-            else:
-                if enemy_choice == "Taş":
-                    embed = discord.Embed(color = 0x8ECCFF)
-                    embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
-                    embed.add_field(name = "Senin Seçimin", value = "`{}`".format(user_choice), inline = True)
-                    embed.add_field(name = "Botun Seçimi", value = "`{}`".format(enemy_choice), inline = True)
-                    embed.add_field(name = "Sonuç:", value = "`Kaybettin!`", inline = False)
-                    await message.channel.send(embed = embed)
-                elif enemy_choice == "Kağıt":
-                    embed = discord.Embed(color = 0x8ECCFF)
-                    embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
-                    embed.add_field(name = "Senin Seçimin", value = "`{}`".format(user_choice), inline = True)
-                    embed.add_field(name = "Botun Seçimi", value = "`{}`".format(enemy_choice), inline = True)
-                    embed.add_field(name = "Sonuç:", value = "`Kazandın!`", inline = False)
-                    await message.channel.send(embed = embed)
-                else:
-                    embed = discord.Embed(color = 0x8ECCFF)
-                    embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
-                    embed.add_field(name = "Senin Seçimin", value = "`{}`".format(user_choice), inline = True)
-                    embed.add_field(name = "Botun Seçimi", value = "`{}`".format(enemy_choice), inline = True)
-                    embed.add_field(name = "Sonuç:", value = "`Berabere!`", inline = False)
-                    await message.channel.send(embed = embed)
 
 #############################################################################################################################################
 
@@ -712,7 +639,7 @@ async def on_message(message):
             await message.edit(content  = ":japanese_goblin: :smoking: :cloud:")
             sleep(1)
             await message.edit(content  = ":japanese_goblin: :smoking:")
-            await message.channel.purge(limit = 1)
+            await message.delete()
             embed = discord.Embed(description = ":warning: Sağlığın için Sigara İçme", color = 0xFFCC4D)
             embed.set_author(name = author, icon_url = author.avatar_url_as(format = None, static_format = "png", size = 1024))
             await message.channel.send(embed = embed)
@@ -723,16 +650,6 @@ async def on_message(message):
             embed = discord.Embed(description = "{}".format(random.choice(jokes)), color = 0x5B6C16)
             embed.set_author(name = "ESPRİ", icon_url = "https://i.hizliresim.com/TQHyyU.png")
             await message.channel.send(embed = embed)
-
-#############################################################################################################################################
-
-        elif text == "o.admin":
-            avatar_chisenoa = "https://cdn.discordapp.com/avatars/794535514895941632/8c6def1a576c8bfaf7cf265a6d3af454.png?size=2048"
-            name_chisenoa = 'Alperen "CHISENOA" Güner'
-            embed_chisenoa = discord.Embed(description = "**•** [GitHub](https://www.github.com/chisenoa)\n**•** [Twitter](https://www.twitter.com/chisenoa)\n**•** [Discord](https://discord.gg/9PNBMnVTZv)\n**•** [WebSite](https://chisenoa.github.io)", color = 0xF060F1)
-            embed_chisenoa.set_footer(text = "Yetki: Kurucu Admin")
-            embed_chisenoa.set_author(name = name_chisenoa, icon_url = avatar_chisenoa)
-            await message.channel.send(embed = embed_chisenoa)
 
 #############################################################################################################################################
 
@@ -778,12 +695,12 @@ async def on_message(message):
 [Aktif Sunucu Sayısı](https://discord.gg/9PNBMnVTZv) → {}
 [Aktif Kullanıcı Sayısı](https://discord.gg/9PNBMnVTZv) → {}
 [Ping](https://discord.gg/9PNBMnVTZv) → {}ms
-[Zaman](https://discord.gg/9PNBMnVTZv) → {}
+[Saat](https://discord.gg/9PNBMnVTZv) → {}
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""".format(developer,discord.__version__, server_count, member_count, latency, time), color = 0xF6E423)
-            embed.set_author(name = "ORESKIS • Bilgi Paneli", icon_url = "https://i.hizliresim.com/FETKtc.png")
-            embed.set_thumbnail(url = "https://i.hizliresim.com/FETKtc.png")
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""".format(developer,discord.__version__, server_count, member_count, latency, time), color = 0xED3C43)
+            embed.set_author(name = "ORESKIS • Bilgi Paneli", icon_url = "https://i.hizliresim.com/hLdNYC.png")
+            embed.set_thumbnail(url = "https://i.hizliresim.com/hLdNYC.png")
             await message.channel.send(embed = embed)
 
 #############################################################################################################################################
@@ -791,10 +708,10 @@ async def on_message(message):
         if splitted_text[0] == "o.avatar":
             if (message.mentions.__len__()>0):
                 for user in message.mentions:
-                    link = user.avatar_url_as(format = None, static_format = "png", size = 2048)
+                    link = user.avatar_url_as(format = None, static_format = "png", size = 1024)
                     await message.channel.send(link)
             else:
-                link = message.author.avatar_url_as(format = None, static_format = "png", size = 2048)
+                link = message.author.avatar_url_as(format = None, static_format = "png", size = 1024)
                 await message.channel.send(link)
 
 #############################################################################################################################################
@@ -882,6 +799,88 @@ async def on_message(message):
                     await message.channel.send(embed = embed)
             else:
                 embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.kick <kullanıcı adı>`", color = 0xBE1931)
+                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                await message.channel.send(embed = embed)
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.taşkağıtmakas":
+            try:
+                user_choice = splitted_text[1]
+                if user_choice in rsp:
+                    enemy_choice = random.choice(rsp)
+                    if user_choice == "taş":
+                        if enemy_choice == "taş":
+                            embed = discord.Embed(color = 0x8ECCFF)
+                            embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
+                            embed.add_field(name = "Senin Seçimin", value = "`Taş`", inline = True)
+                            embed.add_field(name = "Botun Seçimi", value = "`Taş`", inline = True)
+                            embed.add_field(name = "Sonuç:", value = "`Berabere!`", inline = False)
+                            await message.channel.send(embed = embed)
+                        elif enemy_choice == "kağıt":
+                            embed = discord.Embed(color = 0x8ECCFF)
+                            embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
+                            embed.add_field(name = "Senin Seçimin", value = "`Taş`", inline = True)
+                            embed.add_field(name = "Botun Seçimi", value = "`Kağıt`", inline = True)
+                            embed.add_field(name = "Sonuç:", value = "`Kaybettin!`", inline = False)
+                            await message.channel.send(embed = embed)
+                        else:
+                            embed = discord.Embed(color = 0x8ECCFF)
+                            embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
+                            embed.add_field(name = "Senin Seçimin", value = "`Taş`", inline = True)
+                            embed.add_field(name = "Botun Seçimi", value = "`Makas`", inline = True)
+                            embed.add_field(name = "Sonuç:", value = "`Kazandın!`", inline = False)
+                            await message.channel.send(embed = embed)
+                    elif user_choice == "kağıt":
+                        if enemy_choice == "taş":
+                            embed = discord.Embed(color = 0x8ECCFF)
+                            embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
+                            embed.add_field(name = "Senin Seçimin", value = "`Kağıt`", inline = True)
+                            embed.add_field(name = "Botun Seçimi", value = "`Taş`", inline = True)
+                            embed.add_field(name = "Sonuç:", value = "`Kazandın!`", inline = False)
+                            await message.channel.send(embed = embed)
+                        elif enemy_choice == "kağıt":
+                            embed = discord.Embed(color = 0x8ECCFF)
+                            embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
+                            embed.add_field(name = "Senin Seçimin", value = "`Kağıt`", inline = True)
+                            embed.add_field(name = "Botun Seçimi", value = "`Kağıt`", inline = True)
+                            embed.add_field(name = "Sonuç:", value = "`Berabere!`", inline = False)
+                            await message.channel.send(embed = embed)
+                        else:
+                            embed = discord.Embed(color = 0x8ECCFF)
+                            embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
+                            embed.add_field(name = "Senin Seçimin", value = "`Kağıt`", inline = True)
+                            embed.add_field(name = "Botun Seçimi", value = "`Makas`", inline = True)
+                            embed.add_field(name = "Sonuç:", value = "`Kaybettin!`", inline = False)
+                            await message.channel.send(embed = embed)
+                    else:
+                        if enemy_choice == "taş":
+                            embed = discord.Embed(color = 0x8ECCFF)
+                            embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
+                            embed.add_field(name = "Senin Seçimin", value = "`Makas`", inline = True)
+                            embed.add_field(name = "Botun Seçimi", value = "`Taş`", inline = True)
+                            embed.add_field(name = "Sonuç:", value = "`Kaybettin!`", inline = False)
+                            await message.channel.send(embed = embed)
+                        elif enemy_choice == "kağıt":
+                            embed = discord.Embed(color = 0x8ECCFF)
+                            embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
+                            embed.add_field(name = "Senin Seçimin", value = "`Makas`", inline = True)
+                            embed.add_field(name = "Botun Seçimi", value = "`Kağıt`", inline = True)
+                            embed.add_field(name = "Sonuç:", value = "`Kazandın!`", inline = False)
+                            await message.channel.send(embed = embed)
+                        else:
+                            embed = discord.Embed(color = 0x8ECCFF)
+                            embed.set_author(name = "TAŞ KAĞIT MAKAS", icon_url = "https://i.hizliresim.com/YpU6wk.png")
+                            embed.add_field(name = "Senin Seçimin", value = "`Makas`", inline = True)
+                            embed.add_field(name = "Botun Seçimi", value = "`Makas`", inline = True)
+                            embed.add_field(name = "Sonuç:", value = "`Berabere!`", inline = False)
+                            await message.channel.send(embed = embed)
+                else:
+                    embed = discord.Embed(description = ":no_entry: Yanlış argüman girdiniz\n\nKullanım:\n`o.taşkağıtmakas <seçim>`", color = 0xBE1931)
+                    embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                    await message.channel.send(embed = embed)
+            except IndexError:
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.taşkağıtmakas <seçim>`", color = 0xBE1931)
                 embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                 await message.channel.send(embed = embed)
 
@@ -1945,7 +1944,7 @@ async def on_message(message):
 
         elif splitted_text[0] == "o.bulutlogo":
             if len(splitted_text) == 1:
-                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.cloudlogo <yazı>`", color = 0xBE1931)
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.bulutlogo <yazı>`", color = 0xBE1931)
                 embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                 await message.channel.send(embed = embed)
             else:
