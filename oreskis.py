@@ -558,7 +558,7 @@ async def on_message(message):
 #############################################################################################################################################
 
         elif text == "o.döviz":
-            dollar_currency = requests.get("http://bigpara.hurriyet.com.tr/doviz/dolar")
+            dollar_currency = requests.get('http://bigpara.hurriyet.com.tr/doviz/dolar/')
             soup = BeautifulSoup(dollar_currency.content, "html.parser")
             full_block = soup.find("span", {"class":"value up"})
             dollar_full = full_block.text
@@ -568,7 +568,7 @@ async def on_message(message):
             else:
                 dollar = splitted_dollar[0] + splitted_dollar[1] + splitted_dollar[2] + splitted_dollar[3] + splitted_dollar[4]
 
-            euro_currency = requests.get("http://bigpara.hurriyet.com.tr/doviz/euro")
+            euro_currency = requests.get('http://bigpara.hurriyet.com.tr/doviz/euro/')
             soup = BeautifulSoup(euro_currency.content, "html.parser")
             full_block = soup.find("span", {"class":"value up"})
             euro_full = full_block.text
@@ -578,7 +578,7 @@ async def on_message(message):
             else:
                 euro = splitted_euro[0] + splitted_euro[1] + splitted_euro[2] + splitted_euro[3] + splitted_euro[4]
 
-            sterlin_currency = requests.get("http://bigpara.hurriyet.com.tr/doviz/sterlin")
+            sterlin_currency = requests.get('http://bigpara.hurriyet.com.tr/doviz/sterlin/')
             soup = BeautifulSoup(sterlin_currency.content, "html.parser")
             full_block = soup.find("span", {"class":"value up"})
             sterlin_full = full_block.text
@@ -599,7 +599,7 @@ async def on_message(message):
 #############################################################################################################################################
 
         elif text == "o.korona":
-            r = requests.get("https://covid19.saglik.gov.tr/TR-66935/genel-koronavirus-tablosu.html")
+            r = requests.get('https://covid19.saglik.gov.tr/TR-66935/genel-koronavirus-tablosu.html/')
             soup = BeautifulSoup(r.content, "html.parser")
             all_datas = soup.find_all("script")
             index_datas = all_datas[11]
