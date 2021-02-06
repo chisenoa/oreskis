@@ -680,7 +680,7 @@ async def on_message(message):
             developer = "<@!794535514895941632>"
             latency = round(client.latency * 100)
             server_count = str(len(client.guilds))
-            member_count = str(len(set(client.get_all_members())))
+            member_count = str(len(client.users))
             server_time = datetime.datetime.today()
             #difference = datetime.timedelta(hours = 3)
             #time = server_time + difference
@@ -2038,23 +2038,28 @@ async def on_message(message):
 #############################################################################################################################################
 
         elif splitted_text[0] == "o.google":
-            if len(splitted_text) == 1:
-                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.google <yazı>`", color = 0xBE1931)
-                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
-                await message.channel.send(embed = embed)
-            else:
-                text = message.content
-                all_text = text.split()
-                all_text.pop(0)
-                search_content = listToString(all_text)
-                result = search(search_content, lang = "tr", num_results = 1)
-                if len(result) == 0:
-                    embed = discord.Embed(description = "Sonuç bulunamadı", color = 0xBE1931)
+            if message.channel.is_nsfw():
+                if len(splitted_text) == 1:
+                    embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.google <yazı>`", color = 0xBE1931)
                     embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                     await message.channel.send(embed = embed)
                 else:
-                    site = result[0]
-                    await message.channel.send(site)
+                    text = message.content
+                    all_text = text.split()
+                    all_text.pop(0)
+                    search_content = listToString(all_text)
+                    result = search(search_content, lang = "tr", num_results = 1)
+                    if len(result) == 0:
+                        embed = discord.Embed(description = "Sonuç bulunamadı", color = 0xBE1931)
+                        embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                        await message.channel.send(embed = embed)
+                    else:
+                        site = result[0]
+                        await message.channel.send(site)
+            else:
+                embed = discord.Embed(description = ":no_entry: Bu komutu sadece NSFW kanalında kullanabilirsiniz", color = 0xBE1931)
+                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                await message.channel.send(embed = embed)
 
 #############################################################################################################################################
 
