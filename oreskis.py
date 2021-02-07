@@ -246,161 +246,442 @@ def charsetSetter(x):
     add_u2 = add_u.replace("Ü", "U")
     return add_u2
 
+def monthSetter(x):
+    add1 = x.replace("January", "Ocak")
+    add2 = add1.replace("February", "Şubat")
+    add3 = add2.replace("March", "Mart")
+    add4 = add3.replace("April", "Nisan")
+    add5 = add4.replace("May", "Mayıs")
+    add6 = add5.replace("June", "Haziran")
+    add7 = add6.replace("July", "Temmuz")
+    add8 = add7.replace("August", "Ağustos")
+    add9 = add8.replace("September", "Eylül")
+    add10 = add9.replace("October", "Ekim")
+    add11 = add10.replace("November", "Kasım")
+    add12 = add11.replace("December", "Aralık")
+    return add12
+
+@client.event
+async def on_guild_join(guild):
+    bots = [member for member in guild.members if member.bot]
+    all_count = str(guild.member_count)
+    bot_count = str(len(bots))
+    user_count = str(guild.member_count - len(bots))
+    local_time = str(guild.created_at.strftime("%d %B %Y"))
+    created_time = monthSetter(local_time)
+    guild_avatar_url = guild.icon_url_as(format = None, static_format = "png", size = 1024)
+    if len(guild_avatar_url) == 0:
+        guild_avatar_url = "https://i.hizliresim.com/8o4lU0.gif"
+    else:
+        guild_avatar_url = guild.icon_url_as(format = None, static_format = "png", size = 1024)
+    channel = client.get_channel(807918947902291968)
+    embed = discord.Embed(description = """:inbox_tray: **BIR SUNUCUYA KATILDIM!**
+
+[Sunucu Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucu Sahibi](https://discord.gg/9PNBMnVTZv) → {}
+[Oluşturulma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Toplam Üye](https://discord.gg/9PNBMnVTZv) → {}
+[Kullanıcı](https://discord.gg/9PNBMnVTZv) → {}
+[Botlar](https://discord.gg/9PNBMnVTZv) → {}""".format(guild.name.strip(), guild.owner.mention, created_time, all_count, user_count, bot_count), color = 0x77B255)
+    embed.set_thumbnail(url = guild_avatar_url)
+    await channel.send(embed = embed)
+
+@client.event
+async def on_guild_remove(guild):
+    bots = [member for member in guild.members if member.bot]
+    all_count = str(guild.member_count)
+    bot_count = str(len(bots))
+    user_count = str(guild.member_count - len(bots))
+    local_time = str(guild.created_at.strftime("%d %B %Y"))
+    created_time = monthSetter(local_time)
+    guild_avatar_url = guild.icon_url_as(format = None, static_format = "png", size = 1024)
+    if len(guild_avatar_url) == 0:
+        guild_avatar_url = "https://i.hizliresim.com/8o4lU0.gif"
+    else:
+        guild_avatar_url = guild.icon_url_as(format = None, static_format = "png", size = 1024)
+    channel = client.get_channel(807918947902291968)
+    embed = discord.Embed(description = """:outbox_tray: **BIR SUNUCUDAN AYRILDIM!**
+
+[Sunucu Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucu Sahibi](https://discord.gg/9PNBMnVTZv) → {}
+[Oluşturulma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Toplam Üye](https://discord.gg/9PNBMnVTZv) → {}
+[Kullanıcı](https://discord.gg/9PNBMnVTZv) → {}
+[Botlar](https://discord.gg/9PNBMnVTZv) → {}""".format(guild.name.strip(), guild.owner.mention, created_time, all_count, user_count, bot_count), color = 0xDD2E44)
+    embed.set_thumbnail(url = guild_avatar_url)
+    await channel.send(embed = embed)
+
 @client.event
 async def on_member_join(member):
-    if member.bot:
-        return
-    else:
-        server_id = str(member.guild.id)
-        if server_id == "798761868700287027":
+    server_id = str(member.guild.id)
+    if server_id == "798761868700287027":
+        if member.bot:
+            role = discord.utils.get(member.guild.roles, name = "Bot")
+            await member.add_roles(role)
+            channel = client.get_channel(799618911019597834)
+            bot_avatar = member.avatar_url_as(format = None, static_format = "png", size = 1024)
+            bot_name = member.mention
+            bot_discrim = member.discriminator
+            bot_id = member.id
+            bot_create_en = str(member.created_at.strftime("%d %B %Y"))
+            bot_create = monthSetter(bot_create_en)
+            bot_join_en = str(member.joined_at.strftime("%d %B %Y"))
+            bot_join = monthSetter(bot_join_en)
+            bot_roles = member.roles
+            if len(bot_roles) == 1:
+                bot_roles = "@everyone"
+            else:
+                bot_roles = [r.mention for r in bot_roles]
+                bot_roles.pop(0)
+                bot_roles = " ".join(bot_roles)
+            embed = discord.Embed(description = """:inbox_tray: **ARAMIZA KATILDI!**
+
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → Bot
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(bot_name, bot_discrim, bot_id, bot_create, bot_join, bot_roles), color = 0x77B255)
+            embed.set_thumbnail(url = bot_avatar)
+            await channel.send(embed = embed)
+        else:
             role = discord.utils.get(member.guild.roles, name = "USB Kablosu")
             await member.add_roles(role)
             channel = client.get_channel(799618911019597834)
-            name = member.name
-            discrim = member.discriminator
-            avatar = str(member.avatar_url_as(format = None, static_format = "png", size = 1024))
-            base = Image.open("assets/images/pillow/base_join.png").convert("RGBA")
-            mask_url = Image.open("assets/images/pillow/mask.png").convert("RGBA")
-            avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
-            avatar_url.thumbnail((230, 230))
-            font = ImageFont.truetype("assets/fonts/Ubuntu-Medium.ttf", 48)
-            draw = ImageDraw.Draw(base)
-            base.paste(avatar_url, (285, 80), mask_url)
-            draw.text((400, 380), "{}#{}".format(name, discrim), font = font, anchor = "ms", align = "center", fill = (238, 238, 238))
-            with io.BytesIO() as image_binary:
-                base.save(image_binary, "PNG")
-                image_binary.seek(0)
-                file = discord.File(fp = image_binary, filename = "join_{}.png".format(member.id))
-                await channel.send(file = file)
-                base.close()
-                mask_url.close()
-                avatar_url.close()
+            member_avatar = member.avatar_url_as(format = None, static_format = "png", size = 1024)
+            member_name = member.mention
+            member_discrim = member.discriminator
+            member_id = member.id
+            member_create_en = str(member.created_at.strftime("%d %B %Y"))
+            member_create = monthSetter(member_create_en)
+            member_join_en = str(member.joined_at.strftime("%d %B %Y"))
+            member_join = monthSetter(member_join_en)
+            member_roles = member.roles
+            if len(member_roles) == 1:
+                member_roles = "@everyone"
+            else:
+                member_roles = [r.mention for r in member_roles]
+                member_roles.pop(0)
+                member_roles = " ".join(member_roles)
+            embed = discord.Embed(description = """:inbox_tray: **ARAMIZA KATILDI!**
 
-        elif server_id == "373465895521222657":
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → İnsan
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(member_name, member_discrim, member_id, member_create, member_join, member_roles), color = 0x77B255)
+            embed.set_thumbnail(url = member_avatar)
+            await channel.send(embed = embed)
+
+    elif server_id == "373465895521222657":
+        if member.bot:
+            role = discord.utils.get(member.guild.roles, name = "Bot")
+            await member.add_roles(role)
+            channel = client.get_channel(780804061191471124)
+            bot_avatar = member.avatar_url_as(format = None, static_format = "png", size = 1024)
+            bot_name = member.mention
+            bot_discrim = member.discriminator
+            bot_id = member.id
+            bot_create_en = str(member.created_at.strftime("%d %B %Y"))
+            bot_create = monthSetter(bot_create_en)
+            bot_join_en = str(member.joined_at.strftime("%d %B %Y"))
+            bot_join = monthSetter(bot_join_en)
+            bot_roles = member.roles
+            if len(bot_roles) == 1:
+                bot_roles = "@everyone"
+            else:
+                bot_roles = [r.mention for r in bot_roles]
+                bot_roles.pop(0)
+                bot_roles = " ".join(bot_roles)
+            embed = discord.Embed(description = """:inbox_tray: **ARAMIZA KATILDI!**
+
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → Bot
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(bot_name, bot_discrim, bot_id, bot_create, bot_join, bot_roles), color = 0x77B255)
+            embed.set_thumbnail(url = bot_avatar)
+            await channel.send(embed = embed)
+        else:
             role = discord.utils.get(member.guild.roles, name = "Şarj Aleti")
             await member.add_roles(role)
             channel = client.get_channel(780804061191471124)
-            name = member.name
-            discrim = member.discriminator
-            avatar = str(member.avatar_url_as(format = None, static_format = "png", size = 1024))
-            base = Image.open("assets/images/pillow/base_join.png").convert("RGBA")
-            mask_url = Image.open("assets/images/pillow/mask.png").convert("RGBA")
-            avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
-            avatar_url.thumbnail((230, 230))
-            font = ImageFont.truetype("assets/fonts/Ubuntu-Medium.ttf", 48)
-            draw = ImageDraw.Draw(base)
-            base.paste(avatar_url, (285, 80), mask_url)
-            draw.text((400, 380), "{}#{}".format(name, discrim), font = font, anchor = "ms", align = "center", fill = (238, 238, 238))
-            with io.BytesIO() as image_binary:
-                base.save(image_binary, "PNG")
-                image_binary.seek(0)
-                file = discord.File(fp = image_binary, filename = "join_{}.png".format(member.id))
-                await channel.send(file = file)
-                base.close()
-                mask_url.close()
-                avatar_url.close()
+            member_avatar = member.avatar_url_as(format = None, static_format = "png", size = 1024)
+            member_name = member.mention
+            member_discrim = member.discriminator
+            member_id = member.id
+            member_create_en = str(member.created_at.strftime("%d %B %Y"))
+            member_create = monthSetter(member_create_en)
+            member_join_en = str(member.joined_at.strftime("%d %B %Y"))
+            member_join = monthSetter(member_join_en)
+            member_roles = member.roles
+            if len(member_roles) == 1:
+                member_roles = "@everyone"
+            else:
+                member_roles = [r.mention for r in member_roles]
+                member_roles.pop(0)
+                member_roles = " ".join(member_roles)
+            embed = discord.Embed(description = """:inbox_tray: **ARAMIZA KATILDI!**
 
-        elif server_id == "796697431701323846":
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → İnsan
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(member_name, member_discrim, member_id, member_create, member_join, member_roles), color = 0x77B255)
+            embed.set_thumbnail(url = member_avatar)
+            await channel.send(embed = embed)
+
+    elif server_id == "796697431701323846":
+        if member.bot:
+            channel = client.get_channel(803567619243245568)
+            role = discord.utils.get(member.guild.roles, name = "BOT")
+            await member.add_roles(role)
+            bot_avatar = member.avatar_url_as(format = None, static_format = "png", size = 1024)
+            bot_name = member.mention
+            bot_discrim = member.discriminator
+            bot_id = member.id
+            bot_create_en = str(member.created_at.strftime("%d %B %Y"))
+            bot_create = monthSetter(bot_create_en)
+            bot_join_en = str(member.joined_at.strftime("%d %B %Y"))
+            bot_join = monthSetter(bot_join_en)
+            bot_roles = member.roles
+            if len(bot_roles) == 1:
+                bot_roles = "@everyone"
+            else:
+                bot_roles = [r.mention for r in bot_roles]
+                bot_roles.pop(0)
+                bot_roles = " ".join(bot_roles)
+            embed = discord.Embed(description = """:inbox_tray: **ARAMIZA KATILDI!**
+
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → Bot
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(bot_name, bot_discrim, bot_id, bot_create, bot_join, bot_roles), color = 0x77B255)
+            embed.set_thumbnail(url = bot_avatar)
+            await channel.send(embed = embed)
+        else:
             role = discord.utils.get(member.guild.roles, name = "Üye")
             await member.add_roles(role)
             channel = client.get_channel(803567619243245568)
-            name = member.name
-            discrim = member.discriminator
-            avatar = str(member.avatar_url_as(format = None, static_format = "png", size = 1024))
-            base = Image.open("assets/images/pillow/base_join.png").convert("RGBA")
-            mask_url = Image.open("assets/images/pillow/mask.png").convert("RGBA")
-            avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
-            avatar_url.thumbnail((230, 230))
-            font = ImageFont.truetype("assets/fonts/Ubuntu-Medium.ttf", 48)
-            draw = ImageDraw.Draw(base)
-            base.paste(avatar_url, (285, 80), mask_url)
-            draw.text((400, 380), "{}#{}".format(name, discrim), font = font, anchor = "ms", align = "center", fill = (238, 238, 238))
-            with io.BytesIO() as image_binary:
-                base.save(image_binary, "PNG")
-                image_binary.seek(0)
-                file = discord.File(fp = image_binary, filename = "join_{}.png".format(member.id))
-                await channel.send(file = file)
-                base.close()
-                mask_url.close()
-                avatar_url.close()
+            member_avatar = member.avatar_url_as(format = None, static_format = "png", size = 1024)
+            member_name = member.mention
+            member_discrim = member.discriminator
+            member_id = member.id
+            member_create_en = str(member.created_at.strftime("%d %B %Y"))
+            member_create = monthSetter(member_create_en)
+            member_join_en = str(member.joined_at.strftime("%d %B %Y"))
+            member_join = monthSetter(member_join_en)
+            member_roles = member.roles
+            if len(member_roles) == 1:
+                member_roles = "@everyone"
+            else:
+                member_roles = [r.mention for r in member_roles]
+                member_roles.pop(0)
+                member_roles = " ".join(member_roles)
+            embed = discord.Embed(description = """:inbox_tray: **ARAMIZA KATILDI!**
 
-        else:
-            pass
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → İnsan
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(member_name, member_discrim, member_id, member_create, member_join, member_roles), color = 0x77B255)
+            embed.set_thumbnail(url = member_avatar)
+            await channel.send(embed = embed)
+
+    else:
+        pass
 
 @client.event
 async def on_member_remove(member):
-    if member.bot:
-        return
-    else:
-        server_id = str(member.guild.id)
-        if server_id == "798761868700287027":
-            name = member.name
-            discrim = member.discriminator
+    server_id = str(member.guild.id)
+    if server_id == "798761868700287027":
+        if member.bot:
             channel = client.get_channel(799618911019597834)
-            avatar = str(member.avatar_url_as(format = None, static_format = "png", size = 1024))
-            base = Image.open("assets/images/pillow/base_left.png").convert("RGBA")
-            mask_url = Image.open("assets/images/pillow/mask.png").convert("RGBA")
-            avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
-            avatar_url.thumbnail((230, 230))
-            font = ImageFont.truetype("assets/fonts/Ubuntu-Medium.ttf", 48)
-            draw = ImageDraw.Draw(base)
-            base.paste(avatar_url, (285, 80), mask_url)
-            draw.text((400, 400), "{}#{}".format(name, discrim), font = font, anchor = "ms", align = "center", fill = (238, 238, 238))
-            with io.BytesIO() as image_binary:
-                base.save(image_binary, "PNG")
-                image_binary.seek(0)
-                file = discord.File(fp = image_binary, filename = "left_{}.png".format(member.id))
-                await channel.send(file = file)
-                base.close()
-                mask_url.close()
-                avatar_url.close()
+            bot_avatar = member.avatar_url_as(format = None, static_format = "png", size = 1024)
+            bot_name = member.mention
+            bot_discrim = member.discriminator
+            bot_id = member.id
+            bot_create_en = str(member.created_at.strftime("%d %B %Y"))
+            bot_create = monthSetter(bot_create_en)
+            bot_join_en = str(member.joined_at.strftime("%d %B %Y"))
+            bot_join = monthSetter(bot_join_en)
+            bot_roles = member.roles
+            if len(bot_roles) == 1:
+                bot_roles = "@everyone"
+            else:
+                bot_roles = [r.mention for r in bot_roles]
+                bot_roles.pop(0)
+                bot_roles = " ".join(bot_roles)
+            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRDILDI!**
 
-        elif server_id == "373465895521222657":
-            name = member.name
-            discrim = member.discriminator
-            channel = client.get_channel(780804061191471124)
-            avatar = str(member.avatar_url_as(format = None, static_format = "png", size = 1024))
-            base = Image.open("assets/images/pillow/base_left.png").convert("RGBA")
-            mask_url = Image.open("assets/images/pillow/mask.png").convert("RGBA")
-            avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
-            avatar_url.thumbnail((230, 230))
-            font = ImageFont.truetype("assets/fonts/Ubuntu-Medium.ttf", 48)
-            draw = ImageDraw.Draw(base)
-            base.paste(avatar_url, (285, 80), mask_url)
-            draw.text((400, 400), "{}#{}".format(name, discrim), font = font, anchor = "ms", align = "center", fill = (238, 238, 238))
-            with io.BytesIO() as image_binary:
-                base.save(image_binary, "PNG")
-                image_binary.seek(0)
-                file = discord.File(fp = image_binary, filename = "left_{}.png".format(member.id))
-                await channel.send(file = file)
-                base.close()
-                mask_url.close()
-                avatar_url.close()
-
-        elif server_id == "796697431701323846":
-            name = member.name
-            discrim = member.discriminator
-            channel = client.get_channel(803567619243245568)
-            avatar = str(member.avatar_url_as(format = None, static_format = "png", size = 1024))
-            base = Image.open("assets/images/pillow/base_left.png").convert("RGBA")
-            mask_url = Image.open("assets/images/pillow/mask.png").convert("RGBA")
-            avatar_url = Image.open(requests.get(avatar, stream = True).raw).convert("RGBA")
-            avatar_url.thumbnail((230, 230))
-            font = ImageFont.truetype("assets/fonts/Ubuntu-Medium.ttf", 48)
-            draw = ImageDraw.Draw(base)
-            base.paste(avatar_url, (285, 80), mask_url)
-            draw.text((400, 400), "{}#{}".format(name, discrim), font = font, anchor = "ms", align = "center", fill = (238, 238, 238))
-            with io.BytesIO() as image_binary:
-                base.save(image_binary, "PNG")
-                image_binary.seek(0)
-                file = discord.File(fp = image_binary, filename = "left_{}.png".format(member.id))
-                await channel.send(file = file)
-                base.close()
-                mask_url.close()
-                avatar_url.close()
-
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → Bot
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(bot_name, bot_discrim, bot_id, bot_create, bot_join, bot_roles), color = 0xDD2E44)
+            embed.set_thumbnail(url = bot_avatar)
+            await channel.send(embed = embed)
         else:
-            pass
+            channel = client.get_channel(799618911019597834)
+            member_avatar = member.avatar_url_as(format = None, static_format = "png", size = 1024)
+            member_name = member.mention
+            member_discrim = member.discriminator
+            member_id = member.id
+            member_create_en = str(member.created_at.strftime("%d %B %Y"))
+            member_create = monthSetter(member_create_en)
+            member_join_en = str(member.joined_at.strftime("%d %B %Y"))
+            member_join = monthSetter(member_join_en)
+            member_roles = member.roles
+            if len(member_roles) == 1:
+                member_roles = "@everyone"
+            else:
+                member_roles = [r.mention for r in member_roles]
+                member_roles.pop(0)
+                member_roles = " ".join(member_roles)
+            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRDILDI!**
+
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → İnsan
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(member_name, member_discrim, member_id, member_create, member_join, member_roles), color = 0xDD2E44)
+            embed.set_thumbnail(url = member_avatar)
+            await channel.send(embed = embed)
+
+    elif server_id == "373465895521222657":
+        if member.bot:
+            channel = client.get_channel(780804061191471124)
+            bot_avatar = member.avatar_url_as(format = None, static_format = "png", size = 1024)
+            bot_name = member.mention
+            bot_discrim = member.discriminator
+            bot_id = member.id
+            bot_create_en = str(member.created_at.strftime("%d %B %Y"))
+            bot_create = monthSetter(bot_create_en)
+            bot_join_en = str(member.joined_at.strftime("%d %B %Y"))
+            bot_join = monthSetter(bot_join_en)
+            bot_roles = member.roles
+            if len(bot_roles) == 1:
+                bot_roles = "@everyone"
+            else:
+                bot_roles = [r.mention for r in bot_roles]
+                bot_roles.pop(0)
+                bot_roles = " ".join(bot_roles)
+            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRDILDI!**
+
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → Bot
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(bot_name, bot_discrim, bot_id, bot_create, bot_join, bot_roles), color = 0xDD2E44)
+            embed.set_thumbnail(url = bot_avatar)
+            await channel.send(embed = embed)
+        else:
+            channel = client.get_channel(780804061191471124)
+            member_avatar = member.avatar_url_as(format = None, static_format = "png", size = 1024)
+            member_name = member.mention
+            member_discrim = member.discriminator
+            member_id = member.id
+            member_create_en = str(member.created_at.strftime("%d %B %Y"))
+            member_create = monthSetter(member_create_en)
+            member_join_en = str(member.joined_at.strftime("%d %B %Y"))
+            member_join = monthSetter(member_join_en)
+            member_roles = member.roles
+            if len(member_roles) == 1:
+                member_roles = "@everyone"
+            else:
+                member_roles = [r.mention for r in member_roles]
+                member_roles.pop(0)
+                member_roles = " ".join(member_roles)
+            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRDILDI!**
+
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → İnsan
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(member_name, member_discrim, member_id, member_create, member_join, member_roles), color = 0xDD2E44)
+            embed.set_thumbnail(url = member_avatar)
+            await channel.send(embed = embed)
+
+    elif server_id == "796697431701323846":
+        if member.bot:
+            channel = client.get_channel(803567619243245568)
+            bot_avatar = member.avatar_url_as(format = None, static_format = "png", size = 1024)
+            bot_name = member.mention
+            bot_discrim = member.discriminator
+            bot_id = member.id
+            bot_create_en = str(member.created_at.strftime("%d %B %Y"))
+            bot_create = monthSetter(bot_create_en)
+            bot_join_en = str(member.joined_at.strftime("%d %B %Y"))
+            bot_join = monthSetter(bot_join_en)
+            bot_roles = member.roles
+            if len(bot_roles) == 1:
+                bot_roles = "@everyone"
+            else:
+                bot_roles = [r.mention for r in bot_roles]
+                bot_roles.pop(0)
+                bot_roles = " ".join(bot_roles)
+            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRDILDI!**
+
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → Bot
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(bot_name, bot_discrim, bot_id, bot_create, bot_join, bot_roles), color = 0xDD2E44)
+            embed.set_thumbnail(url = bot_avatar)
+            await channel.send(embed = embed)
+        else:
+            channel = client.get_channel(803567619243245568)
+            member_avatar = member.avatar_url_as(format = None, static_format = "png", size = 1024)
+            member_name = member.mention
+            member_discrim = member.discriminator
+            member_id = member.id
+            member_create_en = str(member.created_at.strftime("%d %B %Y"))
+            member_create = monthSetter(member_create_en)
+            member_join_en = str(member.joined_at.strftime("%d %B %Y"))
+            member_join = monthSetter(member_join_en)
+            member_roles = member.roles
+            if len(member_roles) == 1:
+                member_roles = "@everyone"
+            else:
+                member_roles = [r.mention for r in member_roles]
+                member_roles.pop(0)
+                member_roles = " ".join(member_roles)
+            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRDILDI!**
+
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → İnsan
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(member_name, member_discrim, member_id, member_create, member_join, member_roles), color = 0xDD2E44)
+            embed.set_thumbnail(url = member_avatar)
+            await channel.send(embed = embed)
+
+    else:
+        pass
 
 @client.event
 async def on_ready():
@@ -546,6 +827,8 @@ async def on_message(message):
 [o.döviz](https://discord.gg/9PNBMnVTZv) → Anlık döviz bilgilerini gösterir
 [o.hava](https://discord.gg/9PNBMnVTZv) → Girdiğiniz şehirin hava durumunu tahminini gösterir
 [o.google](https://discord.gg/9PNBMnVTZv) → Bot sizin için ufak bir google araması yapar
+[o.kullanıcıbilgi](https://discord.gg/9PNBMnVTZv) → Kullanıcı hakkında bilgi verir
+[o.sunucubilgi](https://discord.gg/9PNBMnVTZv) → Sunucu hakkında bilgi verir
 [o.botbilgi](https://discord.gg/9PNBMnVTZv) → Bot hakkında bilgi verir
 [o.yardım](https://discord.gg/9PNBMnVTZv) → Yardım menüsünü açar
 
@@ -684,6 +967,7 @@ async def on_message(message):
             server_time = datetime.datetime.today()
             difference = datetime.timedelta(hours = 3)
             time = server_time + difference
+            #time = server_time
             time = time.strftime("%H:%M:%S")
             embed = discord.Embed(description = """**•** Öneri ve Bug'ları sunucumuzdaki yetkililere bildirebilirsin ve çözümlenmesi için katkıda bulunabilirsin!
 
@@ -704,7 +988,120 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-        if splitted_text[0] == "o.avatar":
+        elif text == "o.sunucubilgi":
+            guild = message.channel.guild
+            bots = [member for member in guild.members if member.bot]
+            all_count = str(guild.member_count)
+            bot_count = str(len(bots))
+            user_count = str(guild.member_count - len(bots))
+            local_time = str(guild.created_at.strftime("%d %B %Y"))
+            created_time = monthSetter(local_time)
+            guild_avatar_url = guild.icon_url_as(format = None, static_format = "png", size = 1024)
+            if len(guild_avatar_url) == 0:
+                guild_avatar_url = "https://i.hizliresim.com/8o4lU0.gif"
+            else:
+                guild_avatar_url = guild.icon_url_as(format = None, static_format = "png", size = 1024)
+            embed = discord.Embed(description = """:compass: **SUNUCU BİLGİSİ**
+
+[Sunucu Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucu Sahibi](https://discord.gg/9PNBMnVTZv) → {}
+[Oluşturulma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Toplam Üye](https://discord.gg/9PNBMnVTZv) → {}
+[Kullanıcı](https://discord.gg/9PNBMnVTZv) → {}
+[Botlar](https://discord.gg/9PNBMnVTZv) → {}""".format(guild.name.strip(), guild.owner.mention, created_time, all_count, user_count, bot_count), color = 0xF4900C)
+            embed.set_thumbnail(url = guild_avatar_url)
+            await message.channel.send(embed = embed)
+
+#############################################################################################################################################
+
+        if splitted_text[0] == "o.kullanıcıbilgi":
+            if (message.mentions.__len__()>0):
+                for user in message.mentions:
+                    if user.bot:
+                        bot_avatar = user.avatar_url_as(format = None, static_format = "png", size = 1024)
+                        bot_name = user.mention
+                        bot_discrim = user.discriminator
+                        bot_id = user.id
+                        bot_create_en = str(user.created_at.strftime("%d %B %Y"))
+                        bot_create = monthSetter(bot_create_en)
+                        bot_join_en = str(user.joined_at.strftime("%d %B %Y"))
+                        bot_join = monthSetter(bot_join_en)
+                        bot_roles = user.roles
+                        if len(bot_roles) == 1:
+                            bot_roles = "@everyone"
+                        else:
+                            bot_roles = [r.mention for r in bot_roles]
+                            bot_roles.pop(0)
+                            bot_roles = " ".join(bot_roles)
+                        embed = discord.Embed(description = """:crown: **KULLANICI BİLGİSİ**
+
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → Bot
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(bot_name, bot_discrim, bot_id, bot_create, bot_join, bot_roles), color = 0xFFCC4D)
+                        embed.set_thumbnail(url = bot_avatar)
+                        await message.channel.send(embed = embed)
+                    else:
+                        user_avatar = user.avatar_url_as(format = None, static_format = "png", size = 1024)
+                        user_name = user.mention
+                        user_discrim = user.discriminator
+                        user_id = user.id
+                        user_create_en = str(user.created_at.strftime("%d %B %Y"))
+                        user_create = monthSetter(user_create_en)
+                        user_join_en = str(user.joined_at.strftime("%d %B %Y"))
+                        user_join = monthSetter(user_join_en)
+                        user_roles = user.roles
+                        if len(user_roles) == 1:
+                            user_roles = "@everyone"
+                        else:
+                            user_roles = [r.mention for r in user_roles]
+                            user_roles.pop(0)
+                            user_roles = " ".join(user_roles)
+                        embed = discord.Embed(description = """:crown: **KULLANICI BİLGİSİ**
+
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → İnsan
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(user_name, user_discrim, user_id, user_create, user_join, user_roles), color = 0xFFCC4D)
+                        embed.set_thumbnail(url = user_avatar)
+                        await message.channel.send(embed = embed)
+            else:
+                author_avatar = message.author.avatar_url_as(format = None, static_format = "png", size = 1024)
+                author_name = message.author.mention
+                author_discrim = message.author.discriminator
+                author_id = message.author.id
+                author_create_en = str(message.author.created_at.strftime("%d %B %Y"))
+                author_create = monthSetter(author_create_en)
+                author_join_en = str(message.author.joined_at.strftime("%d %B %Y"))
+                author_join = monthSetter(author_join_en)
+                author_roles = message.author.roles
+                if len(author_roles) == 1:
+                    author_roles = "@everyone"
+                else:
+                    author_roles = [r.mention for r in author_roles]
+                    author_roles.pop(0)
+                    author_roles = " ".join(author_roles)
+                embed = discord.Embed(description = """:crown: **KULLANICI BİLGİSİ**
+
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → İnsan
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(author_name, author_discrim, author_id, author_create, author_join, author_roles), color = 0xFFCC4D)
+                embed.set_thumbnail(url = author_avatar)
+                await message.channel.send(embed = embed)
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.avatar":
             if (message.mentions.__len__()>0):
                 for user in message.mentions:
                     link = user.avatar_url_as(format = None, static_format = "png", size = 1024)
