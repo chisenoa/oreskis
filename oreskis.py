@@ -682,9 +682,8 @@ async def on_message(message):
             server_count = str(len(client.guilds))
             member_count = str(len(client.users))
             server_time = datetime.datetime.today()
-            #difference = datetime.timedelta(hours = 3)
-            #time = server_time + difference
-            time = server_time
+            difference = datetime.timedelta(hours = 3)
+            time = server_time + difference
             time = time.strftime("%H:%M:%S")
             embed = discord.Embed(description = """**•** Öneri ve Bug'ları sunucumuzdaki yetkililere bildirebilirsin ve çözümlenmesi için katkıda bulunabilirsin!
 
