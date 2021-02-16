@@ -885,7 +885,7 @@ async def on_message(message):
             r = requests.get('https://covid19.saglik.gov.tr/TR-66935/genel-koronavirus-tablosu.html/')
             soup = BeautifulSoup(r.content, "html.parser")
             all_datas = soup.find_all("script")
-            index_datas = all_datas[11]
+            index_datas = all_datas[16]
             index_datas = str(index_datas)
             datas = index_datas.split('"')
             test = datas[9]
