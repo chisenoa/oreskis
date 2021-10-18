@@ -560,6 +560,68 @@ async def on_member_join(member):
             embed.set_thumbnail(url = member_avatar)
             await channel.send(embed = embed)
 
+    elif server_id == "891141788352540722":
+        if member.bot:
+            role = discord.utils.get(member.guild.roles, name = "Bot")
+            await member.add_roles(role)
+            channel = client.get_channel(891302554510704661)
+            bot_avatar = member.avatar_url_as(format = None, static_format = "png", size = 1024)
+            bot_name = member.name
+            bot_discrim = member.discriminator
+            bot_id = member.id
+            bot_create_en = str(member.created_at.strftime("%d %B %Y"))
+            bot_create = monthSetter(bot_create_en)
+            bot_join_en = str(member.joined_at.strftime("%d %B %Y"))
+            bot_join = monthSetter(bot_join_en)
+            bot_roles = member.roles
+            if len(bot_roles) == 1:
+                bot_roles = "@everyone"
+            else:
+                bot_roles = [r.mention for r in bot_roles]
+                bot_roles.pop(0)
+                bot_roles = " ".join(bot_roles)
+            embed = discord.Embed(description = """:inbox_tray: **ARAMIZA KATILDI!**
+
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → Bot
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(bot_name, bot_discrim, bot_id, bot_create, bot_join, bot_roles), color = 0x77B255)
+            embed.set_thumbnail(url = bot_avatar)
+            await channel.send(embed = embed)
+        else:
+            role = discord.utils.get(member.guild.roles, name = "USB Kablosu")
+            await member.add_roles(role)
+            channel = client.get_channel(891302554510704661)
+            member_avatar = member.avatar_url_as(format = None, static_format = "png", size = 1024)
+            member_name = member.name
+            member_discrim = member.discriminator
+            member_id = member.id
+            member_create_en = str(member.created_at.strftime("%d %B %Y"))
+            member_create = monthSetter(member_create_en)
+            member_join_en = str(member.joined_at.strftime("%d %B %Y"))
+            member_join = monthSetter(member_join_en)
+            member_roles = member.roles
+            if len(member_roles) == 1:
+                member_roles = "@everyone"
+            else:
+                member_roles = [r.mention for r in member_roles]
+                member_roles.pop(0)
+                member_roles = " ".join(member_roles)
+            embed = discord.Embed(description = """:inbox_tray: **ARAMIZA KATILDI!**
+
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → İnsan
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(member_name, member_discrim, member_id, member_create, member_join, member_roles), color = 0x77B255)
+            embed.set_thumbnail(url = member_avatar)
+            await channel.send(embed = embed)
+
     else:
         pass
 
@@ -584,7 +646,7 @@ async def on_member_remove(member):
                 bot_roles = [r.mention for r in bot_roles]
                 bot_roles.pop(0)
                 bot_roles = " ".join(bot_roles)
-            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRILDI!**
+            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRDILDI!**
 
 [Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
 [Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
@@ -612,7 +674,7 @@ async def on_member_remove(member):
                 member_roles = [r.mention for r in member_roles]
                 member_roles.pop(0)
                 member_roles = " ".join(member_roles)
-            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRILDI!**
+            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRDILDI!**
 
 [Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
 [Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
@@ -642,7 +704,7 @@ async def on_member_remove(member):
                 bot_roles = [r.mention for r in bot_roles]
                 bot_roles.pop(0)
                 bot_roles = " ".join(bot_roles)
-            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRILDI!**
+            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRDILDI!**
 
 [Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
 [Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
@@ -670,7 +732,7 @@ async def on_member_remove(member):
                 member_roles = [r.mention for r in member_roles]
                 member_roles.pop(0)
                 member_roles = " ".join(member_roles)
-            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRILDI!**
+            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRDILDI!**
 
 [Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
 [Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
@@ -700,7 +762,7 @@ async def on_member_remove(member):
                 bot_roles = [r.mention for r in bot_roles]
                 bot_roles.pop(0)
                 bot_roles = " ".join(bot_roles)
-            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRILDI!**
+            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRDILDI!**
 
 [Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
 [Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
@@ -728,7 +790,7 @@ async def on_member_remove(member):
                 member_roles = [r.mention for r in member_roles]
                 member_roles.pop(0)
                 member_roles = " ".join(member_roles)
-            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRILDI!**
+            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRDILDI!**
 
 [Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
 [Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
@@ -758,7 +820,7 @@ async def on_member_remove(member):
                 bot_roles = [r.mention for r in bot_roles]
                 bot_roles.pop(0)
                 bot_roles = " ".join(bot_roles)
-            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRILDI!**
+            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRDILDI!**
 
 [Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
 [Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
@@ -786,7 +848,65 @@ async def on_member_remove(member):
                 member_roles = [r.mention for r in member_roles]
                 member_roles.pop(0)
                 member_roles = " ".join(member_roles)
-            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRILDI!**
+            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRDILDI!**
+
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → İnsan
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(member_name, member_discrim, member_id, member_create, member_join, member_roles), color = 0xDD2E44)
+            embed.set_thumbnail(url = member_avatar)
+            await channel.send(embed = embed)
+
+    elif server_id == "891141788352540722":
+        if member.bot:
+            channel = client.get_channel(891302554510704661)
+            bot_avatar = member.avatar_url_as(format = None, static_format = "png", size = 1024)
+            bot_name = member.name
+            bot_discrim = member.discriminator
+            bot_id = member.id
+            bot_create_en = str(member.created_at.strftime("%d %B %Y"))
+            bot_create = monthSetter(bot_create_en)
+            bot_join_en = str(member.joined_at.strftime("%d %B %Y"))
+            bot_join = monthSetter(bot_join_en)
+            bot_roles = member.roles
+            if len(bot_roles) == 1:
+                bot_roles = "@everyone"
+            else:
+                bot_roles = [r.mention for r in bot_roles]
+                bot_roles.pop(0)
+                bot_roles = " ".join(bot_roles)
+            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRDILDI!**
+
+[Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
+[Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
+[ID](https://discord.gg/9PNBMnVTZv) → {}
+[Hesap Türü](https://discord.gg/9PNBMnVTZv) → Bot
+[Hesap Oluşturma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Sunucuya Katılma Tarihi](https://discord.gg/9PNBMnVTZv) → {}
+[Roller](https://discord.gg/9PNBMnVTZv) → {}""".format(bot_name, bot_discrim, bot_id, bot_create, bot_join, bot_roles), color = 0xDD2E44)
+            embed.set_thumbnail(url = bot_avatar)
+            await channel.send(embed = embed)
+        else:
+            channel = client.get_channel(891302554510704661)
+            member_avatar = member.avatar_url_as(format = None, static_format = "png", size = 1024)
+            member_name = member.name
+            member_discrim = member.discriminator
+            member_id = member.id
+            member_create_en = str(member.created_at.strftime("%d %B %Y"))
+            member_create = monthSetter(member_create_en)
+            member_join_en = str(member.joined_at.strftime("%d %B %Y"))
+            member_join = monthSetter(member_join_en)
+            member_roles = member.roles
+            if len(member_roles) == 1:
+                member_roles = "@everyone"
+            else:
+                member_roles = [r.mention for r in member_roles]
+                member_roles.pop(0)
+                member_roles = " ".join(member_roles)
+            embed = discord.Embed(description = """:outbox_tray: **ARAMIZDAN AYRDILDI!**
 
 [Kulanıcı Adı](https://discord.gg/9PNBMnVTZv) → {}
 [Etiketi](https://discord.gg/9PNBMnVTZv) → #{}
@@ -832,7 +952,7 @@ async def on_message(message):
 [o.genelkomutlar](https://discord.gg/9PNBMnVTZv) → Genel Komutlar
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2984E8)
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitch](https://www.twitch.tv/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2984E8)
             embed.set_author(name = "Oreskis • Komut Listesi", icon_url = "https://i.hizliresim.com/hLdNYC.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/hLdNYC.png")
             await message.channel.send(embed = embed)
@@ -846,10 +966,12 @@ async def on_message(message):
 [o.ban](https://discord.gg/9PNBMnVTZv) → Sunucuda bulunan kullanıcıyı yasaklarsınız
 [o.unban](https://discord.gg/9PNBMnVTZv) → Sunucudan yasaklanan kullanıcının yasağını kaldırırsınız
 [o.kick](https://discord.gg/9PNBMnVTZv) → Sunucuda bulunan kullanıcıyı atarsınız
+[o.mute](https://discord.gg/9PNBMnVTZv) → Sunucuda bulunan kullanıcıyı susturursunuz
+[o.unmute](https://discord.gg/9PNBMnVTZv) → Sunucuda bulunan kullanıcının susturulmasını kaldırırsınız
 [o.temizle](https://discord.gg/9PNBMnVTZv) → Sunucuda bulunan bir kanalın yazışmalarını silersiniz
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2984E8)
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitch](https://www.twitch.tv/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2984E8)
             embed.set_author(name = "Oreskis • Moderatör Komutları Listesi", icon_url = "https://i.hizliresim.com/hLdNYC.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/hLdNYC.png")
             await message.channel.send(embed = embed)
@@ -871,7 +993,7 @@ async def on_message(message):
 [o.aşkölçer](https://discord.gg/9PNBMnVTZv) → Arkadaşlarınızla aranızdaki aşkı ölçer
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2984E8)
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitch](https://www.twitch.tv/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2984E8)
             embed.set_author(name = "Oreskis • Eğlence Komutları Listesi", icon_url = "https://i.hizliresim.com/hLdNYC.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/hLdNYC.png")
             await message.channel.send(embed = embed)
@@ -897,7 +1019,7 @@ async def on_message(message):
 [o.retrologo](https://discord.gg/9PNBMnVTZv) → Retro logo oluşturur
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2984E8)
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitch](https://www.twitch.tv/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2984E8)
             embed.set_author(name = "Oreskis • Genel Komutlar Listesi", icon_url = "https://i.hizliresim.com/hLdNYC.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/hLdNYC.png")
             await message.channel.send(embed = embed)
@@ -930,7 +1052,7 @@ async def on_message(message):
 [o.youtubeavatar](https://discord.gg/9PNBMnVTZv) → Size özel YouTube avatarı tasarlar
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2984E8)
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitch](https://www.twitch.tv/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2984E8)
             embed.set_author(name = "Oreskis • Genel Komutlar Listesi", icon_url = "https://i.hizliresim.com/hLdNYC.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/hLdNYC.png")
             await message.channel.send(embed = embed)
@@ -942,6 +1064,7 @@ async def on_message(message):
 
 **• Komutlar**
 [o.korona](https://discord.gg/9PNBMnVTZv) → Günlük koronavirüs tablosunu gösterir
+[o.koronahaftalık](https://discord.gg/9PNBMnVTZv) → Haftalık koronavirüs tablosunu gösterir
 [o.döviz](https://discord.gg/9PNBMnVTZv) → Anlık döviz bilgilerini gösterir
 [o.hava](https://discord.gg/9PNBMnVTZv) → Girdiğiniz şehirin hava durumunu tahminini gösterir
 [o.google](https://discord.gg/9PNBMnVTZv) → Bot sizin için ufak bir google araması yapar
@@ -951,7 +1074,7 @@ async def on_message(message):
 [o.yardım](https://discord.gg/9PNBMnVTZv) → Yardım menüsünü açar
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2984E8)
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitch](https://www.twitch.tv/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""", color = 0x2984E8)
             embed.set_author(name = "Oreskis • Genel Komutlar Listesi", icon_url = "https://i.hizliresim.com/hLdNYC.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/hLdNYC.png")
             await message.channel.send(embed = embed)
@@ -1016,6 +1139,15 @@ async def on_message(message):
             embed.add_field(name = "Vaka Sayısı", value = case, inline = False)
             embed.add_field(name = "Vefat Sayısı", value = die, inline = False)
             embed.add_field(name = "İyileşen Sayısı", value = heal, inline = False)
+            await message.channel.send(embed = embed)
+
+#############################################################################################################################################
+
+        elif text == "o.koronahaftalık":
+            image_url = "https://covid19.saglik.gov.tr/assets/images/covidhaftalik.png"
+            embed = discord.Embed(color = 0x4B77BE)
+            embed.set_author(name = "COVID-19 HAFTALIK TABLO", icon_url = "https://i.hizliresim.com/qpdtqp7.png")
+            embed.set_image(url = image_url)
             await message.channel.send(embed = embed)
 
 #############################################################################################################################################
@@ -1099,7 +1231,7 @@ async def on_message(message):
 [Saat](https://discord.gg/9PNBMnVTZv) → {}
 
 **❯ Bağlantılar**
-[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitter](https://www.twitter.com/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""".format(developer,discord.__version__, server_count, member_count, latency, time), color = 0xED3C43)
+[Discord](https://discord.gg/9PNBMnVTZv) **•** [Twitch](https://www.twitch.tv/chisenoa) • [GitHub](https://www.github.com/chisenoa) • [Bot Davet](https://oreskis.github.io)""".format(developer,discord.__version__, server_count, member_count, latency, time), color = 0xED3C43)
             embed.set_author(name = "ORESKIS • Bilgi Paneli", icon_url = "https://i.hizliresim.com/hLdNYC.png")
             embed.set_thumbnail(url = "https://i.hizliresim.com/hLdNYC.png")
             await message.channel.send(embed = embed)
@@ -1313,6 +1445,77 @@ async def on_message(message):
                     await message.channel.send(embed = embed)
             else:
                 embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.kick <kullanıcı adı>`", color = 0xBE1931)
+                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                await message.channel.send(embed = embed)
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.mute":
+            if (message.mentions.__len__()>0):
+                if message.author.guild_permissions.kick_members:
+                    try:
+                        for user in message.mentions:
+                            if user.id == message.author.id:
+                                embed = discord.Embed(description = ":no_entry: Kendini susturamazsın", color = 0xBE1931)
+                                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                                await message.channel.send(embed = embed)
+                            else:
+                                guild = message.guild
+                                muted_role = discord.utils.get(guild.roles, name = "Mute")
+                                if not muted_role:
+                                    muted_role = await guild.create_role(name = "Mute")
+                                    for channel in guild.channels:
+                                        await channel.set_permissions(muted_role, speak = False, send_messages = False, read_message_history = True)
+                                await user.add_roles(muted_role)
+                                embed = discord.Embed(description = ":white_check_mark: {} başarıyla susturuldu".format(user.mention, color = 0x77B255))
+                                embed.set_author(name = "MUTE", icon_url = "https://i.hizliresim.com/RYCayr.png")
+                                message = await message.channel.send(embed = embed)
+                    except discord.errors.Forbidden:
+                        embed = discord.Embed(description = ":no_entry: Roller kısmından `Oreskis` rolünü bütün\nrollerin üstüne çıkarmanız gerekmektedir", color = 0xBE1931)
+                        embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                        await message.channel.send(embed = embed)
+                else:
+                    embed = discord.Embed(description = ":no_entry: Bu komutu kullanma yetkiniz yok", color = 0xBE1931)
+                    embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                    await message.channel.send(embed = embed)
+            else:
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.mute <kullanıcı adı>`", color = 0xBE1931)
+                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                await message.channel.send(embed = embed)
+
+#############################################################################################################################################
+
+        elif splitted_text[0] == "o.unmute":
+            if (message.mentions.__len__()>0):
+                if message.author.guild_permissions.kick_members:
+                    try:
+                        for user in message.mentions:
+                            if user.id == message.author.id:
+                                embed = discord.Embed(description = ":no_entry: Kendi susturulmanı kaldıramazsın", color = 0xBE1931)
+                                embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                                await message.channel.send(embed = embed)
+                            else:
+                                guild = message.guild
+                                muted_role = discord.utils.get(guild.roles, name = "Mute")
+                                if muted_role in user.roles:
+                                    await user.remove_roles(muted_role)
+                                    embed = discord.Embed(description = ":white_check_mark: {} susturulması başarıyla kaldırıldı".format(user.mention, color = 0x77B255))
+                                    embed.set_author(name = "MUTE", icon_url = "https://i.hizliresim.com/RYCayr.png")
+                                    message = await message.channel.send(embed = embed)
+                                else:
+                                    embed = discord.Embed(description = ":no_entry: Kullanıcı zaten susturulmamış", color = 0xBE1931)
+                                    embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                                    await message.channel.send(embed = embed)
+                    except discord.errors.Forbidden:
+                        embed = discord.Embed(description = ":no_entry: Roller kısmından `Oreskis` rolünü bütün\nrollerin üstüne çıkarmanız gerekmektedir", color = 0xBE1931)
+                        embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                        await message.channel.send(embed = embed)
+                else:
+                    embed = discord.Embed(description = ":no_entry: Bu komutu kullanma yetkiniz yok", color = 0xBE1931)
+                    embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
+                    await message.channel.send(embed = embed)
+            else:
+                embed = discord.Embed(description = ":no_entry: Eksik argüman girdiniz\n\nKullanım:\n`o.unmute <kullanıcı adı>`", color = 0xBE1931)
                 embed.set_author(name = message.author, icon_url = message.author.avatar_url_as(format = None, static_format = "png", size = 1024))
                 await message.channel.send(embed = embed)
 
@@ -2612,4 +2815,4 @@ async def on_message(message):
 
 #############################################################################################################################################
 
-client.run("")
+client.run("TOKEN")
