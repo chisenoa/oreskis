@@ -1,5 +1,5 @@
 <p align = "center">
-  <img title = "Banner" src = "https://i.hizliresim.com/r8g1cg8.png" onclick="return false" width = "750px">
+  <img title = "Banner" src = "https://i.hizliresim.com/r8g1cg8.png" width = "750px">
 </p>
 
 If you need help you can contact me [here](https://github.com/chisenoa/oreskis/issues) 🪐
