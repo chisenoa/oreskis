@@ -1,8 +1,10 @@
 <p align = "center">
-  <img alt = "oreskis" src = "https://i.hizliresim.com/f89jtr.png" width = "750px">
+  <img title = "Banner" src = "https://i.hizliresim.com/r8g1cg8.png" style="pointer-events: none; cursor: default;" width = "750px">
 </p>
 
-Do you need more help? Visit my server here: **https://discord.gg/kQ8CE5GRNg** 🪐
+## onclick="return false"
+
+If you need help you can contact me [here](https://github.com/chisenoa/oreskis/issues) 🪐
 
 ## Requirements
 - Python 3.6 and up - https://www.python.org/downloads/
@@ -15,7 +17,7 @@ All you need to know about the library is defined inside here, even code that I 
 ## How to setup
 1. Make a bot [here](https://discordapp.com/developers/applications/me) and grab the token
 
-![Image_Example1](https://i.hizliresim.com/DhvHwY.png)
+![Image_Example1](https://i.hizliresim.com/5grlh84.png)
 
 2. Rename the TOKEN in **oreskis.py**, then fill in the required spots, such as token, prefix and game
 
